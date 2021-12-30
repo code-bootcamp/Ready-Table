@@ -1,0 +1,7 @@
+schema: https://backend04-team.codebootcamp.co.kr/team01
+generates:
+  ./src/commons/types/generated/types.d.ts:
+    plugins:
+      - typescript
+    config:
+      typesPrefix: I

@@ -1,4 +1,9 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "target": "es2015",
+    "jsx": "react",
+    "noEmit": true,
+    "moduleResolution": "node"
+  },
   "extends": "expo/tsconfig.base"
 }
