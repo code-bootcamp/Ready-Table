@@ -1,0 +1,14 @@
+com/ready_table/ReactNativeFlipper.java
+ com.ready_table.ReactNativeFlipper
+ com.ready_table.ReactNativeFlipper$1
+ com.ready_table.ReactNativeFlipper$2
+ com.ready_table.ReactNativeFlipper$2$1
+com/ready_table/MainApplication.java
+ com.ready_table.MainApplication
+ com.ready_table.MainApplication$1
+com/ready_table/BuildConfig.java
+ com.ready_table.BuildConfig
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
+com/ready_table/MainActivity.java
+ com.ready_table.MainActivity
