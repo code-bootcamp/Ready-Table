@@ -1,26 +1,9 @@
-import { useContext, useState } from "react";
-import { useQuery } from "@apollo/client";
 import React from "react";
-import { View, Text } from "react-native";
+
+import HomeUI from "./home.presenter";
+
 const HomeContainer = () => {
-  // const [isEdit, setIsEdit] = useState(false);
-  // const [myPickData, setMyPickData] = useState([]);
-  // // const (setId, setTagId) = useContext(GlobalContext)
-
-  // const onPressMoreRestaurant = () => {
-  //   setIsEdit(true);
-  // };
-
-  // const onPressCloseRestaurant = () => {
-  //   setIsEdit(false);
-  // };
-
-  // const { data } = useQuery;
-  return (
-    <View>
-      <Text>HomePage!!</Text>
-    </View>
-  );
+  return <HomeUI />;
 };
 
 export default HomeContainer;

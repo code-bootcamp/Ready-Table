@@ -1,14 +1,13 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaView } from "react-native";
-
-import TabStackScreen from "./pages/navigation/TabStackScreens";
+import TabNavigator from "./pages/navigation/tabNavigator";
 
 export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaView style={{ flex: 1 }}>
-        <TabStackScreen />
+        <TabNavigator />
       </SafeAreaView>
     </NavigationContainer>
   );

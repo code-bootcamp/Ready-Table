@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const LoginContainer = () => {
+const PickListUI = () => {
   return (
     <View>
-      <Text>LoginPage!!</Text>
+      <Text>찜 목록 페이지</Text>
     </View>
   );
 };
 
-export default LoginContainer;
+export default PickListUI;
