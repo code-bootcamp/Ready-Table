@@ -15,6 +15,7 @@ const Stack = createStackNavigator();
 export const GlobalContext = createContext(null);
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
   // const uploadLink = createUploadLink({
   //   uri: "https://backend04-team.codebootcamp.co.kr/team01"
   //   headers: {
@@ -39,6 +40,7 @@ const App = () => {
               <Stack.Screen name="Login" component={LoginNavigator} />
             )}
           </Stack.Navigator> */}
+          <TabNavigator />
         </NavigationContainer>
       </ApolloProvider>
     </>
