@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const HomeUI = () => {
+const ReservationUI = () => {
   return (
     <View>
-      <Text>홈 페이지</Text>
+      <Text>예약목록 페이지</Text>
     </View>
   );
 };
 
-export default HomeUI;
+export default ReservationUI;

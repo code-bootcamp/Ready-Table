@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const HomeUI = () => {
+const LoginUI = () => {
   return (
     <View>
-      <Text>홈 페이지</Text>
+      <Text>로그인 페이지</Text>
     </View>
   );
 };
 
-export default HomeUI;
+export default LoginUI;
