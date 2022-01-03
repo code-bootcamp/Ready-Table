@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 const HomeUI = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>홈 페이지</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
