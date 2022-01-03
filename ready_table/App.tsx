@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native";
 import TabNavigator from "./pages/navigation/tabNavigator";
 import HomeScreen from "./pages/screens/home";
 // import { createUploadLink } from "apollo-upload-client";
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from "@apollo/client";
 import { ApolloClient, InMemoryCache, ApolloLink } from "@apollo/client";
 // import DetailsScreen from "./pages/screens/detail";
 
