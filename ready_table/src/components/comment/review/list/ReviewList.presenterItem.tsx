@@ -14,19 +14,16 @@ import {
 } from "./ReviewList.styles";
 
 import { FontAwesome } from "@expo/vector-icons";
-import { IReviewListProps } from "./ReviewList.types";
-import { getDate } from "../../../commons/utils";
-const ReviewListUIItem = (props: IReviewListProps) => {
+const ReviewListUIItem = () => {
   return (
     <ScrollView>
       <Wrapper>
         <TopWrapper>
           <UserWrapper>
             <FontAwesome name="user-circle-o" size={24} color="black" />
-            {/* <Username> User </Username> */}
-            <Username> {props.el?.user.name} </Username>
+            <Username> User </Username>
           </UserWrapper>
-          <Visitdata>{getDate(props.el?.createdAt)}</Visitdata>
+          <Visitdata>2022.01.01</Visitdata>
         </TopWrapper>
         <ScrollView
           horizontal
