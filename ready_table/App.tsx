@@ -12,10 +12,10 @@ import { ApolloClient, InMemoryCache, ApolloLink } from "@apollo/client";
 // import DetailsScreen from "./pages/screens/detail";
 
 const Stack = createStackNavigator();
-export const GlobalContext = createContext({});
+export const GlobalContext = createContext(null);
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(true);
   // const uploadLink = createUploadLink({
   //   uri: "https://backend04-team.codebootcamp.co.kr/team01"
   //   headers: {
