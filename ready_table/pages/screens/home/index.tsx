@@ -6,7 +6,6 @@ const HomeScreen = () => {
   return (
     <>
       <HomeContainer />
-      <ReviewList />
     </>
   );
 };

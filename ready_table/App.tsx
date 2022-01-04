@@ -12,7 +12,7 @@ import { ApolloClient, InMemoryCache, ApolloLink } from "@apollo/client";
 // import DetailsScreen from "./pages/screens/detail";
 
 const Stack = createStackNavigator();
-export const GlobalContext = createContext(null);
+// export const GlobalContext = createContext(null);
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
