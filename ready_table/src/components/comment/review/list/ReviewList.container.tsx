@@ -6,7 +6,6 @@ import {
   IMutation,
   IMutationCreateUseditemQuestionArgs
 } from "../../../../commons/types/generated/types";
-
 import {
   CREATE_USED_ITEM_QUESTION,
   FETCH_USED_ITEM_QUESTIONS
@@ -24,11 +23,9 @@ const ReviewList = (props: IReviewListProps) => {
   const { data: reviewdata } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
     variables: { useditemId: props.useditemId }
   });
-
   const { handleSubmit, control, reset } = useForm({
     defaultValues: { contents: "" }
   });
-
   const onReviewSubmit = async (data: any) => {
     try {
       await createReview({
@@ -51,7 +48,6 @@ const ReviewList = (props: IReviewListProps) => {
       if (error instanceof Error) console.log(error.message);
     }
   };
-
   return (
     <Wrapper>
       {/* <WriteWrapper>리뷰를 작성해주세요</WriteWrapper> */}
