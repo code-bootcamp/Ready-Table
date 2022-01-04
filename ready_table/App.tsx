@@ -16,6 +16,7 @@ export const GlobalContext = createContext({});
 
 const App = () => {
   const [isLoading, setIsLoading] = useState();
+
   // const uploadLink = createUploadLink({
   //   uri: "https://backend04-team.codebootcamp.co.kr/team01"
   //   headers: {
