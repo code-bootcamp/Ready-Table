@@ -1,6 +1,6 @@
 import React from "react";
 
-import ReservationUI from "./reservation.presenter";
+import ReservationUI from "./Reservation.presenter";
 
 const ReservationContainer = () => {
   return <ReservationUI />;
