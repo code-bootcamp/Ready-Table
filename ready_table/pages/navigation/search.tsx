@@ -9,7 +9,7 @@ const SearchNavigator = () => {
       <Stack.Screen
         name="search"
         component={SearchScreen}
-        options={() => ({ headerShown: true })}
+        options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>
   );

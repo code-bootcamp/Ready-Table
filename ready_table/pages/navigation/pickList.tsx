@@ -9,7 +9,7 @@ const PickListNavigator = () => {
       <Stack.Screen
         name="pickList"
         component={PickListScreen}
-        options={() => ({ headerShown: true })}
+        options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>
   );
