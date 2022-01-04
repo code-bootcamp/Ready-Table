@@ -29,6 +29,7 @@
     "apollo-link-http": "^1.5.17",
     "apollo-upload-client": "^17.0.0",
     "expo": "~44.0.0",
+
     "expo-status-bar": "~1.2.0",
     "firebase": "^9.6.1",
     "graphql": "^15.8.0",
@@ -37,12 +38,14 @@
     "react-apollo": "^3.1.5",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~2.1.0",
     "react-native-reanimated": "~2.3.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-snap-carousel": "^3.9.1",
-    "react-native-web": "0.17.1"
+    "react-native-web": "0.17.1",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -20,9 +20,9 @@ import { getAccessToken } from "./src/commons/library/utils/getAccessToken";
 
 // import DetailsScreen from "./pages/screens/detail";
 
+
 export const GlobalContext = createContext(null);
 const Stack = createStackNavigator();
-
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [accessToken, setAccessToken] = useState("");
