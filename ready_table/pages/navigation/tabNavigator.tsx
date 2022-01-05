@@ -21,6 +21,7 @@ const TabNavigator = () => {
         name="홈"
         component={HomeNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="home-sharp"
@@ -44,7 +45,7 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="찜 목록"
+        name="마이 리스트"
         component={PickListNavigator}
         options={{
           tabBarIcon: ({ focused }) => (

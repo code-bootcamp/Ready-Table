@@ -12,12 +12,12 @@ const HomeNavigator = () => {
       <Stack.Screen
         name="home"
         component={HomeScreen}
-        options={() => ({ headerShown: true })}
+        options={() => ({ headerShown: false })}
       />
       <Stack.Screen
         name="detail"
         component={DetailScreen}
-        options={() => ({ headerShown: true })}
+        options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>
   );

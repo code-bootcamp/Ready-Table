@@ -9,7 +9,7 @@ const ReservationNavigator = () => {
       <Stack.Screen
         name="reservation"
         component={ReservationScreen}
-        options={() => ({ headerShown: true })}
+        options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>
   );

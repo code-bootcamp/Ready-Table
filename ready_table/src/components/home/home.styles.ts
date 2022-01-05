@@ -14,6 +14,7 @@ export const Searchicon = styled.Image`
 `;
 
 export const MainBannerWrapper = styled.SafeAreaView`
+  /* padding-top: 60px; */
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;

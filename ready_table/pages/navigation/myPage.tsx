@@ -9,7 +9,7 @@ const MyPageNavigator = () => {
       <Stack.Screen
         name="myPage"
         component={MyPageScreen}
-        options={() => ({ headerShown: true })}
+        options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>
   );
