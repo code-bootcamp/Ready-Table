@@ -1,18 +1,16 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Text, View, Dimensions, SafeAreaView } from "react-native";
 import {
   HomeView,
-  MainBannerWrapper,
-  Notification,
-  Mainbanner,
-  Searchicon,
   CarouselWrapper,
-  DestinationWrapper,
   DestinationContainer,
   BestItemWarpper
 } from "./home.styles";
-import { ScrollView, Image } from "react-native";
+import { ScrollView, Image, BackHandler } from "react-native";
 import Carousel from "react-native-snap-carousel";
+import MainBanner from "../commons/mainbanner";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import CategoryList from "./category";
 
 interface ItemProps {
   title: string;
@@ -49,6 +47,7 @@ const HomeUI: React.FC<CustomCarouselProps> = props => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [carouselItems, setCarouselItems] = useState<ItemProps[]>(exampleItems);
   const ref = useRef(null);
+
   const renderItem = useCallback(({ item, index }: RenderItemProps) => {
     return (
       <View
@@ -69,15 +68,7 @@ const HomeUI: React.FC<CustomCarouselProps> = props => {
   return (
     <ScrollView>
       <HomeView>
-        <MainBannerWrapper>
-          <Notification
-            source={require("../../../public/images/notification.png")}
-          />
-          <Mainbanner
-            source={require("../../../public/images/mainbanner.png")}
-          />
-          <Searchicon source={require("../../../public/images/search.png")} />
-        </MainBannerWrapper>
+        <MainBanner />
         <SafeAreaView
           style={{ flex: 1, backgroundColor: "white", paddingTop: 50 }}
         >
@@ -95,7 +86,7 @@ const HomeUI: React.FC<CustomCarouselProps> = props => {
             />
           </CarouselWrapper>
         </SafeAreaView>
-        <DestinationWrapper>어디로 가세요?</DestinationWrapper>
+        <CategoryList></CategoryList>
         <DestinationContainer
           horizontal
           showsHorizontalScrollIndicator={false}

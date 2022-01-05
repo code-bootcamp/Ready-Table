@@ -2,6 +2,7 @@ import React from "react";
 
 import HomeScreen from "../screens/home";
 import DetailScreen from "../screens/detail";
+import SearchScreen from "../screens/search";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -17,6 +18,11 @@ const HomeNavigator = () => {
       <Stack.Screen
         name="detail"
         component={DetailScreen}
+        options={() => ({ headerShown: false })}
+      />
+      <Stack.Screen
+        name="search"
+        component={SearchScreen}
         options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>
