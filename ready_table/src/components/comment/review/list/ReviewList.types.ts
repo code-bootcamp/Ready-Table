@@ -1,1 +1,3 @@
-export interface IReviewListProps {}
+export interface IReviewListProps {
+  useditemId: any;
+}

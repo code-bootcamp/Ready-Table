@@ -42,3 +42,7 @@ export const Title = styled.Text`
 export const Rating = styled.Text``; //별점.. 수정바람
 
 export const ManuType = styled.Text``; // 태그임..
+
+export const WriteWrapper = styled.Text``;
+
+export const ListItemWrapper = styled.View``;
