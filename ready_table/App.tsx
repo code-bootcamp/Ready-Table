@@ -6,7 +6,7 @@ import {
   InMemoryCache,
   ApolloLink
 } from "@apollo/client";
-import { StatusBar, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { createUploadLink } from "apollo-upload-client";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
@@ -19,7 +19,6 @@ import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "./src/commons/library/utils/getAccessToken";
 
 // import DetailsScreen from "./pages/screens/detail";
-
 
 export const GlobalContext = createContext(null);
 const Stack = createStackNavigator();
@@ -98,6 +97,7 @@ const App = () => {
           </Stack.Navigator> */}
             <TabNavigator />
           </NavigationContainer>
+          <StatusBar />
         </ApolloProvider>
       </GlobalContext.Provider>
     </>
