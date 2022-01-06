@@ -2,7 +2,6 @@ import styled from "@emotion/native";
 
 export const ScrollView = styled.ScrollView`
   background-color: white;
-  width: 390px;
 `;
 
 export const PickListContainer = styled.View`
