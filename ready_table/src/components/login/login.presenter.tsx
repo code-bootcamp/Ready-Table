@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 
 const LoginUI = () => {
   return (
-    <View>
+    <View style={{}}>
       <Text>로그인 페이지</Text>
     </View>
   );
