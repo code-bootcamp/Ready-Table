@@ -8,19 +8,14 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCCu9_eSFQdhHF4sxEvZFf8U4kccom7WxI",
-  authDomain: "ready-table-project.firebaseapp.com",
-  databaseURL:
-    "https://ready-table-project-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "ready-table-project",
-  storageBucket: "ready-table-project.appspot.com",
-  messagingSenderId: "285590853859",
-  appId: "1:285590853859:web:304cd3df4edb47a1118dd6"
+  apiKey: "AIzaSyAnIgMlaUPXLZqFY0xZKFzNnVIPGzuSL7Y",
+  authDomain: "ready-table-firebase-01.firebaseapp.com",
+  projectId: "ready-table-firebase-01",
+  storageBucket: "ready-table-firebase-01.appspot.com",
+  messagingSenderId: "540291082091",
+  appId: "1:540291082091:web:47a82688972f8667f8ce2e"
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 export const firebase_db = firebase.database();
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);

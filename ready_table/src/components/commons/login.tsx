@@ -1,53 +1,53 @@
-// import * as React from "react";
-// import * as WebBrowser from "expo-web-browser";
-// import { ResponseType } from "expo-auth-session";
-// import * as Google from "expo-auth-session/providers/google";
-// import { initializeApp } from "firebase/app";
-// import {
-//   getAuth,
-//   GoogleAuthProvider,
-//   signInWithCredential
-// } from "firebase/auth";
-// import { Button } from "react-native";
+import * as React from "react";
+import * as WebBrowser from "expo-web-browser";
+import { ResponseType } from "expo-auth-session";
+import * as Google from "expo-auth-session/providers/google";
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithCredential
+} from "firebase/auth";
+import { Button } from "react-native";
+import { OAuth2Client } from "google-auth-library";
 
-// // Initialize Firebase
-// initializeApp({
-//   apiKey: "AIzaSyCCu9_eSFQdhHF4sxEvZFf8U4kccom7WxI",
-//   authDomain: "ready-table-project.firebaseapp.com",
-//   databaseURL:
-//     "https://ready-table-project-default-rtdb.asia-southeast1.firebasedatabase.app",
-//   projectId: "ready-table-project",
-//   storageBucket: "ready-table-project.appspot.com",
-//   messagingSenderId: "285590853859",
-//   appId: "1:285590853859:web:304cd3df4edb47a1118dd6"
-// });
+// Initialize Firebase
+initializeApp({
+  apiKey: "AIzaSyAnIgMlaUPXLZqFY0xZKFzNnVIPGzuSL7Y",
+  authDomain: "ready-table-firebase-01.firebaseapp.com",
+  projectId: "ready-table-firebase-01",
+  storageBucket: "ready-table-firebase-01.appspot.com",
+  messagingSenderId: "540291082091",
+  appId: "1:540291082091:web:47a82688972f8667f8ce2e"
+});
 
-// WebBrowser.maybeCompleteAuthSession();
+WebBrowser.maybeCompleteAuthSession();
 
-// export default function Login() {
-//   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
-//     clientId:
-//       "411499159787-eni5lqck0dsm0hmlrddir4ob41lngki1.apps.googleusercontent.com"
-//   });
+export default function Login() {
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+    clientId:
+      "540291082091-rqcsamfrc4h3c2g2rr2uvrjmun8k2kjb.apps.googleusercontent.com"
+  });
 
-//   React.useEffect(() => {
-//     if (response?.type === "success") {
-//       const { id_token } = response.params;
+  React.useEffect(() => {
+    if (response?.type === "success") {
+      const { id_token } = response.params;
 
-//       const auth = getAuth();
-//       const provider = new GoogleAuthProvider();
-//       const credential = provider.credential(id_token);
-//       signInWithCredential(auth, credential);
-//     }
-//   }, [response]);
+      const auth = getAuth();
+      const provider = new GoogleAuthProvider();
+      const credential = GoogleAuthProvider.credential(id_token);
+      signInWithCredential(auth, credential);
+      console.log(id_token);
+    }
+  }, [response]);
 
-//   return (
-//     <Button
-//       disabled={!request}
-//       title="Login"
-//       onPress={() => {
-//         promptAsync();
-//       }}
-//     />
-//   );
-// }
+  return (
+    <Button
+      disabled={!request}
+      title="Login"
+      onPress={() => {
+        promptAsync();
+      }}
+    />
+  );
+}
