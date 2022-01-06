@@ -21,6 +21,13 @@ import { getAccessToken } from "./src/commons/library/utils/getAccessToken";
 // import DetailsScreen from "./pages/screens/detail";
 
 export const GlobalContext = createContext(null);
+
+interface IUserInfo {
+  _id?: string;
+  email?: string;
+  name?: string;
+}
+
 const Stack = createStackNavigator();
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,26 +39,27 @@ const App = () => {
   const [isReview, setIsReview] = useState(false);
   const [isMypage, setMypage] = useState("");
   const [loading, setLoading] = useState(true);
-
-  const value = {
-    setAccessToken: setAccessToken,
-    id: id,
-    tagId: tagId,
-    setTagId: setTagId,
-    isFavorite: isFavorite,
-    setIsFavorite: setIsFavorite,
-    isReview: isReview,
-    setIsReview: setIsReview,
-    isMypage: isMypage,
-    setMypage: setMypage
-  };
+  const [userInfo, setUserInfo] = useState<IUserInfo>();
 
   useEffect(() => {
-    AsyncStorage.getItem("@user", (_: any, result: any) => {
-      if (result) {
-        setAccessToken(result);
+    const getToken = async () => {
+      try {
+        const getAccessToken = await AsyncStorage.getItem("accessToken");
+        const getUserInfo = await AsyncStorage.getItem("userInfo");
+        if (getAccessToken) {
+          setAccessToken(String(getAccessToken));
+        }
+        if (getUserInfo) {
+          const parsed = JSON.parse(getUserInfo) as IUserInfo;
+          if (parsed) {
+            setUserInfo(parsed);
+          }
+        }
+      } catch (error) {
+        console.log("EffectError", error);
       }
-    });
+    };
+    getToken();
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
@@ -74,28 +82,34 @@ const App = () => {
     uri: "https://backend04-team.codebootcamp.co.kr/team01",
     headers: {
       authorization: `Bearer ${accessToken}`
+      // ${(typeof window !== 'undefined' && localStorage.getItem('accessToken'))||''}
     },
     credentials: "include"
   });
-
   const client = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: ApolloLink.from([errorLink, uploadLink as unknown as ApolloLink])
+    link: ApolloLink.from([uploadLink as unknown as ApolloLink]),
+    cache: new InMemoryCache()
   });
+  const value = {
+    accessToken: accessToken,
+    setAccessToken: setAccessToken,
+    userInfo: userInfo,
+    setUserInfo: setUserInfo
+  };
 
   return (
     <>
       <GlobalContext.Provider value={value}>
         <ApolloProvider client={client}>
           <NavigationContainer>
-            {/* <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
               {accessToken ? (
                 <Stack.Screen name="tabNavigator" component={TabNavigator} />
               ) : (
                 <Stack.Screen name="Login" component={LoginNavigator} />
               )}
-            </Stack.Navigator> */}
-            <TabNavigator />
+            </Stack.Navigator>
+            {/* <TabNavigator /> */}
           </NavigationContainer>
           <StatusBar />
         </ApolloProvider>
