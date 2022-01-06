@@ -109,7 +109,7 @@ const App = () => {
               <Stack.Screen name="Login" component={LoginNavigator} />
               {/* )} */}
             </Stack.Navigator>
-            <TabNavigator />
+            {/* <TabNavigator /> */}
           </NavigationContainer>
           <StatusBar />
         </ApolloProvider>
@@ -117,5 +117,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;
