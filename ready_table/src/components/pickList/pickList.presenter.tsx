@@ -1,4 +1,5 @@
 import React from "react";
+// import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 
 import {
@@ -25,8 +26,11 @@ import {
   RightArrow,
   PickListMemo
 } from "./pickList.styles";
+// const navigation = useNavigation();
 
 const PickListUI = (props: any) => {
+  console.log(props.data2);
+  console.log(props.pickCountData);
   return (
     <ScrollView>
       <PickListContainer>
@@ -34,7 +38,7 @@ const PickListUI = (props: any) => {
           <ListCountLeft>
             <ListCount>관심 레스토랑</ListCount>
             <ListCountContents>
-              1{/* {props.pickCountData?.fetchUseditemsCountIPicked} */}
+              {props.pickCountData?.fetchUseditemsCountIPicked}
             </ListCountContents>
             <RightArrow
               source={require("../../../public/images/rightArrow.png")}
@@ -45,16 +49,20 @@ const PickListUI = (props: any) => {
             <ListCountRightContents>예약하기</ListCountRightContents>
           </ListCountRight>
         </ListCountWrapper>
-        <PickListWrapper>
-          <PickListCard>
+        {props.data2?.fetchUseditemsIPicked.map(el => (
+          <PickListCard
+            key={el._id}
+            // onPress={() => {
+            //   navigation.navigate("datail", {
+            //     id: props.onPressDetail(el)
+            //   });
+            // }}
+          >
             <PickListImageTest></PickListImageTest>
-            {/* <PickListImage source={{ uri: `` }} /> */}
+            {/* <PickListImage source={{ uri: `https://storage.googleapis.com/${el.images[0]}` }} /> */}
             <PickListContentsWrapper>
               <PickListHeader>
-                <PickListTitle>
-                  어거스트힐
-                  {/* {props.data2?.fetchUseditemsIPicked.name} */}
-                </PickListTitle>
+                <PickListTitle>{el.name}</PickListTitle>
                 {/* <PickListBookmark source={{ uri: `` }} /> */}
                 <Feather
                   name="bookmark"
@@ -62,14 +70,14 @@ const PickListUI = (props: any) => {
                   size={11}
                 />
               </PickListHeader>
-              <PickListRemark>
-                구로역 스테이크 맛있는 소개팅 장소
-              </PickListRemark>
+              <PickListRemark>{el.remarks}</PickListRemark>
               <PickListContents>
-                <PickListTag>스테이크,립-구로</PickListTag>
+                <PickListTag>{el.contents}</PickListTag>
               </PickListContents>
             </PickListContentsWrapper>
           </PickListCard>
+        ))}
+        <PickListWrapper>
           <PickListMemo placeholder=" 나만의 메모를 남겨보세요."></PickListMemo>
         </PickListWrapper>
       </PickListContainer>
