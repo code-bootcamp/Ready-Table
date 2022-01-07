@@ -98,11 +98,11 @@ function App() {
         <ApolloProvider client={client}>
           <NavigationContainer>
             <Stack.Navigator screenOptions={{ headerShown: false }}>
-              {/* {accessToken ? ( */}
-              <Stack.Screen name="tabNavigator" component={TabNavigator} />
-              {/* ) : ( */}
-              <Stack.Screen name="Login" component={LoginNavigator} />
-              {/* )} */}
+              {accessToken ? (
+                <Stack.Screen name="tabNavigator" component={TabNavigator} />
+              ) : (
+                <Stack.Screen name="Login" component={LoginNavigator} />
+              )}
             </Stack.Navigator>
             {/* <TabNavigator /> */}
           </NavigationContainer>
