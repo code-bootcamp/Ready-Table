@@ -12,10 +12,10 @@ import { FETCH_BOARDS, FETCH_USER_LOGGED_IN } from "./home.queires";
 const HomeContainer = () => {
   const [startPage, setStartPage] = useState(1);
   // const { setId, setTagId } = useContext(GlobalContext);
-  const { data, refetch } = useQuery<
-    Pick<IQuery, "fetchBoards">,
-    IQueryFetchBoardsArgs
-  >(FETCH_BOARDS, { variables: { page: startPage } });
+  // const { data, refetch } = useQuery<
+  //   Pick<IQuery, "fetchBoards">,
+  //   IQueryFetchBoardsArgs
+  // >(FETCH_BOARDS, { variables: { page: startPage } });
 
   return <HomeUI />;
 };

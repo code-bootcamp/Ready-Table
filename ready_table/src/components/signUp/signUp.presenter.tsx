@@ -3,10 +3,10 @@ import { Controller } from "react-hook-form";
 import {
   Wrapper,
   LogoWrapper,
-  LogoText
-  UserInput,
+  LogoText,
   LoginButtonWrapper,
-  LoginButton
+  LoginButton,
+  UserInput
 } from "./signUp.styles";
 
 const SignUpPageUI = (props: any) => {
@@ -24,7 +24,7 @@ const SignUpPageUI = (props: any) => {
             onBlur={onBlur}
             onChangeText={(text: any) => onChange(text)}
             value={value}
-            placeholder="이름을 입력해주세요"
+            placeholder="이름을 입력해 주세요."
           />
         )}
       />
@@ -37,7 +37,7 @@ const SignUpPageUI = (props: any) => {
             onBlur={onBlur}
             onChangeText={(text: any) => onChange(text)}
             value={value}
-            placeholder="이메일을 입력해주세요"
+            placeholder="이메일을 입력해 주세요."
           />
         )}
       />
@@ -50,7 +50,7 @@ const SignUpPageUI = (props: any) => {
             onBlur={onBlur}
             onChangeText={(text: any) => onChange(text)}
             value={value}
-            placeholder="비밀번호를 입력해주세요"
+            placeholder="비밀번호를 입력해 주세요."
             secureTextEntry={true} // 비밀번호 입력
           />
         )}
@@ -64,14 +64,14 @@ const SignUpPageUI = (props: any) => {
             onBlur={onBlur}
             onChangeText={(text: any) => onChange(text)}
             value={value}
-            placeholder="비밀번호를 입력해주세요"
+            placeholder="비밀번호를 다시 한 번 입력해 주세요."
             secureTextEntry={true} // 비밀번호 입력
           />
         )}
       />
       <LoginButtonWrapper onPress={props.handleSubmit(props.JoinUser)}>
-        <LoginButton onPressIn={() => props.navigation.navigate("login")}>
-          {"회원가입"}
+        <LoginButton onPress={() => props.navigation.navigate("login")}>
+          {"시작하기"}
         </LoginButton>
       </LoginButtonWrapper>
     </Wrapper>

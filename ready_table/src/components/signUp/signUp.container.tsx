@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import SignUpPageUI from "./SignUp.presenter";
-import { CREATE_USER } from "./SignUp.queries";
+import SignUpPageUI from "./signUp.presenter";
+import { CREATE_USER } from "./signUp.queries";
 
 const SignUpPage = (props: any) => {
   const [createUser] = useMutation(CREATE_USER);
