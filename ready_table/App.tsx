@@ -17,10 +17,12 @@ import HomeScreen from "./pages/screens/home";
 import LoginNavigator from "./pages/navigation/loginAuth";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "./src/commons/library/utils/getAccessToken";
+import LandingPage from "./pages/screens/landing";
 
 // import DetailsScreen from "./pages/screens/detail";
 
 export const GlobalContext = createContext(null);
+const Stack = createStackNavigator();
 
 interface IUserInfo {
   _id?: string;
@@ -28,17 +30,16 @@ interface IUserInfo {
   name?: string;
 }
 
-const Stack = createStackNavigator();
-const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+function App() {
   const [accessToken, setAccessToken] = useState("");
   // const [isSearchHidden, setIsHomeHidden] = useState("");
-  const [id, setId] = useState("");
-  const [tagId, setTagId] = useState("");
-  const [isFavorite, setIsFavorite] = useState(true);
-  const [isReview, setIsReview] = useState(false);
-  const [isMypage, setMypage] = useState("");
-  const [loading, setLoading] = useState(true);
+  // const [id, setId] = useState("");
+  // const [tagId, setTagId] = useState("");
+  // const [isFavorite, setIsFavorite] = useState(true);
+  // const [isReview, setIsReview] = useState(false);
+  // const [isMypage, setMypage] = useState("");
+  // const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo] = useState<IUserInfo>();
 
   useEffect(() => {
@@ -61,22 +62,6 @@ const App = () => {
     };
     getToken();
   }, []);
-
-  const errorLink = onError(({ graphQLErrors, operation, forward }) => {
-    if (graphQLErrors) {
-      for (const err of graphQLErrors) {
-        if (err.extensions?.code === "UNAUTHENTICATED") {
-          operation.setContext({
-            headers: {
-              ...operation.getContext().headers,
-              authorization: `Bearer ${getAccessToken(setAccessToken)}`
-            }
-          });
-          return forward(operation);
-        }
-      }
-    }
-  });
 
   const uploadLink = createUploadLink({
     uri: "https://backend04-team.codebootcamp.co.kr/team01",
@@ -116,5 +101,5 @@ const App = () => {
       </GlobalContext.Provider>
     </>
   );
-};
+}
 export default App;

@@ -13,12 +13,14 @@ import {
   MyPageContentsWrapper,
   MyPageBodyContents,
   RightArrow,
-  UnderBar
+  UnderBar,
+  UserInfoRightWrapper,
+  LogoutButton
 } from "./myPage.styles";
 
 import { AntDesign } from "@expo/vector-icons";
 
-const MyPageUI = () => {
+const MyPageUI = (props: any) => {
   return (
     <ScrollView>
       <MyPageContainer>
@@ -42,6 +44,9 @@ const MyPageUI = () => {
               source={require("../../../public/images/rightArrow.png")}
             />
           </MyPageContentsWrapper>
+          <UserInfoRightWrapper onPress={props.onPressLogout}>
+            <LogoutButton>{"로그아웃"}</LogoutButton>
+          </UserInfoRightWrapper>
         </MyPageBody>
         <UnderBar></UnderBar>
         <MyPageBody>

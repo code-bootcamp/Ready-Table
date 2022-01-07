@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Controller } from "react-hook-form";
 import { TouchableOpacity, View } from "react-native";
+import Login from "../commons/login";
 import {
   Wrapper,
   LogoWrapper,
@@ -50,6 +51,7 @@ const MainLoginUi = (props: any) => {
           <LoginButton>{"로그인"}</LoginButton>
         </LoginButtonWrapper>
         {/* <SocialLogin /> */}
+        <Login></Login>
       </View>
 
       <TouchableOpacity
