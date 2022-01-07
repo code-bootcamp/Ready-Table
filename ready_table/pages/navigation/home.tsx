@@ -7,6 +7,7 @@ import SearchScreen from "../screens/search";
 import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
+
 const HomeNavigator = () => {
   return (
     <Stack.Navigator screenOptions={() => ({ headerShown: false })}>
