@@ -8,8 +8,8 @@ const HomeScreen = () => {
     <>
       <HomeContainer />
       {/* <ReviewList /> */}
-      <Login />
-      {/* <MainLogin /> */}
+      {/* <Login /> */}
+      <MainLogin />
     </>
   );
 };

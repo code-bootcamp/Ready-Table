@@ -71,3 +71,6 @@ export const UnderBar = styled.View`
   border-bottom-color: #e8e8e8;
   width: 90%;
 `;
+
+export const UserInfoRightWrapper = styled.TouchableOpacity``;
+export const LogoutButton = styled.Text``;
