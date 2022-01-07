@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Controller } from "react-hook-form";
 import { TouchableOpacity, View } from "react-native";
-import Login from "../commons/login";
+import Login from "./socialLogin";
 import {
   Wrapper,
   LogoWrapper,
@@ -28,7 +28,7 @@ const MainLoginUi = (props: any) => {
             onBlur={onBlur}
             onChangeText={(data: string) => onChange(data)}
             value={value}
-            placeholder="이메일을 입력해주세요"
+            placeholder="아이디"
           />
         )}
       />
@@ -41,7 +41,7 @@ const MainLoginUi = (props: any) => {
             onBlur={onBlur}
             onChangeText={(el: any) => onChange(el)}
             value={value}
-            placeholder="비밀번호를 입력해주세요"
+            placeholder="비밀번호"
             secureTextEntry={true} // 비밀번호 입력
           />
         )}
@@ -50,8 +50,7 @@ const MainLoginUi = (props: any) => {
         <LoginButtonWrapper onPress={props.handleSubmit(props.onAppLogin)}>
           <LoginButton>{"로그인"}</LoginButton>
         </LoginButtonWrapper>
-        {/* <SocialLogin /> */}
-        <Login></Login>
+        <Login />
       </View>
 
       <TouchableOpacity

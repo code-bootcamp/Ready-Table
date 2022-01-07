@@ -18,6 +18,8 @@ import LoginNavigator from "./pages/navigation/loginAuth";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "./src/commons/library/utils/getAccessToken";
 import LandingPage from "./pages/screens/landing";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 // import DetailsScreen from "./pages/screens/detail";
 
@@ -81,6 +83,14 @@ function App() {
     userInfo: userInfo,
     setUserInfo: setUserInfo
   };
+  const [fontsLoaded] = useFonts({
+    Bungee: require("./assets/fonts/Bungee-Regular.ttf"),
+    NotoSans: require("./assets/fonts/NotoSansKR-Regular.otf")
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   return (
     <>

@@ -1,18 +1,23 @@
 import styled from "@emotion/native";
 
 export const Wrapper = styled.ScrollView`
+  background-color: white;
   flex: 1;
   align-content: center;
   padding: 55px;
 `;
 export const LogoWrapper = styled.View`
+  padding: 20px;
   align-items: center;
   justify-content: center;
-  padding: 0 50px 65px 50px;
+  margin-bottom: 100px;
+  margin-top: 50px;
 `;
 export const LogoText = styled.Text`
-  width: 150px;
-  height: 150px;
+  font-family: "Bungee";
+  color: #dd4124;
+  font-size: 30px;
+  margin: 0 auto;
 `;
 
 export const UserInput = styled.TextInput`
@@ -32,9 +37,9 @@ export const LoginButtonWrapper = styled.TouchableOpacity`
   width: 100%;
   margin-top: 40px;
   margin-bottom: 45px;
-  background-color: #26eba6;
+  background-color: #dd4124;
   height: 45px;
-  border-radius: 10px;
+  border-radius: 20px;
 `;
 export const LoginButton = styled.Text`
   color: white;
