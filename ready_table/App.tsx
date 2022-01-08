@@ -35,7 +35,7 @@ interface IUserInfo {
 function App() {
   const [accessToken, setAccessToken] = useState("");
   // const [isSearchHidden, setIsHomeHidden] = useState("");
-  // const [id, setId] = useState("");
+  const [id, setId] = useState("");
   // const [tagId, setTagId] = useState("");
   // const [isFavorite, setIsFavorite] = useState(true);
   // const [isReview, setIsReview] = useState(false);
@@ -81,9 +81,9 @@ function App() {
     accessToken: accessToken,
     setAccessToken: setAccessToken,
     userInfo: userInfo,
-    setUserInfo: setUserInfo
-    // id: id,
-    // setId: setId
+    setUserInfo: setUserInfo,
+    id: id,
+    setId: setId
   };
   const [fontsLoaded] = useFonts({
     Bungee: require("./assets/fonts/Bungee-Regular.ttf"),

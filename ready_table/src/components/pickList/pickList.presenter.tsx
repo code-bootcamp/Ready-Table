@@ -1,5 +1,5 @@
 import React from "react";
-// import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 
 import {
@@ -26,11 +26,9 @@ import {
   RightArrow,
   PickListMemo
 } from "./pickList.styles";
-// const navigation = useNavigation();
 
 const PickListUI = (props: any) => {
-  console.log(props.data2);
-  console.log(props.pickCountData);
+  const navigation = useNavigation();
   return (
     <ScrollView>
       <PickListContainer>
@@ -52,11 +50,11 @@ const PickListUI = (props: any) => {
         {props.data2?.fetchUseditemsIPicked.map(el => (
           <PickListCard
             key={el._id}
-            // onPress={() => {
-            //   navigation.navigate("datail", {
-            //     id: props.onPressDetail(el)
-            //   });
-            // }}
+            onPress={() => {
+              navigation.navigate("detail", {
+                id: props.onPressDetail(el)
+              });
+            }}
           >
             <PickListImageTest></PickListImageTest>
             {/* <PickListImage source={{ uri: `https://storage.googleapis.com/${el.images[0]}` }} /> */}
