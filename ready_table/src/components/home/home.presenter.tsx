@@ -4,101 +4,51 @@ import {
   HomeView,
   CarouselWrapper,
   DestinationContainer,
-  BestItemWarpper
+  BestPickTitle,
+  BestItemWrapper,
+  ImageCotainer,
+  TextWrapper
+  // BestItemButton,
+  // ImageCotainer,
+  // TextWrapper
 } from "./home.styles";
-import { ScrollView, Image, BackHandler } from "react-native";
-import Carousel from "react-native-snap-carousel";
+import { useQuery } from "@apollo/client";
+import { FETCH_USED_ITEMS, FETCH_USED_ITEMS_OF_THE_BEST } from "./home.queires";
+import { useNavigation } from "@react-navigation/native";
+import { ScrollView, Image } from "react-native";
 import MainBanner from "../commons/mainbanner";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CategoryList from "./category";
+import Carousel from "./carousel";
 
-interface ItemProps {
-  title: string;
-  text: string;
-}
-interface CustomCarouselProps {}
-interface RenderItemProps {
-  item: ItemProps;
-  index: number;
-}
-const exampleItems = [
-  {
-    title: "Item 1",
-    text: "Text 1"
-  },
-  {
-    title: "Item 2",
-    text: "Text 2"
-  },
-  {
-    title: "Item 3",
-    text: "Text 3"
-  },
-  {
-    title: "Item 4",
-    text: "Text 4"
-  },
-  {
-    title: "Item 5",
-    text: "Text 5"
-  }
-];
-const HomeUI: React.FC<CustomCarouselProps> = props => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [carouselItems, setCarouselItems] = useState<ItemProps[]>(exampleItems);
-  const ref = useRef(null);
-
-  const renderItem = useCallback(({ item, index }: RenderItemProps) => {
-    return (
-      <View
-        style={{
-          backgroundColor: "floralwhite",
-          borderRadius: 5,
-          height: 250,
-          padding: 50,
-          marginLeft: 25,
-          marginRight: 25
-        }}
-      >
-        <Text style={{ fontSize: 30 }}>{item.title}</Text>
-        <Text>{item.text}</Text>
-      </View>
-    );
-  }, []);
+const HomeUI = props => {
   return (
     <ScrollView>
       <HomeView>
         <MainBanner />
-        <SafeAreaView
-          style={{ flex: 1, backgroundColor: "white", paddingTop: 50 }}
-        >
-          <CarouselWrapper
-            style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}
-          >
-            <Carousel
-              layout={"default"}
-              ref={ref}
-              data={carouselItems}
-              sliderWidth={300}
-              itemWidth={300}
-              renderItem={renderItem}
-              onSnapToItem={(index: number) => setActiveIndex(index)}
-            />
-          </CarouselWrapper>
-        </SafeAreaView>
-        <CategoryList></CategoryList>
+        <Carousel></Carousel>
+        <CategoryList onPressCategory={props.onPressCategory}></CategoryList>
         <DestinationContainer
           horizontal
           showsHorizontalScrollIndicator={false}
           pagingEnabled
-        >
-          <Text>1번</Text>
-          <Text>2번</Text>
-          <Text>3번</Text>
-          <Text>4번</Text>
-          <Text>5번</Text>
-        </DestinationContainer>
-        <BestItemWarpper>BEST PICK</BestItemWarpper>
+        ></DestinationContainer>
+        <BestPickTitle>BEST PICK</BestPickTitle>
+
+        <TouchableOpacity>
+          <ImageCotainer
+            source={require("../../../public/images/fastfood.png")}
+          >
+            <TextWrapper>
+              <Text>아우어</Text>
+              <Text>베이커리</Text>
+              <Text>----------</Text>
+              <Text>빨미까레가 </Text>
+              <Text>맛있는</Text>
+              <Text>⭐️4. 5</Text>
+            </TextWrapper>
+          </ImageCotainer>
+        </TouchableOpacity>
       </HomeView>
     </ScrollView>
   );
