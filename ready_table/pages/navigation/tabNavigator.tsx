@@ -6,7 +6,7 @@ import HomeNavigator from "./home";
 import SearchNavigator from "./search";
 import PickListNavigator from "./pickList";
 import ReservationNavigator from "./reservation";
-import MyPageNavigator from "./myPage";
+import MyPageNavigator from "./myPages";
 
 const Tab = createBottomTabNavigator();
 
@@ -71,9 +71,10 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="마이 페이지"
+        name="마이페이지"
         component={MyPageNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="person-sharp"
