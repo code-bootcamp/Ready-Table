@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Feather } from "@expo/vector-icons";
+import { Ionicons, Feather } from "@expo/vector-icons";
 
 import {
   ScrollView,
@@ -28,6 +28,7 @@ import {
 } from "./pickList.styles";
 
 const PickListUI = (props: any) => {
+  // console.log(props.data2?.fetchUseditemsIPicked);
   const navigation = useNavigation();
   return (
     <ScrollView>
@@ -61,12 +62,19 @@ const PickListUI = (props: any) => {
             <PickListContentsWrapper>
               <PickListHeader>
                 <PickListTitle>{el.name}</PickListTitle>
-                {/* <PickListBookmark source={{ uri: `` }} /> */}
-                <Feather
-                  name="bookmark"
-                  style={{ color: "#eb4034" }}
-                  size={11}
-                />
+                <PickListBookmark
+                  // onPress={e => {
+                  //   e.stopPropagation();
+                  //   props.onPressPick();
+                  // }}
+                  onPress={() => props.onPressPick(el)}
+                >
+                  <Ionicons
+                    name="bookmark"
+                    style={{ color: "#eb4034" }}
+                    size={13}
+                  />
+                </PickListBookmark>
               </PickListHeader>
               <PickListRemark>{el.remarks}</PickListRemark>
               <PickListContents>

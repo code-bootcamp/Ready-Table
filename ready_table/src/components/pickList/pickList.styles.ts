@@ -61,6 +61,7 @@ export const PickListCard = styled.TouchableOpacity`
   padding-left: 26px;
   display: flex;
   flex-direction: row;
+  /* background-color: blanchedalmond; */
 `;
 
 export const PickListHeader = styled.View`
@@ -98,7 +99,14 @@ export const PickListContents = styled.Text`
 
 export const PickListTag = styled.Text``;
 
-export const PickListBookmark = styled.Image``;
+export const PickListBookmark = styled.TouchableOpacity`
+  width: 15px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blanchedalmond;
+`;
 
 export const PickListMemo = styled.TextInput`
   /* width: 338px; */
