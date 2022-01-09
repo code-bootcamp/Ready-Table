@@ -6,7 +6,7 @@ export const HomeView = styled.SafeAreaView`
   width: 100%;
 `;
 
-export const BestItemWarpper = styled.Text`
+export const BestPickTitle = styled.Text`
   font-weight: bold;
   font-size: 30px;
   margin-right: auto;
@@ -14,6 +14,7 @@ export const BestItemWarpper = styled.Text`
 `;
 export const CarouselWrapper = styled.View`
   margin-bottom: 20px;
+  width: 100%;
 `;
 
 export const DestinationContainer = styled.ScrollView`
@@ -21,3 +22,23 @@ export const DestinationContainer = styled.ScrollView`
 `;
 
 export const TextInputWrapper = styled.TextInput``;
+
+export const BestItemWrapper = styled.ScrollView``;
+
+export const BestItemButton = styled.TouchableOpacity``;
+
+export const ImageCotainer = styled.ImageBackground`
+  width: 126px;
+  height: 159px;
+`;
+export const TextWrapper = styled.Text`
+  font-weight: bold;
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 20px;
+    height: 40px;
+    border: 5px solid red;
+  }
+`;

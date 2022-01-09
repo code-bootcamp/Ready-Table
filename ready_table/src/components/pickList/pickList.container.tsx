@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useMutation, useQuery } from "@apollo/client";
+import { GlobalContext } from "../../../App";
 
 import PickListUI from "./pickList.presenter";
 
@@ -16,6 +17,7 @@ import {
 } from "../../commons/types/generated/types";
 
 const PickListContainer = () => {
+  // const { setId }: any = useContext(GlobalContext);
   // const { data } = useQuery<
   //   Pick<IQuery, "fetchUseditem">,
   //   IQueryFetchUseditemArgs
@@ -30,9 +32,9 @@ const PickListContainer = () => {
   >(FETCH_USEDITEMS_I_PICKED, {
     variables: { search: "" }
   });
-  const [toggleUseditemPick] = useMutation(USEDITEM_PICK);
-  const [IsPicked, setIsPicked] = useState(false);
-  const newPicked = data2?.fetchUseditemsIPicked.map(el => el._id);
+  // const [toggleUseditemPick] = useMutation(USEDITEM_PICK);
+  // const [IsPicked, setIsPicked] = useState(false);
+  // const newPicked = data2?.fetchUseditemsIPicked.map(el => el._id);
 
   const { data: pickCountData } = useQuery(FETCH_USEDITEMS_COUNT_I_PICKED);
 
@@ -59,12 +61,17 @@ const PickListContainer = () => {
   //     : setIsPicked(true);
   // };
 
+  // const onPressDetail = (el: any) => {
+  //   setId(el._id);
+  // };
+
   return (
     <PickListUI
       // data={data}
       data2={data2}
       pickCountData={pickCountData}
       // onPressPick={onPressPick}
+      // onPressDetail={onPressDetail}
     />
   );
 };

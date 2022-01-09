@@ -1,37 +1,43 @@
 import { gql } from "@apollo/client";
 
-export const FETCH_BOARDS = gql`
-  query fetchBoard($boardId: ID!) {
-    fetchBoard(boardId: $boardId) {
-      writer
-      title
+export const FETCH_USED_ITEMS = gql`
+  query fetchUseditems($page: Int) {
+    fetchUseditems(page: $page) {
+      _id
+      name
+      remarks
       contents
-      createdAt
-      likeCount
-      dislikeCount
-      youtubeUrl
-      boardAddress {
-        zipcode
-        address
-        addressDetail
-      }
+      price
       images
+      pickedCount
+      tags
     }
   }
 `;
 
-export const FETCH_BOARDS_COUNT = gql`
-  query fetchBoardsCount($search: String) {
-    fetchBoardsCount(search: $search)
+export const FETCH_USED_ITEMS_OF_THE_BEST = gql`
+  query fetchUseditemsOfTheBest {
+    fetchUseditemsOfTheBest {
+      _id
+      name
+      price
+      images
+      pickedCount
+    }
   }
 `;
 
-export const FETCH_USER_LOGGED_IN = gql`
-  query fetchUserLoggedIn {
-    fetchUserLoggedIn {
+export const FETCH_USED_ITEMS_I_PICKED = gql`
+  query fetchUseditemsIPicked($search: String, $page: Int) {
+    fetchUseditemsIPicked(search: $search, page: $page) {
       _id
       name
-      picture
+      price
+      seller {
+        name
+      }
+      createdAt
+      pickedCount
     }
   }
 `;

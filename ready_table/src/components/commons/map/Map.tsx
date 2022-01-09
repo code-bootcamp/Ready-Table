@@ -124,7 +124,6 @@ const MapContainer = () => {
           description="단백질샐러드:9000원, 시저샐러드: 7000원"
         />
       </MapView>
-      <Text>ddd</Text>
     </View>
   );
 };
@@ -139,6 +138,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
+    // height: Dimensions.get("window").height
+    height: "95%"
   }
 });

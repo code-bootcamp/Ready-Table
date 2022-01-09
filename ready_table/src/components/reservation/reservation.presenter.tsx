@@ -55,4 +55,8 @@ const ReservationUI = (props: IReservationProps) => {
   );
 };
 
+// 고민..
+// 장바구니(예약)에 내가 저장한 값을 어떻게 넣는가?
+// View에 onClick 같은 기능은 어떻게 구현하는가?
+
 export default ReservationUI;
