@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { GlobalContext } from "../../../App";
+// import { useNavigation} from "react-navigation-hooks"
+import { GlobalContext } from "../../../../App";
 
 import PickListUI from "./pickList.presenter";
 
@@ -14,64 +15,69 @@ import {
   IQuery,
   IQueryFetchUseditemArgs,
   IQueryFetchUseditemsIPickedArgs
-} from "../../commons/types/generated/types";
+} from "../../../commons/types/generated/types";
 
 const PickListContainer = () => {
-  // const { setId }: any = useContext(GlobalContext);
-  // const { data } = useQuery<
-  //   Pick<IQuery, "fetchUseditem">,
-  //   IQueryFetchUseditemArgs
-  // >(FETCH_USEDITEM, {
-  //   variables: {
-  //     useditemId: props.item
-  //   }
-  // });
+  const { id, setId }: any = useContext(GlobalContext);
+  const [toggleUseditemPick] = useMutation(USEDITEM_PICK);
+  // const [IsPicked, setIsPicked] = useState(false);
+
+  const { data } = useQuery<
+    Pick<IQuery, "fetchUseditem">,
+    IQueryFetchUseditemArgs
+  >(FETCH_USEDITEM, {
+    variables: {
+      useditemId: id
+    }
+  });
   const { data: data2 } = useQuery<
     Pick<IQuery, "fetchUseditemsIPicked">,
     IQueryFetchUseditemsIPickedArgs
   >(FETCH_USEDITEMS_I_PICKED, {
     variables: { search: "" }
   });
-  // const [toggleUseditemPick] = useMutation(USEDITEM_PICK);
-  // const [IsPicked, setIsPicked] = useState(false);
-  // const newPicked = data2?.fetchUseditemsIPicked.map(el => el._id);
 
   const { data: pickCountData } = useQuery(FETCH_USEDITEMS_COUNT_I_PICKED);
-
-  // const onPressPIckTest = () => {};
+  // const newPicked = data2?.fetchUseditemsIPicked.map(el => el._id);
 
   //상품 찜하기
-  // const onPressPick = () => {
-  //   toggleUseditemPick({
-  //     variables: { useditemId: Id },
-  //     refetchQueries: [
-  //       {
-  //         query: FETCH_USEDITEM,
-  //         variables: { useditemId: router.query.useditemId }
-  //       },
-  //       {
-  //         query: FETCH_USEDITEMS_I_PICKED,
-  //         variables: { search: "", page: 1 }
-  //       }
-  //     ]
-  //   });
-
+  const onPressPick = async (el: any) => {
+    setId(el._id);
+    try {
+      await toggleUseditemPick({
+        variables: { useditemId: id },
+        refetchQueries: [
+          {
+            query: FETCH_USEDITEM,
+            variables: { useditemId: id }
+          },
+          {
+            query: FETCH_USEDITEMS_I_PICKED,
+            variables: { search: "" }
+          }
+        ]
+      });
+    } catch (error) {
+      error instanceof Error && console.log(error.message);
+    }
+  };
+  // useEffect(() => {
   //   newPicked?.includes(data?.fetchUseditem._id)
   //     ? setIsPicked(false)
   //     : setIsPicked(true);
-  // };
+  // }, [data2]);
 
-  // const onPressDetail = (el: any) => {
-  //   setId(el._id);
-  // };
-
+  const onPressDetail = (el: any) => {
+    setId(el._id);
+  };
   return (
     <PickListUI
-      // data={data}
+      data={data}
       data2={data2}
       pickCountData={pickCountData}
-      // onPressPick={onPressPick}
-      // onPressDetail={onPressDetail}
+      onPressPick={onPressPick}
+      onPressDetail={onPressDetail}
+      // IsPicked={IsPicked}
     />
   );
 };
