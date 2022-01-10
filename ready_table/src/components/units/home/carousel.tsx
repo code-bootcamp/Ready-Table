@@ -25,7 +25,7 @@ import { useNavigation } from "@react-navigation/native";
 import {
   IQuery,
   IQueryFetchUseditemsArgs
-} from "../../commons/types/generated/types";
+} from "../../../commons/types/generated/types";
 
 const HomeUI: React.FC<CustomCarouselProps> = props => {
   const { data } = useQuery<

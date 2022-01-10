@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client";
 import React, { useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { GlobalContext } from "../../../App";
+import { GlobalContext } from "../../../../App";
 import HomeUI from "./home.presenter";
 import { FETCH_USED_ITEMS, FETCH_USED_ITEMS_OF_THE_BEST } from "./home.queires";
 
@@ -9,7 +9,7 @@ import {
   IQuery,
   IQueryFetchUseditemsArgs,
   IQueryFetchUseditemsIPickedArgs
-} from "../../commons/types/generated/types";
+} from "../../../commons/types/generated/types";
 const HomeContainer = () => {
   const { setId, setTagId } = useContext(GlobalContext);
   const { data } = useQuery<

@@ -1,4 +1,4 @@
-import { IQuery } from "../../commons/types/generated/types";
+import { IQuery } from "../../../commons/types/generated/types";
 
 export interface IPickListProps {
   // data?: Pick<IQuery, "fetchUseditem">;

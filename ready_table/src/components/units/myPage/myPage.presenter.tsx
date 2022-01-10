@@ -41,7 +41,7 @@ const MyPageUI = (props: any) => {
           <MyPageContentsWrapper>
             <MyPageBodyContents>내 취향 선택</MyPageBodyContents>
             <RightArrow
-              source={require("../../../public/images/rightArrow.png")}
+              source={require("../../../../public/images/rightArrow.png")}
             />
           </MyPageContentsWrapper>
           <UserInfoRightWrapper onPress={props.onPressLogout}>
@@ -62,7 +62,7 @@ const MyPageUI = (props: any) => {
           <MyPageContentsWrapper>
             <MyPageBodyContents>공지사항 및 이용약관</MyPageBodyContents>
             <RightArrow
-              source={require("../../../public/images/rightArrow.png")}
+              source={require("../../../../public/images/rightArrow.png")}
             />
           </MyPageContentsWrapper>
         </MyPageBody>

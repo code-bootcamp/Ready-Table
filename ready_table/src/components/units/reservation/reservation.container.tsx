@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
 import { AsyncStorage } from "react-native";
-import { GlobalContext } from "../../../App";
+import { GlobalContext } from "../../../../App";
 import {
   IQuery,
   IQueryFetchUseditemsArgs
-} from "../../commons/types/generated/types";
+} from "../../../commons/types/generated/types";
 
 import ReservationUI from "./reservation.presenter";
 import { FETCH_USED_ITEMS } from "./reservation.queries";

@@ -16,7 +16,7 @@ import { useQuery } from "@apollo/client";
 import { FETCH_USED_ITEMS, FETCH_USED_ITEMS_OF_THE_BEST } from "./home.queires";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView, Image } from "react-native";
-import MainBanner from "../commons/mainbanner";
+import MainBanner from "../../commons/mainbanner";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CategoryList from "./category";
 import Carousel from "./carousel";
@@ -37,7 +37,7 @@ const HomeUI = props => {
 
         <TouchableOpacity>
           <ImageCotainer
-            source={require("../../../public/images/fastfood.png")}
+            source={require("../../../../public/images/fastfood.png")}
           >
             <TextWrapper>
               <Text>아우어</Text>
