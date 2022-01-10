@@ -1,5 +1,5 @@
 import { GestureResponderEvent } from "react-native";
-import { IQuery, IUseditem } from "../../commons/types/generated/types";
+import { IQuery, IUseditem } from "../../../commons/types/generated/types";
 
 export interface IdetailProps {
   onPressCart: (event: GestureResponderEvent) => void;
@@ -16,4 +16,5 @@ export interface IProduct {
   seller: string;
   id: any;
   images: any;
+  remarks: string;
 }

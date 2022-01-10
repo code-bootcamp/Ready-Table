@@ -34,17 +34,16 @@ const ReservationUI = (props: IReservationProps) => {
             <NonReserWrapper>
               {/* <NonReserText>예약된 내역이 없습니다.</NonReserText> */}
             </NonReserWrapper>
-            {/* )} */}
-            {/* {props.productInfo?.map(el => ( */}
-            <Row>
-              <ColumDate>비스트로 앤트로</ColumDate>
-              {/* <ColumDate>{el.productName}</ColumDate> */}
-              <ColumPersonnel>구로G벨리 지하2층</ColumPersonnel>
-              {/* <ColumPersonnel>{el.place}수정필요</ColumPersonnel> */}
-              <ColumUser>2022.02.15 오후12:30 4명</ColumUser>
-              {/* <ColumUser>{el.creatAt}수정필요..</ColumUser> */}
-            </Row>
-            {/* ))} */}
+            {/* )} */}/
+            {props.productInfo?.map(el => (
+              <Row>
+                <ColumDate>{el.productName}</ColumDate>
+                <ColumPersonnel>{el.remarks}</ColumPersonnel>
+                {/* <ColumPersonnel>{el.place}수정필요</ColumPersonnel> */}
+                {/* <ColumUser>2022.02.15 오후12:30 4명</ColumUser> */}
+                <ColumUser>{el.creatAt}</ColumUser>
+              </Row>
+            ))}
           </TableWrpper>
           <TouchableOpacity>
             <Fontisto name="trash" size={15} color="#EB4034" />
