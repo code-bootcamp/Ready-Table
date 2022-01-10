@@ -38,7 +38,7 @@ const DetailContainer = () => {
     productPrice: items?.fetchUseditems[0].price,
     seller: items?.fetchUseditems[0].seller,
     id: items?.fetchUseditems[0]._id,
-    images: items?.fetchUseditems[0].images
+    images: items?.fetchUseditems[0].images,
     remarks: items?.fetchUseditems[0].remarks
   };
 

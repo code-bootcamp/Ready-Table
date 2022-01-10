@@ -14,6 +14,18 @@ export const DataWrapper = styled.View`
   padding-left: 20px;
 `;
 
+export const NoticeWrpper = styled.View`
+  background-color: gray;
+  margin: 5px;
+  border-radius: 5px;
+`;
+
+export const NoticeText = styled.Text`
+  padding: 5px;
+  font-size: 10px;
+  font-weight: 100;
+`;
+
 export const CartButton = styled.TouchableHighlight``;
 
 export const TitleText = styled.Text`
@@ -24,6 +36,7 @@ export const TitleText = styled.Text`
 
 export const RemarksText = styled.Text`
   padding-top: 15px;
+  font-weight: 100;
 `;
 export const LineWrapper = styled.View`
   align-items: center;

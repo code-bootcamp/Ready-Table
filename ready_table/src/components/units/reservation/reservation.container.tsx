@@ -64,7 +64,7 @@ const ReservationContainer = () => {
   };
   const deleteMyFavoritePr = (el: IUseditem) => () => {
     const afterDeleteMyFavoritePr = productInfo.filter(
-      (favorite: any) => favorite.id !== el.id
+      (favorite: any) => favorite.id !== el._id
     );
     AsyncStorage.setItem("@carts", JSON.stringify(afterDeleteMyFavoritePr));
   };
