@@ -16,6 +16,7 @@ export const DataWrapper = styled.View`
 
 export const NoticeWrpper = styled.View`
   background-color: gray;
+  //백그라운드 색 변경..
   margin: 5px;
   border-radius: 5px;
 `;

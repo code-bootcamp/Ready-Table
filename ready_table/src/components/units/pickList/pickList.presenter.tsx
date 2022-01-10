@@ -1,6 +1,7 @@
 import React from "react";
-// import { useNavigation } from "@react-navigation/native";
-import { Feather } from "@expo/vector-icons";
+
+import { useNavigation } from "@react-navigation/native";
+import { Ionicons, Feather } from "@expo/vector-icons";
 
 import {
   ScrollView,
@@ -31,6 +32,9 @@ import {
 const PickListUI = (props: any) => {
   console.log(props.data2);
   console.log(props.pickCountData);
+  // console.log(props.data2?.fetchUseditemsIPicked);
+  const navigation = useNavigation();
+
   return (
     <ScrollView>
       <PickListContainer>
@@ -52,23 +56,32 @@ const PickListUI = (props: any) => {
         {props.data2?.fetchUseditemsIPicked.map(el => (
           <PickListCard
             key={el._id}
-            // onPress={() => {
-            //   navigation.navigate("datail", {
-            //     id: props.onPressDetail(el)
-            //   });
-            // }}
+            onPress={() => {
+              navigation.navigate("detail", {
+                id: props.onPressDetail(el)
+              });
+            }}
           >
             <PickListImageTest></PickListImageTest>
             {/* <PickListImage source={{ uri: `https://storage.googleapis.com/${el.images[0]}` }} /> */}
             <PickListContentsWrapper>
               <PickListHeader>
                 <PickListTitle>{el.name}</PickListTitle>
-                {/* <PickListBookmark source={{ uri: `` }} /> */}
-                <Feather
-                  name="bookmark"
-                  style={{ color: "#eb4034" }}
-                  size={11}
-                />
+
+                <PickListBookmark
+                  onPress={e => {
+                    e.stopPropagation();
+                    props.onPressPick(el);
+                  }}
+                  hitSlop={{ top: 5, right: 5, bottom: 5, left: 5 }}
+                  // onPress={() => props.onPressPick(el)}
+                >
+                  <Ionicons
+                    name="bookmark"
+                    style={{ color: "#eb4034" }}
+                    size={13}
+                  />
+                </PickListBookmark>
               </PickListHeader>
               <PickListRemark>{el.remarks}</PickListRemark>
               <PickListContents>

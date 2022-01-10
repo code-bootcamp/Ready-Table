@@ -98,7 +98,7 @@ export const PickListContents = styled.Text`
 
 export const PickListTag = styled.Text``;
 
-export const PickListBookmark = styled.Image``;
+export const PickListBookmark = styled.TouchableOpacity``;
 
 export const PickListMemo = styled.TextInput`
   /* width: 338px; */

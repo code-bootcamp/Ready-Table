@@ -6,7 +6,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import DetailUI from "./detail.presenter";
 
-import { IProduct } from "./detail.types";
 import { GlobalContext } from "../../../../App";
 import { FETCH_USED_ITEMS } from "../home/home.queires";
 import {
@@ -15,10 +14,12 @@ import {
   IQueryFetchUseditemsArgs
 } from "../../../commons/types/generated/types";
 import { FETCH_USEDITEM } from "./detail.queries";
+import { IProduct } from "./detail.types";
 
 const DetailContainer = () => {
   const navigation = useNavigation();
   const { setId, setTagId } = useContext(GlobalContext);
+
   const { id } = useContext(GlobalContext);
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditem">,

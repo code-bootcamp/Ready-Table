@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { GlobalContext } from "../../../App";
 
 import PickListUI from "./pickList.presenter";
 
@@ -12,9 +11,8 @@ import {
 } from "./pickList.queries";
 import {
   IQuery,
-  IQueryFetchUseditemArgs,
   IQueryFetchUseditemsIPickedArgs
-} from "../../commons/types/generated/types";
+} from "../../../commons/types/generated/types";
 
 const PickListContainer = () => {
   // const { setId }: any = useContext(GlobalContext);
