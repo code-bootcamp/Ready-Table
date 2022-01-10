@@ -3,6 +3,7 @@ import * as WebBrowser from "expo-web-browser";
 import { ResponseType } from "expo-auth-session";
 import * as Google from "expo-auth-session/providers/google";
 import { initializeApp } from "firebase/app";
+import { TouchableOpacity, View } from "react-native";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -10,6 +11,7 @@ import {
 } from "firebase/auth";
 import { Button } from "react-native";
 import { OAuth2Client } from "google-auth-library";
+import styled from "@emotion/native";
 
 // Initialize Firebase
 initializeApp({
@@ -20,8 +22,17 @@ initializeApp({
   messagingSenderId: "540291082091",
   appId: "1:540291082091:web:47a82688972f8667f8ce2e"
 });
-
 WebBrowser.maybeCompleteAuthSession();
+
+const CategoryIconWrapper = styled.TouchableOpacity`
+  align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+`;
+const CategoryIcon = styled.Image`
+  width: 26px;
+  height: 26px;
+`;
 
 export default function Login() {
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
@@ -34,7 +45,6 @@ export default function Login() {
       const { id_token } = response.params;
 
       const auth = getAuth();
-      const provider = new GoogleAuthProvider();
       const credential = GoogleAuthProvider.credential(id_token);
       signInWithCredential(auth, credential);
       console.log(id_token);
@@ -42,12 +52,15 @@ export default function Login() {
   }, [response]);
 
   return (
-    <Button
-      disabled={!request}
-      title="Google Login"
-      onPress={() => {
-        promptAsync();
-      }}
-    />
+    <>
+      <CategoryIconWrapper onPress={() => promptAsync()} disabled={!request}>
+        <View>
+          <CategoryIcon
+            source={require("../../../public/images/google.png")}
+            style={{ height: 50, width: 50 }}
+          />
+        </View>
+      </CategoryIconWrapper>
+    </>
   );
 }

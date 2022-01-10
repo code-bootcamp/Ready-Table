@@ -1,123 +1,118 @@
-/*This is an Example of SearchBar in React Native*/
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import {
+  SafeAreaView,
   Text,
-  View,
   StyleSheet,
+  View,
   FlatList,
-  ActivityIndicator,
-  Platform
+  TextInput
 } from "react-native";
-import { SearchBar } from "react-native-elements";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    //setting default state
-    this.state = { isLoading: true, search: "" };
-    this.arrayholder = [];
-  }
-  componentDidMount() {
-    return fetch("https://jsonplaceholder.typicode.com/posts")
+const App = () => {
+  const [search, setSearch] = useState("");
+  const [filteredDataSource, setFilteredDataSource] = useState([]);
+  const [masterDataSource, setMasterDataSource] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
       .then(responseJson => {
-        this.setState(
-          {
-            isLoading: false,
-            dataSource: responseJson
-          },
-          function () {
-            this.arrayholder = responseJson;
-          }
-        );
+        setFilteredDataSource(responseJson);
+        setMasterDataSource(responseJson);
       })
       .catch(error => {
         console.error(error);
       });
-  }
+  }, []);
 
-  search = text => {
-    console.log(text);
+  const searchFilterFunction = text => {
+    // Check if searched text is not blank
+    if (text) {
+      // Inserted text is not blank
+      // Filter the masterDataSource
+      // Update FilteredDataSource
+      const newData = masterDataSource.filter(function (item) {
+        const itemData = item.title
+          ? item.title.toUpperCase()
+          : "".toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilteredDataSource(newData);
+      setSearch(text);
+    } else {
+      // Inserted text is blank
+      // Update FilteredDataSource with masterDataSource
+      setFilteredDataSource(masterDataSource);
+      setSearch(text);
+    }
   };
-  clear = () => {
-    this.search.clear();
-  };
 
-  SearchFilterFunction(text) {
-    //passing the inserted text in textinput
-    const newData = this.arrayholder.filter(function (item) {
-      //applying filter for the inserted text in search bar
-      const itemData = item.title ? item.title.toUpperCase() : "".toUpperCase();
-      const textData = text.toUpperCase();
-      return itemData.indexOf(textData) > -1;
-    });
-
-    this.setState({
-      //setting the filtered newData on datasource
-      //After setting the data it will automatically re-render the view
-      dataSource: newData,
-      search: text
-    });
-  }
-
-  ListViewItemSeparator = () => {
-    //Item sparator view
+  const ItemView = ({ item }) => {
     return (
+      // Flat List Item
+      <Text style={styles.itemStyle} onPress={() => getItem(item)}>
+        {item.id}
+        {"."}
+        {item.title.toUpperCase()}
+      </Text>
+    );
+  };
+
+  const ItemSeparatorView = () => {
+    return (
+      // Flat List Item Separator
       <View
         style={{
-          height: 0.3,
-          width: "90%",
-          backgroundColor: "#080808"
+          height: 0.5,
+          width: "100%",
+          backgroundColor: "#C8C8C8"
         }}
       />
     );
   };
 
-  render() {
-    if (this.state.isLoading) {
-      // Loading View while data is loading
-      return (
-        <View style={{ flex: 1, paddingTop: 20 }}>
-          <ActivityIndicator />
-        </View>
-      );
-    }
-    return (
-      //ListView to show with textinput used as search bar
-      <View style={styles.viewStyle}>
-        <SearchBar
-          round
-          searchIcon={{ size: 24 }}
-          onChangeText={text => this.SearchFilterFunction(text)}
-          onClear={text => this.SearchFilterFunction("")}
-          placeholder="Type Here..."
-          value={this.state.search}
+  const getItem = item => {
+    // Function for click on an item
+    alert("Id : " + item.id + " Title : " + item.title);
+  };
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.textInputStyle}
+          onChangeText={text => searchFilterFunction(text)}
+          value={search}
+          underlineColorAndroid="transparent"
+          placeholder="Search Here"
         />
         <FlatList
-          data={this.state.dataSource}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-          //Item Separator View
-          renderItem={({ item }) => (
-            // Single Comes here which will be repeatative for the FlatListItems
-            <Text style={styles.textStyle}>{item.title}</Text>
-          )}
-          enableEmptySections={true}
-          style={{ marginTop: 10 }}
+          data={filteredDataSource}
           keyExtractor={(item, index) => index.toString()}
+          ItemSeparatorComponent={ItemSeparatorView}
+          renderItem={ItemView}
         />
       </View>
-    );
-  }
-}
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-  viewStyle: {
-    justifyContent: "center",
-    flex: 1,
-    backgroundColor: "white",
-    marginTop: Platform.OS == "ios" ? 30 : 0
+  container: {
+    backgroundColor: "white"
   },
-  textStyle: {
+  itemStyle: {
     padding: 10
+  },
+  textInputStyle: {
+    height: 40,
+    borderWidth: 1,
+    paddingLeft: 20,
+    margin: 5,
+    borderColor: "#dd4124",
+    backgroundColor: "#FFFFFF"
   }
 });
+
+export default App;

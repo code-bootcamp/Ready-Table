@@ -82,6 +82,8 @@ function App() {
     setAccessToken: setAccessToken,
     userInfo: userInfo,
     setUserInfo: setUserInfo
+    // id: id,
+    // setId: setId
   };
   const [fontsLoaded] = useFonts({
     Bungee: require("./assets/fonts/Bungee-Regular.ttf"),
@@ -104,7 +106,6 @@ function App() {
                 <Stack.Screen name="Login" component={LoginNavigator} />
               )}
             </Stack.Navigator>
-            {/* <TabNavigator /> */}
           </NavigationContainer>
           <StatusBar />
         </ApolloProvider>

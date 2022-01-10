@@ -7,7 +7,7 @@ import HomeScreen from "../../../pages/screens/home";
 
 const CategofyMainWrapper = styled.ScrollView`
   margin-top: 22px;
-  width: 298px;
+  width: 100%;
   height: 102px;
 `;
 
@@ -52,19 +52,9 @@ const CategoryList = props => {
     "패스트푸드",
     "도시락"
   ];
-  // return (
-  //   <CategofyMainWrapper horizontal>
-  //     {categories.map((item, index) => (
-  //       <TouchableOpacity key={index} activeOpacity={0.8}>
-  //         <View>
-  //           <Text>{item}</Text>
-  //         </View>
-  //       </TouchableOpacity>
-  //     ))}
-  //   </CategofyMainWrapper>
-  // );
+
   return (
-    <CategofyMainWrapper horizontal>
+    <CategofyMainWrapper horizontal showsHorizontalScrollIndicator={false}>
       <CategoryIconWrapper
         onPress={() =>
           navigation.navigate("detail", {
