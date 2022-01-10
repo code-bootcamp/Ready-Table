@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import {
   ScrollView,
@@ -21,6 +22,7 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 
 const MyPageUI = (props: any) => {
+  const navigation = useNavigation();
   return (
     <ScrollView>
       <MyPageContainer>
@@ -34,19 +36,18 @@ const MyPageUI = (props: any) => {
         </MyPageHeader>
         <MyPageBody>
           <MyPageBodyTitle>설정</MyPageBodyTitle>
-          <MyPageContentsWrapper>
+          <MyPageContentsWrapper
+            onPress={() => navigation.navigate("내 정보 수정")}
+          >
             <MyPageBodyContents>내 정보 수정</MyPageBodyContents>
             <AntDesign name="right" style={{ color: "black" }} size={8} />
           </MyPageContentsWrapper>
           <MyPageContentsWrapper>
             <MyPageBodyContents>내 취향 선택</MyPageBodyContents>
             <RightArrow
-              source={require("../../../../public/images/rightArrow.png")}
+              source={require("../../../../../public/images/rightArrow.png")}
             />
           </MyPageContentsWrapper>
-          <UserInfoRightWrapper onPress={props.onPressLogout}>
-            <LogoutButton>{"로그아웃"}</LogoutButton>
-          </UserInfoRightWrapper>
         </MyPageBody>
         <UnderBar></UnderBar>
         <MyPageBody>
@@ -62,7 +63,7 @@ const MyPageUI = (props: any) => {
           <MyPageContentsWrapper>
             <MyPageBodyContents>공지사항 및 이용약관</MyPageBodyContents>
             <RightArrow
-              source={require("../../../../public/images/rightArrow.png")}
+              source={require("../../../../../public/images/rightArrow.png")}
             />
           </MyPageContentsWrapper>
         </MyPageBody>
