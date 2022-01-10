@@ -42,3 +42,23 @@ export const TextWrapper = styled.Text`
     border: 5px solid red;
   }
 `;
+export const FooterWrapper = styled.View`
+  background-color: white;
+`;
+
+export const FooterText = styled.Text``;
+
+export const ListWrapper = styled.ScrollView`
+  width: 100%;
+`;
+
+export const ListContainer = styled.View`
+  padding-top: 50px;
+  width: 100%
+  height: 317px;
+`;
+
+export const ItemImageBackground = styled.ImageBackground`
+  width: 100%;
+  height: 100%;
+`;

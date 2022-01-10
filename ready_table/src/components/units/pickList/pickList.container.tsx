@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-// import { useNavigation} from "react-navigation-hooks"
 import { GlobalContext } from "../../../../App";
 
 import PickListUI from "./pickList.presenter";
