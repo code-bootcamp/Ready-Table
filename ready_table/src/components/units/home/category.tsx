@@ -3,7 +3,6 @@ import { Text, View } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import styled from "@emotion/native";
 import { useNavigation } from "@react-navigation/native";
-import HomeScreen from "../../../pages/screens/home";
 
 const CategofyMainWrapper = styled.ScrollView`
   margin-top: 22px;
@@ -20,6 +19,7 @@ const CategoryIconWrapper = styled.TouchableOpacity`
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border-radius: 100%; */
 `;
 const CategoryIcon = styled.Image`
   width: 26px;
@@ -62,7 +62,9 @@ const CategoryList = props => {
           })
         }
       >
-        <CategoryIcon source={require("../../../public/images/fastfood.png")} />
+        <CategoryIcon
+          source={require("../../../../public/images/fastfood.png")}
+        />
         <CategoryText>배게</CategoryText>
       </CategoryIconWrapper>
       <CategoryIconWrapper
@@ -72,7 +74,9 @@ const CategoryList = props => {
           })
         }
       >
-        <CategoryIcon source={require("../../../public/images/fastfood.png")} />
+        <CategoryIcon
+          source={require("../../../../public/images/fastfood.png")}
+        />
         <CategoryText>배게</CategoryText>
       </CategoryIconWrapper>
       <CategoryIconWrapper
@@ -82,7 +86,9 @@ const CategoryList = props => {
           })
         }
       >
-        <CategoryIcon source={require("../../../public/images/fastfood.png")} />
+        <CategoryIcon
+          source={require("../../../../public/images/fastfood.png")}
+        />
         <CategoryText>배게</CategoryText>
       </CategoryIconWrapper>
       <CategoryIconWrapper
@@ -92,7 +98,9 @@ const CategoryList = props => {
           })
         }
       >
-        <CategoryIcon source={require("../../../public/images/fastfood.png")} />
+        <CategoryIcon
+          source={require("../../../../public/images/fastfood.png")}
+        />
         <CategoryText>배게</CategoryText>
       </CategoryIconWrapper>
       <CategoryIconWrapper
@@ -102,7 +110,9 @@ const CategoryList = props => {
           })
         }
       >
-        <CategoryIcon source={require("../../../public/images/fastfood.png")} />
+        <CategoryIcon
+          source={require("../../../../public/images/fastfood.png")}
+        />
         <CategoryText>배게</CategoryText>
       </CategoryIconWrapper>
       <CategoryIconWrapper
@@ -112,7 +122,9 @@ const CategoryList = props => {
           })
         }
       >
-        <CategoryIcon source={require("../../../public/images/fastfood.png")} />
+        <CategoryIcon
+          source={require("../../../../public/images/fastfood.png")}
+        />
         <CategoryText>배게</CategoryText>
       </CategoryIconWrapper>
       <CategoryIconWrapper
@@ -122,7 +134,9 @@ const CategoryList = props => {
           })
         }
       >
-        <CategoryIcon source={require("../../../public/images/fastfood.png")} />
+        <CategoryIcon
+          source={require("../../../../public/images/fastfood.png")}
+        />
         <CategoryText>배게</CategoryText>
       </CategoryIconWrapper>
     </CategofyMainWrapper>

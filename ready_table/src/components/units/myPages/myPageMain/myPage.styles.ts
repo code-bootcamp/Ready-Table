@@ -47,7 +47,7 @@ export const MyPageBodyTitle = styled.Text`
   margin-bottom: 20px;
 `;
 
-export const MyPageContentsWrapper = styled.View`
+export const MyPageContentsWrapper = styled.TouchableOpacity`
   width: 310px;
   display: flex;
   flex-direction: row;
@@ -71,6 +71,3 @@ export const UnderBar = styled.View`
   border-bottom-color: #e8e8e8;
   width: 90%;
 `;
-
-export const UserInfoRightWrapper = styled.TouchableOpacity``;
-export const LogoutButton = styled.Text``;

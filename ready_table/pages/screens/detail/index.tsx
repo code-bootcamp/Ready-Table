@@ -1,6 +1,6 @@
 import React from "react";
-import DetailHeader from "../../../src/components/detail/detail.header";
-import DetailContainer from "../../../src/components/detail/detail.container";
+import DetailContainer from "../../../src/components/units/detail/detail.container";
+import DetailHeader from "../../../src/components/units/detail/detail.header";
 
 const DetailScreen = () => {
   return (

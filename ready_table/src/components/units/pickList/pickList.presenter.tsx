@@ -41,7 +41,7 @@ const PickListUI = (props: any) => {
               {props.pickCountData?.fetchUseditemsCountIPicked}
             </ListCountContents>
             <RightArrow
-              source={require("../../../public/images/rightArrow.png")}
+              source={require("../../../../public/images/rightArrow.png")}
             />
           </ListCountLeft>
           <ListCountRight>
