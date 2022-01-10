@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import MapContainer from "../../../src/components/commons/map/Map";
-
-import SearchContainer from "../../../src/components/search/search.container";
+import SearchContainer from "../../../src/components/units/search/search.container";
 
 const SearchScreen = () => {
   const [searching, setSearching] = useState(true);

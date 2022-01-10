@@ -56,7 +56,7 @@ export default function Login() {
       <CategoryIconWrapper onPress={() => promptAsync()} disabled={!request}>
         <View>
           <CategoryIcon
-            source={require("../../../public/images/google.png")}
+            source={require("../../../../public/images/google.png")}
             style={{ height: 50, width: 50 }}
           />
         </View>

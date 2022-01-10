@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import React from "react";
 import { useContext } from "react";
-import { GlobalContext } from "../../../App";
+import { GlobalContext } from "../../../../App";
 import { useMutation, useApolloClient } from "@apollo/client";
 import { Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";

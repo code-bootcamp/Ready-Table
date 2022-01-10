@@ -1,7 +1,7 @@
 import { useApolloClient, useMutation, useQuery } from "@apollo/client";
 import React from "react";
 import { useContext } from "react";
-import { GlobalContext } from "../../../App";
+import { GlobalContext } from "../../../../App";
 import MyPageUI from "./myPage.presenter";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Alert } from "react-native";
