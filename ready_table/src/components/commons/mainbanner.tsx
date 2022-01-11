@@ -11,6 +11,8 @@ const SearchiconButton = styled.TouchableOpacity`
   margin-right: 20px;
 `;
 const MainBannerWrapper = styled.SafeAreaView`
+  /* position: fixed;
+  bottom: 0; */
   padding-top: 35px;
   flex-wrap: wrap;
   flex-direction: row;

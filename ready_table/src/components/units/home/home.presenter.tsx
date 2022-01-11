@@ -6,12 +6,16 @@ import {
   BestPickTitle,
   BestItemWrapper,
   ImageCotainer,
-  TextWrapper,
   FooterWrapper,
   FooterText,
   ListWrapper,
-  ListContainer,
-  ItemImageBackground
+  List,
+  ListName,
+  ListIamge,
+  BestItemImage,
+  BestItemButton,
+  BestItemName,
+  BestItem
   // BestItemButton,
   // ImageCotainer,
   // TextWrapper
@@ -19,7 +23,7 @@ import {
 import { useQuery } from "@apollo/client";
 import { FETCH_USED_ITEMS, FETCH_USED_ITEMS_OF_THE_BEST } from "./home.queires";
 import { useNavigation } from "@react-navigation/native";
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import MainBanner from "../../commons/mainbanner";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CategoryList from "./category";
@@ -28,58 +32,54 @@ import {
   IQuery,
   IQueryFetchUseditemsArgs
 } from "../../../commons/types/generated/types";
+import BestItems from "./bestItmes";
+import { Restaurant } from "../search/seatch.styles";
 
 const HomeUI = props => {
-  const { data } = useQuery<
-    Pick<IQuery, "fetchUseditems">,
-    IQueryFetchUseditemsArgs
-  >(FETCH_USED_ITEMS, {
-    variables: {
-      page: 1
-    }
-  });
-  console.log(data);
+  const navigation = useNavigation();
   return (
     <ScrollView>
+      <MainBanner />
       <HomeView>
-        <MainBanner />
         <Carousel></Carousel>
-        <CategoryList onPressCategory={props.onPressCategory}></CategoryList>
         <DestinationContainer
           horizontal
           showsHorizontalScrollIndicator={false}
-          pagingEnabled
         ></DestinationContainer>
         <BestPickTitle>BEST PICK</BestPickTitle>
-        <TouchableOpacity>
-          <ImageCotainer
-            source={require("../../../../public/images/fastfood.png")}
-          >
-            <TextWrapper>
-              <Text>아우어</Text>
-              <Text>베이커리</Text>
-              <Text>----------</Text>
-              <Text>빨미까레가 </Text>
-              <Text>맛있는</Text>
-              <Text>⭐️4. 5</Text>
-            </TextWrapper>
-          </ImageCotainer>
-        </TouchableOpacity>
-        <Text> </Text>
-        <ListWrapper>
-          {data?.fetchUseditems.map((el, index) => (
-            <ListContainer key={el._id}>
-              <ItemImageBackground
+        <BestItemWrapper horizontal showsHorizontalScrollIndicator={false}>
+          {props.bestData?.fetchUseditemsOfTheBest.map((el, index) => (
+            <BestItem
+              key={el._id}
+              // onPress={() =>
+              //   navigation.navigate("detail", {
+              //     // id: props.onPressCategory()
+              //   })
+              // }
+            >
+              <BestItemImage
                 source={{ uri: el.images[0] }}
                 resizeMode="cover"
-              >
-                <Text>
-                  {el.name}
-                  {"\n"}
-                  {el.remarks}
-                </Text>
-              </ItemImageBackground>
-            </ListContainer>
+              />
+              <BestItemName>{el.name}</BestItemName>
+            </BestItem>
+          ))}
+        </BestItemWrapper>
+        <CategoryList onPressCategory={props.onPressCategory}></CategoryList>
+
+        <ListWrapper>
+          {props.data?.fetchUseditems.map((el, index) => (
+            <List
+              key={el._id}
+              // onPress={() =>
+              //   navigation.navigate("detail", {
+              //     // ustiemId: el._id
+              //   })
+              // }
+            >
+              <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
+              <ListName>{el.name}</ListName>
+            </List>
           ))}
         </ListWrapper>
         <FooterWrapper>
