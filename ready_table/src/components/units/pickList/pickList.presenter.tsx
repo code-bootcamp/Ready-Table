@@ -52,7 +52,7 @@ const PickListUI = (props: any) => {
           <PickListCard
             key={el._id}
             onPress={() => {
-              navigation.navigate("detail", {
+              navigation.navigate("상세보기", {
                 id: props.onPressDetail(el)
               });
             }}

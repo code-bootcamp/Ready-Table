@@ -22,3 +22,32 @@ export const RestaurantWrapper = styled.TouchableOpacity``;
 export const Restaurant = styled.View``;
 export const RestaurantImage = styled.Image``;
 export const RestaurantName = styled.View``;
+
+export const SearchHeader = styled.View`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const HeaderTitle1Wrapper = styled.View`
+  border-bottom-width: 3px;
+  border-bottom-color: black;
+  width: 50%;
+  align-items: center;
+`;
+
+export const HeaderTitle1 = styled.Text`
+  margin-bottom: 13px;
+`;
+
+export const HeaderTitle2Wrapper = styled.TouchableOpacity`
+  border-bottom-color: #e5e5e5;
+  border-bottom-width: 1.5px;
+  width: 50%;
+  align-items: center;
+`;
+
+export const HeaderTitle2 = styled.Text`
+  margin-bottom: 13px;
+  color: #666666;
+`;

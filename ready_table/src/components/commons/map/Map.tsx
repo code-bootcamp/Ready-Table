@@ -2,10 +2,43 @@ import * as React from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import styled from "@emotion/native";
+
+const MapHeader = styled.View`
+  padding-top: 155px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+`;
+
+const HeaderTitle1Wrapper = styled.TouchableOpacity`
+  border-bottom-color: #e5e5e5;
+  border-bottom-width: 1.5px;
+  width: 50%;
+  align-items: center;
+`;
+
+const HeaderTitle1 = styled.Text`
+  margin-bottom: 13px;
+  color: #666666;
+`;
+
+const HeaderTitle2Wrapper = styled.View`
+  border-bottom-width: 3px;
+  border-bottom-color: black;
+  width: 50%;
+  align-items: center;
+`;
+
+const HeaderTitle2 = styled.Text`
+  margin-bottom: 13px;
+`;
 
 const API_KEY = "e14c719335d31b0a"; //구글지도맵.. ID값
 
 const MapContainer = () => {
+  const navigation = useNavigation();
   const [location, setLocation] = useState({
     latitude: 37.483706,
     longitude: 126.895664
@@ -15,6 +48,14 @@ const MapContainer = () => {
 
   return (
     <View style={styles.container}>
+      <MapHeader>
+        <HeaderTitle1Wrapper onPress={() => navigation.navigate("search")}>
+          <HeaderTitle1>검색</HeaderTitle1>
+        </HeaderTitle1Wrapper>
+        <HeaderTitle2Wrapper>
+          <HeaderTitle2>지도</HeaderTitle2>
+        </HeaderTitle2Wrapper>
+      </MapHeader>
       {/* <script
         async
         src="https://maps.googleapis.com/maps/api/js?key=e14c719335d31b0a&callback=initMap"
@@ -132,7 +173,7 @@ export default MapContainer;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
