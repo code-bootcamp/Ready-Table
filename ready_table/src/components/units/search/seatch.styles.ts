@@ -19,6 +19,6 @@ export const Row1 = styled.View``;
 
 export const RestaurantList = styled.View``;
 export const RestaurantWrapper = styled.TouchableOpacity``;
-export const Restaurant = styled.View;
+export const Restaurant = styled.View``;
 export const RestaurantImage = styled.Image``;
 export const RestaurantName = styled.View``;

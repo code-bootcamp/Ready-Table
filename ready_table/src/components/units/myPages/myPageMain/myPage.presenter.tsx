@@ -14,9 +14,7 @@ import {
   MyPageContentsWrapper,
   MyPageBodyContents,
   RightArrow,
-  UnderBar,
-  UserInfoRightWrapper,
-  LogoutButton
+  UnderBar
 } from "./myPage.styles";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -30,7 +28,7 @@ const MyPageUI = (props: any) => {
           <MyInfoWrapper>
             <MyInfo>정보관리</MyInfo>
           </MyInfoWrapper>
-          <MyProfileWrapper>
+          <MyProfileWrapper onPress={() => navigation.navigate("프로필")}>
             <MyProfile>프로필</MyProfile>
           </MyProfileWrapper>
         </MyPageHeader>

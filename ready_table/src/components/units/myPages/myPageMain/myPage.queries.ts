@@ -5,6 +5,13 @@ export const FETCH_USER_LOGGED_IN = gql`
       _id
       name
       picture
+      email
+      createdAt
+      userPoint {
+        amount
+        createdAt
+        updatedAt
+      }
     }
   }
 `;

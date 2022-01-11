@@ -48,8 +48,7 @@ const PickListContainer = () => {
         variables: { useditemId: id },
         refetchQueries: [
           {
-            query: FETCH_USEDITEM,
-            variables: { useditemId: id }
+            query: FETCH_USEDITEMS_COUNT_I_PICKED
           },
           {
             query: FETCH_USEDITEMS_I_PICKED,
@@ -61,11 +60,6 @@ const PickListContainer = () => {
       error instanceof Error && console.log(error.message);
     }
   };
-  // useEffect(() => {
-  //   newPicked?.includes(data?.fetchUseditem._id)
-  //     ? setIsPicked(false)
-  //     : setIsPicked(true);
-  // }, [data2]);
 
   const onPressDetail = (el: any) => {
     setId(el._id);
@@ -77,6 +71,7 @@ const PickListContainer = () => {
       pickCountData={pickCountData}
       onPressPick={onPressPick}
       onPressDetail={onPressDetail}
+
       // IsPicked={IsPicked}
     />
   );
