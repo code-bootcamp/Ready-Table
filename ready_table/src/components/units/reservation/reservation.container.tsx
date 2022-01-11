@@ -1,11 +1,13 @@
 import { useQuery } from "@apollo/client";
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { AsyncStorage } from "react-native";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { GlobalContext } from "../../../../App";
 import {
   IQuery,
-  IQueryFetchUseditemsArgs
+  IQueryFetchUseditemsArgs,
+  IUseditem
 } from "../../../commons/types/generated/types";
 
 import ReservationUI from "./reservation.presenter";
@@ -57,13 +59,13 @@ const ReservationContainer = () => {
     });
   }, [AsyncStorage.getItem("@carts")]);
 
-  const onPressDetail = (el: any) => {
-    setId(el.id);
+  const onPressDetail = (el: IUseditem) => {
+    setId(el._id);
     console.log(setId);
   };
-  const deleteMyFavoritePr = (el: any) => () => {
+  const deleteMyFavoritePr = (el: IUseditem) => () => {
     const afterDeleteMyFavoritePr = productInfo.filter(
-      (favorite: any) => favorite.id !== el.id
+      (favorite: any) => favorite.id !== el._id
     );
     AsyncStorage.setItem("@carts", JSON.stringify(afterDeleteMyFavoritePr));
   };

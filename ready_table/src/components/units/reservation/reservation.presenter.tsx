@@ -30,21 +30,20 @@ const ReservationUI = (props: IReservationProps) => {
         <ReserWrapper>
           <AAAImage></AAAImage>
           <TableWrpper>
-            {/* {(!props.productInfo || props.productInfo?.length === 0) && ( */}
-            <NonReserWrapper>
-              {/* <NonReserText>예약된 내역이 없습니다.</NonReserText> */}
-            </NonReserWrapper>
-            {/* )} */}
-            {/* {props.productInfo?.map(el => ( */}
-            <Row>
-              <ColumDate>비스트로 앤트로</ColumDate>
-              {/* <ColumDate>{el.productName}</ColumDate> */}
-              <ColumPersonnel>구로G벨리 지하2층</ColumPersonnel>
-              {/* <ColumPersonnel>{el.place}수정필요</ColumPersonnel> */}
-              <ColumUser>2022.02.15 오후12:30 4명</ColumUser>
-              {/* <ColumUser>{el.creatAt}수정필요..</ColumUser> */}
-            </Row>
-            {/* ))} */}
+            {(!props.productInfo || props.productInfo?.length === 0) && (
+              <NonReserWrapper>
+                <NonReserText>예약된 내역이 없습니다.</NonReserText>
+              </NonReserWrapper>
+            )}
+            {props.productInfo?.map(el => (
+              <Row>
+                <ColumDate>{el.productName}</ColumDate>
+                <ColumPersonnel>{el.remarks}</ColumPersonnel>
+                {/* <ColumPersonnel>{el.place}수정필요</ColumPersonnel> */}
+                {/* <ColumUser>2022.02.15 오후12:30 4명</ColumUser> */}
+                <ColumUser>{el.creatAt}</ColumUser>
+              </Row>
+            ))}
           </TableWrpper>
           <TouchableOpacity>
             <Fontisto name="trash" size={15} color="#EB4034" />
@@ -54,5 +53,9 @@ const ReservationUI = (props: IReservationProps) => {
     </ScrollView>
   );
 };
+
+// 고민..
+// 장바구니(예약)에 내가 저장한 값을 어떻게 넣는가?
+// View에 onClick 같은 기능은 어떻게 구현하는가?
 
 export default ReservationUI;
