@@ -16,8 +16,13 @@ import {
   RestaurantWrapper,
   Restaurant,
   RestaurantImage,
-  RestaurantName
-} from "./seatch.styles";
+  RestaurantName,
+  SearchHeader,
+  HeaderTitle1Wrapper,
+  HeaderTitle1,
+  HeaderTitle2Wrapper,
+  HeaderTitle2
+} from "./search.styles";
 
 const SearchUI = props => {
   const navigation = useNavigation();
@@ -28,6 +33,14 @@ const SearchUI = props => {
       style={{ backgroundColor: "white" }}
     >
       <SearchPageView>
+        <SearchHeader>
+          <HeaderTitle1Wrapper>
+            <HeaderTitle1>검색</HeaderTitle1>
+          </HeaderTitle1Wrapper>
+          <HeaderTitle2Wrapper onPress={() => navigation.navigate("map")}>
+            <HeaderTitle2>지도</HeaderTitle2>
+          </HeaderTitle2Wrapper>
+        </SearchHeader>
         <Search>
           <SeachIcon
             source={require("../../../../public/images/search02.png")}
@@ -74,7 +87,7 @@ const SearchUI = props => {
             <RestaurantWrapper
               key={el._id}
               onPress={() => {
-                navigation.navigate("식당 상세보기", {
+                navigation.navigate("detail", {
                   id: props.onPressDetail(el)
                 });
               }}
@@ -99,7 +112,7 @@ const SearchUI = props => {
               <RestaurantWrapper
                 key={el._id}
                 onPress={() => {
-                  navigation.navigate("식당상세보기", {
+                  navigation.navigate("detail", {
                     id: props.onPressDetail(el)
                   });
                 }}
