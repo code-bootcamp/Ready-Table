@@ -5,8 +5,10 @@ import DetailContainer from "../../../src/components/units/detail/detail.contain
 const DetailScreen = () => {
   return (
     <>
+
       <DetailHeader />
       <DetailContainer />
+
     </>
   );
 };

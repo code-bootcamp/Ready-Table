@@ -1,7 +1,6 @@
-import React from "react";
-import Landing from "../../../src/components/units/landingPage/landingPage.container";
+// import React from "react";
 
-const LandingPage = props => {
-  return <Landing setIsLoading={props.setIsLoading} />;
-};
-export default LandingPage;
+// const LandingPage = props => {
+//   return <Landing setIsLoading={props.setIsLoading} />;
+// };
+// export default LandingPage;

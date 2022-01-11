@@ -17,7 +17,7 @@ import HomeScreen from "./pages/screens/home";
 import LoginNavigator from "./pages/navigation/loginAuth";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "./src/commons/library/utils/getAccessToken";
-import LandingPage from "./pages/screens/landing";
+// import LandingPage from "./pages/screens/landing";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 
