@@ -57,8 +57,15 @@ const PickListUI = (props: any) => {
               });
             }}
           >
-            <PickListImageTest></PickListImageTest>
-            {/* <PickListImage source={{ uri: `https://storage.googleapis.com/${el.images[0]}` }} /> */}
+            {el.images[0] ? (
+              <PickListImage
+                source={{
+                  uri: `https://storage.googleapis.com/${el.images[0]}`
+                }}
+              />
+            ) : (
+              <PickListImageTest></PickListImageTest>
+            )}
             <PickListContentsWrapper>
               <PickListHeader>
                 <PickListTitle>{el.name}</PickListTitle>

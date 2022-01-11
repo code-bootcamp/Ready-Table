@@ -23,7 +23,7 @@ export const MyInfo = styled.Text`
   margin-bottom: 13px;
 `;
 
-export const MyProfileWrapper = styled.View`
+export const MyProfileWrapper = styled.TouchableOpacity`
   border-bottom-color: #e5e5e5;
   border-bottom-width: 1.5px;
   width: 45%;

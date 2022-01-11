@@ -14,6 +14,7 @@ export const ModifyHeader = styled.View`
   margin-bottom: 21px;
   border-bottom-color: #e8e8e8;
   border-bottom-width: 1px;
+  width: 90%;
 `;
 
 export const ModifyTitle = styled.Text`
@@ -49,6 +50,7 @@ export const ModifyBody = styled.View`
   border-bottom-color: #e8e8e8;
   border-bottom-width: 1px;
   margin-bottom: 21px;
+  width: 90%;
 `;
 
 export const ModifyFooter = styled.View``;

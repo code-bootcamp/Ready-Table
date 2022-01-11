@@ -69,7 +69,11 @@ export const PickListHeader = styled.View`
   justify-content: space-between;
   margin-bottom: 2px;
 `;
-export const PickListImage = styled.Image``;
+export const PickListImage = styled.Image`
+  width: 70px;
+  height: 94px;
+  border-radius: 10px;
+`;
 
 export const PickListImageTest = styled.View`
   width: 70px;

@@ -1,8 +1,8 @@
 import React from "react";
 import ModifyContainer from "../../../src/components/units/myPages/modify/modify.container";
 
-const modifyScreen = () => {
+const ModifyScreen = () => {
   return <ModifyContainer />;
 };
 
-export default modifyScreen;
+export default ModifyScreen;
