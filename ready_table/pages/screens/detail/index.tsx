@@ -15,3 +15,4 @@ const DetailScreen = () => {
 };
 
 export default DetailScreen;
+//깃에 올리기위한 데이터변경
