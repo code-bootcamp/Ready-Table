@@ -139,6 +139,6 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get("window").width,
     // height: Dimensions.get("window").height
-    height: "95%"
+    height: "70%"
   }
 });

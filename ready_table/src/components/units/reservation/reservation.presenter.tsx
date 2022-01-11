@@ -30,11 +30,11 @@ const ReservationUI = (props: IReservationProps) => {
         <ReserWrapper>
           <AAAImage></AAAImage>
           <TableWrpper>
-            {/* {(!props.productInfo || props.productInfo?.length === 0) && ( */}
-            <NonReserWrapper>
-              {/* <NonReserText>예약된 내역이 없습니다.</NonReserText> */}
-            </NonReserWrapper>
-            {/* )} */}/
+            {(!props.productInfo || props.productInfo?.length === 0) && (
+              <NonReserWrapper>
+                <NonReserText>예약된 내역이 없습니다.</NonReserText>
+              </NonReserWrapper>
+            )}
             {props.productInfo?.map(el => (
               <Row>
                 <ColumDate>{el.productName}</ColumDate>
