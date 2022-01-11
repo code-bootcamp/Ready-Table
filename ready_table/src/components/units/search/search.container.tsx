@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FETCH_USED_ITEMS } from "./search.queries";
 import _ from "lodash";
+
 import SearchUI from "./search.presenter";
 import { useQuery } from "@apollo/client";
 import { GlobalContext } from "../../../../App";
@@ -9,10 +10,17 @@ const SearchContainer = () => {
   const { setId, id } = useContext(GlobalContext);
   const [search, setSearch] = useState("");
   const [dataRes, setDataRes] = useState(null);
-  const [dataToggle, setDataToggle] = useState(false);
+  const [priceToggle, setPriceToggle] = useState(false);
+  const [dateToggle, setDateToggle] = useState(false);
+
+  const today = new Date();
+  const day = today.getDate();
+  const month = today.getMonth();
+  const year = today.getFullYear();
 
   const { data, refetch, fetchMore } = useQuery(FETCH_USED_ITEMS, {
     variables: {
+      isSoldout: false,
       search: "",
       page: 1
     }
@@ -48,58 +56,74 @@ const SearchContainer = () => {
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,
-            ...fetchMoreResult.fetchUseditem
+            ...fetchMoreResult.fetchUseditems
           ]
         };
       }
     });
   };
 
+  const priceToggleChange = () => {
+    setPriceToggle(prev => !prev);
+    setDateToggle(false);
+  };
+
+  const dateToggleChange = () => {
+    setDateToggle(prev => !prev);
+    setPriceToggle(false);
+  };
+
   const searchAllTime = () => {
     setDataRes(data?.fetchUseditems);
   };
 
-  const searchKoreaThema = () => {
-    const result = data?.fetchUseditems.filter(el => {
-      return Number(el.price) === 1;
+  const searchLastDay = () => {
+    const arr: string[] = [];
+    for (let i = 0; i <= 1; i++) {
+      const newArr = new Date(year, month, day - i)
+        .toLocaleDateString()
+        .split("/");
+      const res = `20${newArr[2]}-${newArr[0]}-${newArr[1]}`;
+      arr.push(res);
+    }
+    const filterRes = data?.fetchUseditems.filter((el: any) => {
+      return arr.includes(el.createdAt.slice(0, 10));
+    });
+    setDataRes(filterRes);
+  };
+
+  const searchLastWeek = () => {
+    const arr: string[] = [];
+    for (let i = 0; i <= 7; i++) {
+      const newArr = new Date(year, month, day - i)
+        .toLocaleDateString()
+        .split("/");
+      const res = `20${newArr[2]}-${newArr[0]}-${newArr[1]}`;
+      arr.push(res);
+    }
+    const filterRes = data?.fetchUseditems.filter((el: any) => {
+      return arr.includes(el.createdAt.slice(0, 10));
+    });
+    setDataRes(filterRes);
+  };
+
+  const searchFiveThousand = () => {
+    const result = data?.fetchUseditems.filter((el: any) => {
+      return Number(el.price) <= 5000;
     });
     setDataRes(result);
   };
 
-  const searchWesternThema = () => {
-    const result = data?.fetchUseditems.filter(el => {
-      return Number(el.price) === 2;
+  const searchOneHundredThousand = () => {
+    const result = data?.fetchUseditems.filter((el: any) => {
+      return Number(el.price) <= 10000;
     });
     setDataRes(result);
   };
 
-  const searchFastFoodThema = () => {
-    const result = data?.fetchUseditems.filter(el => {
-      return Number(el.price) === 3;
-    });
-    setDataRes(result);
-  };
-  const searchChinaThema = () => {
-    const result = data?.fetchUseditems.filter(el => {
-      return Number(el.price) === 4;
-    });
-    setDataRes(result);
-  };
-  const searchSnackThema = () => {
-    const result = data?.fetchUseditems.filter(el => {
-      return Number(el.price) === 5;
-    });
-    setDataRes(result);
-  };
-  const searchJapanThema = () => {
-    const result = data?.fetchUseditems.filter(el => {
-      return Number(el.price) === 6;
-    });
-    setDataRes(result);
-  };
-  const searchLunchBoxThema = () => {
-    const result = data?.fetchUseditems.filter(el => {
-      return Number(el.price) === 7;
+  const searchOneHundredFiveThousand = () => {
+    const result = data?.fetchUseditems.filter((el: any) => {
+      return Number(el.price) <= 15000;
     });
     setDataRes(result);
   };
@@ -110,14 +134,16 @@ const SearchContainer = () => {
       onChangeSearch={onChangeSearch}
       onPressDetail={onPressDetail}
       onLoadMore={onLoadMore}
+      dateToggleChange={dateToggleChange}
+      dateToggle={dateToggle}
+      searchLastDay={searchLastDay}
+      searchLastWeek={searchLastWeek}
       searchAllTime={searchAllTime}
-      searchKoreaThema={searchKoreaThema}
-      searchWesternThema={searchWesternThema}
-      searchFastFoodThema={searchFastFoodThema}
-      searchChinaThema={searchChinaThema}
-      searchSnackThema={searchSnackThema}
-      searchJapanThema={searchJapanThema}
-      searchLunchBoxThema={searchLunchBoxThema}
+      dataRes={dataRes}
+      searchFiveThousand={searchFiveThousand}
+      searchOneHundredThousand={searchOneHundredThousand}
+      searchOneHundredFiveThousand={searchOneHundredFiveThousand}
+      priceToggleChange={priceToggleChange}
     />
   );
 };

@@ -1,30 +1,30 @@
 import React from "react";
-import { ScrollView } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import {
-  SearchPageView,
-  Search,
-  SeachIcon,
   SearchBar,
   SearchBarLine,
-  FilterView1,
-  Row,
+  SearchIcon,
+  SearchPageView,
+  ProductList,
+  Search,
+  Product,
+  ProductImage,
+  ProductName,
+  ProductNameAndPrice,
+  ProductPrice,
+  ProductWrapper,
   FilterWrapper,
+  Row,
   FilterFont,
+  FilterToggle,
+  FilterView,
   Row1,
-  RestaurantList,
-  RestaurantWrapper,
-  Restaurant,
-  RestaurantImage,
-  RestaurantName,
-  SearchHeader,
-  HeaderTitle1Wrapper,
-  HeaderTitle1,
-  HeaderTitle2Wrapper,
-  HeaderTitle2
+  FilterView1,
+  Row3
 } from "./search.styles";
+import { ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const SearchUI = props => {
+const SearchUI = (props: any) => {
   const navigation = useNavigation();
   return (
     <ScrollView
@@ -33,16 +33,8 @@ const SearchUI = props => {
       style={{ backgroundColor: "white" }}
     >
       <SearchPageView>
-        <SearchHeader>
-          <HeaderTitle1Wrapper>
-            <HeaderTitle1>검색</HeaderTitle1>
-          </HeaderTitle1Wrapper>
-          <HeaderTitle2Wrapper onPress={() => navigation.navigate("map")}>
-            <HeaderTitle2>지도</HeaderTitle2>
-          </HeaderTitle2Wrapper>
-        </SearchHeader>
         <Search>
-          <SeachIcon
+          <SearchIcon
             source={require("../../../../public/images/search02.png")}
           />
           <SearchBar onChangeText={props.onChangeSearch} />
@@ -50,88 +42,119 @@ const SearchUI = props => {
         <SearchBarLine />
 
         <FilterView1>
-          <Row>
-            <FilterWrapper onPress={props.searchKoreaThema}>
-              <FilterFont>한식</FilterFont>
-            </FilterWrapper>
+          <Row3>
+            <FilterView>
+              <FilterToggle onPress={props.priceToggleChange}>
+                <FilterFont>가격</FilterFont>
+              </FilterToggle>
+            </FilterView>
 
-            <FilterWrapper onPress={props.searchWesternThema}>
-              <FilterFont>양식</FilterFont>
-            </FilterWrapper>
-
-            <FilterWrapper onPress={props.searchFastFoodThema}>
-              <FilterFont>패스트푸드</FilterFont>
-            </FilterWrapper>
-          </Row>
-          <Row1>
-            <FilterWrapper onPress={props.searchChinaThema}>
-              <FilterFont>중식</FilterFont>
-            </FilterWrapper>
-
-            <FilterWrapper onPress={props.searchSnackThema}>
-              <FilterFont>분식</FilterFont>
-            </FilterWrapper>
-
-            <FilterWrapper onPress={props.searchJapanThema}>
-              <FilterFont>일식</FilterFont>
-            </FilterWrapper>
-
-            <FilterWrapper onPress={props.searchLunchBoxThema}>
-              <FilterFont>도시락</FilterFont>
-            </FilterWrapper>
-          </Row1>
+            <FilterView>
+              <FilterToggle onPress={props.dateToggleChange}>
+                <FilterFont>날짜</FilterFont>
+              </FilterToggle>
+            </FilterView>
+          </Row3>
         </FilterView1>
 
-        <RestaurantList>
+        {props.dateToggle && (
+          <FilterView1>
+            <Row>
+              <FilterWrapper onPress={props.searchAllTime}>
+                <FilterFont>모든 시간</FilterFont>
+              </FilterWrapper>
+
+              <FilterWrapper onPress={props.searchLastDay}>
+                <FilterFont>지난 1일</FilterFont>
+              </FilterWrapper>
+
+              <FilterWrapper onPress={props.searchLastWeek}>
+                <FilterFont>지난 1주</FilterFont>
+              </FilterWrapper>
+            </Row>
+          </FilterView1>
+        )}
+
+        {props.priceToggle && (
+          <FilterView1>
+            <Row>
+              <FilterWrapper onPress={props.searchFiveThousand}>
+                <FilterFont>~5000</FilterFont>
+              </FilterWrapper>
+
+              <FilterWrapper onPress={props.searchOneHundredThousand}>
+                <FilterFont>~10000</FilterFont>
+              </FilterWrapper>
+
+              <FilterWrapper onPress={props.searchOneHundredFiveThousand}>
+                <FilterFont>~15000</FilterFont>
+              </FilterWrapper>
+            </Row>
+          </FilterView1>
+        )}
+
+        <ProductList>
           {props.dataRes?.map((el: any) => (
-            <RestaurantWrapper
+            <ProductWrapper
               key={el._id}
               onPress={() => {
-                navigation.navigate("detail", {
+                navigation.navigate("식당 상세보기", {
                   id: props.onPressDetail(el)
                 });
               }}
             >
-              {/* <Restaurant>
-                <RestaurantImage
+              <Product>
+                <ProductImage
                   source={{
                     uri: el.images[0]
                   }}
                 />
-                <RestaurantName>
-                  {String(el.name.split("#")[1]).length > 60
-                    ? `${String(el.name.split("#")[1]).substr(0, 61)}...`
-                    : el.name.split("#")}
-                </RestaurantName>
-              </Restaurant> */}
-            </RestaurantWrapper>
+                <ProductNameAndPrice>
+                  <ProductName>
+                    {String(el.name.split("#")[1]).length > 60
+                      ? `${String(el.name.split("#")[1]).substr(0, 61)}...`
+                      : el.name.split("#")[1]}
+                  </ProductName>
+                  <ProductPrice>{`${el.price
+                    .toLocaleString("ko-KR")
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</ProductPrice>
+                </ProductNameAndPrice>
+              </Product>
+            </ProductWrapper>
           ))}
 
           {!props.dataRes &&
             props.data?.fetchUseditems.map((el: any) => (
-              <RestaurantWrapper
+              <ProductWrapper
                 key={el._id}
                 onPress={() => {
-                  navigation.navigate("detail", {
+                  navigation.navigate("식당 상세보기", {
                     id: props.onPressDetail(el)
                   });
                 }}
               >
-                <Restaurant>
-                  <RestaurantImage
+                <Product>
+                  <ProductImage
                     source={{
                       uri: el.images[0]
                     }}
                   />
-                  <RestaurantName>
-                    {String(el.name.split("#")[1]).length > 60
-                      ? `${String(el.name.split("#")[1]).substr(0, 61)}...`
-                      : el.name.split("#")[1]}
-                  </RestaurantName>
-                </Restaurant>
-              </RestaurantWrapper>
+                  <ProductNameAndPrice>
+                    <ProductName>
+                      {String(el.name.split("#")[1]).length > 60
+                        ? `${String(el.name.split("#")[1]).substr(0, 61)}...`
+                        : el.name.split("#")[1]}
+                    </ProductName>
+                    <ProductPrice>{`${el.price
+                      .toLocaleString("ko-KR")
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원`}</ProductPrice>
+                  </ProductNameAndPrice>
+                </Product>
+              </ProductWrapper>
             ))}
-        </RestaurantList>
+        </ProductList>
       </SearchPageView>
     </ScrollView>
   );

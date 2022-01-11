@@ -1,53 +1,139 @@
 import styled from "@emotion/native";
 
-export const SearchPageView = styled.View``;
+export const SearchPageView = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+`;
 
-export const Search = styled.View``;
-export const SeachIcon = styled.Image``;
+export const SearchBar = styled.TextInput`
+  width: 315px;
+  height: 39.74px;
+`;
 
-export const SearchBar = styled.TextInput``;
+export const SearchBarLine = styled.View`
+  width: 339px;
+  border-bottom-width: 2px;
+  border-bottom-color: #f1eef6;
+`;
 
-export const SearchBarLine = styled.View``;
-
-export const FilterView1 = styled.View``;
-export const Row = styled.View``;
-export const FilterWrapper = styled.TouchableOpacity``;
-
-export const FilterFont = styled.Text``;
-
-export const Row1 = styled.View``;
-
-export const RestaurantList = styled.View``;
-export const RestaurantWrapper = styled.TouchableOpacity``;
-export const Restaurant = styled.View``;
-export const RestaurantImage = styled.Image``;
-export const RestaurantName = styled.View``;
-
-export const SearchHeader = styled.View`
-  margin: 0 auto;
+export const SearchIcon = styled.Image`
+  height: 24px;
+  width: 24px;
+`;
+export const Search = styled.View`
   display: flex;
   flex-direction: row;
-`;
-
-export const HeaderTitle1Wrapper = styled.View`
-  border-bottom-width: 3px;
-  border-bottom-color: black;
-  width: 50%;
+  width: 339px;
+  height: 39.74px;
   align-items: center;
 `;
 
-export const HeaderTitle1 = styled.Text`
-  margin-bottom: 13px;
+export const ProductList = styled.View`
+  width: 339px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
 `;
 
-export const HeaderTitle2Wrapper = styled.TouchableOpacity`
-  border-bottom-color: #e5e5e5;
-  border-bottom-width: 1.5px;
-  width: 50%;
+export const Product = styled.View`
+  width: 339px;
+  height: 119px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #dd4124;
+  border-radius: 15px;
   align-items: center;
+  padding-left: 12px;
+  margin-bottom: 12px;
 `;
 
-export const HeaderTitle2 = styled.Text`
-  margin-bottom: 13px;
-  color: #666666;
+export const ProductImage = styled.Image`
+  width: 95px;
+  height: 99px;
+  border-radius: 15px;
+`;
+
+export const ProductNameAndPrice = styled.View`
+  width: 170px;
+  height: 97px;
+  margin-left: 10px;
+`;
+
+export const ProductName = styled.Text`
+  font-family: "NotoSans";
+  color: black;
+`;
+
+export const ProductPrice = styled.Text`
+  font-family: "NotoSans";
+  color: black;
+`;
+
+export const ProductWrapper = styled.TouchableOpacity``;
+
+export const Btn = styled.TouchableOpacity`
+  border: 1px solid black;
+  margin-right: 10px;
+`;
+
+export const FilterWrapper = styled.TouchableOpacity`
+  width: 80px;
+  border: 1px solid black;
+  border: none;
+  border-radius: 10px;
+  background-color: #dd4124;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  margin-right: 10px;
+`;
+
+export const FilterFont = styled.Text`
+  font-size: 11px;
+  color: white;
+  font-family: "NotoSans";
+`;
+
+export const Row = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
+`;
+
+export const Row1 = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
+`;
+
+export const Row3 = styled.View`
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const FilterView = styled.View`
+  /* width: 90%; */
+  margin-top: 15px;
+`;
+
+export const FilterView1 = styled.View`
+  width: 90%;
+`;
+
+export const FilterToggle = styled.TouchableOpacity`
+  width: 80px;
+  border: 1px solid black;
+  border: none;
+  border-radius: 10px;
+  background-color: #dd4124;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
 `;
