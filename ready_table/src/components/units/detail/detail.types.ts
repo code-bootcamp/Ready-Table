@@ -1,7 +1,9 @@
 import { GestureResponderEvent } from "react-native";
 
 export interface IdetailProps {
-  onPressCart: (event: GestureResponderEvent) => void;
+
+  onPressCart: any;
+
   items: any;
   data: any;
 }

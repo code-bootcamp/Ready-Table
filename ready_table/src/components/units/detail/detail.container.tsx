@@ -31,6 +31,7 @@ const DetailContainer = () => {
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
+
   // console.log(items, "gggg"); 데이터없을때는 로그인을하세요.
 
   const cartProduct: IProduct = {

@@ -3,6 +3,8 @@ import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, Text } from "react-native";
 import { HeaderNavigator, HeaderWrapper, Mainimg } from "./detail.styles";
 
+import { IdetailProps } from "./detail.types";
+
 const DetailHeader = () => {
   const navigation = useNavigation();
 
