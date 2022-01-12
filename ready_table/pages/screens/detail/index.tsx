@@ -6,9 +6,12 @@ import PictureContainer from "../../../src/components/units/detail/picturelist/p
 const DetailScreen = () => {
   return (
     <>
+
       <DetailHeader />
       <DetailContainer />
+
       {/* <PictureContainer /> */}
+
     </>
   );
 };

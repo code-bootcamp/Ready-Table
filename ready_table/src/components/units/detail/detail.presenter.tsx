@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ScrollView } from "react-native";
 import ReservationContainer from "../reservation/reservation.container";
@@ -80,6 +81,7 @@ const DetailUI = (props: IdetailProps) => {
           <IconText>가족룸</IconText>
         </IconTextWrapper>
       </IconWrapper>
+
     </Wrapper>
   );
 };
