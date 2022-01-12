@@ -38,12 +38,6 @@ export const DataWrapper = styled.View`
   margin: 10px;
 `;
 
-export const DataWrapper = styled.View`
-  padding-left: 20px;
-`;
-
-export const CartButton = styled.TouchableHighlight``;
-
 export const TitleText = styled.Text`
   padding-top: 15px;
   font-weight: 400;
@@ -114,9 +108,6 @@ export const CartButton = styled.TouchableHighlight``;
 export const LineWrapper = styled.View`
   align-items: center;
 `;
-export const LineWrapper = styled.View`
-  align-items: center;
-`;
 
 export const Tableline = styled.View`
   padding-top: 15px;
@@ -127,10 +118,12 @@ export const Tableline = styled.View`
 
 export const Photo = styled.Image``;
 
-
 export const HeaderWrapper = styled.View`
   display: flex;
 `;
+
+export const NaviButton = styled.TouchableOpacity``;
+export const NaviText = styled.Text``;
 
 export const HeaderNavigator = styled.View`
   display: flex;
