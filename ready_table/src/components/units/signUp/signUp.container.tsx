@@ -13,7 +13,7 @@ const SignUpPage = (props: any) => {
       password: ""
     }
   });
-  console.log("롸");
+
   const JoinUser = async (data: any) => {
     try {
       await createUser({
@@ -25,6 +25,7 @@ const SignUpPage = (props: any) => {
           }
         }
       });
+
       console.log("회원가입 완료!!");
       props.navigation.navigate("Login");
     } catch (error) {
