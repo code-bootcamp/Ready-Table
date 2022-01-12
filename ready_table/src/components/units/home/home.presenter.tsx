@@ -1,11 +1,9 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import {
   HomeView,
-  CarouselWrapper,
   DestinationContainer,
   BestPickTitle,
   BestItemWrapper,
-  ImageCotainer,
   FooterWrapper,
   FooterText,
   ListWrapper,
@@ -13,26 +11,15 @@ import {
   ListName,
   ListIamge,
   BestItemImage,
-  BestItemButton,
   BestItemName,
   BestItem
-  // BestItemButton,
-  // ImageCotainer,
-  // TextWrapper
 } from "./home.styles";
-import { useQuery } from "@apollo/client";
-import { FETCH_USED_ITEMS, FETCH_USED_ITEMS_OF_THE_BEST } from "./home.queires";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView, Text, View } from "react-native";
 import MainBanner from "../../commons/mainbanner";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CategoryList from "./category";
 import Carousel from "./carousel";
-import {
-  IQuery,
-  IQueryFetchUseditemsArgs
-} from "../../../commons/types/generated/types";
-import BestItems from "./bestItmes";
 import { Ionicons } from "@expo/vector-icons";
 
 const HomeUI = props => {
@@ -93,7 +80,7 @@ const HomeUI = props => {
               \n 사업자 등록번호 : 111-11-11111
               \n 통신판매업 신고번호 : 1111-서울경기-1111호
               \n 개인정보담당: service@readytable.co.kr
-              \n 서비스 이용약관 개인정보 처리방침 위치정보 이용약관 입점문의
+              \n      서비스   이용약관   개인정보   처리방침   위치정보   이용약관   입점문의
               `}
           </FooterText>
         </FooterWrapper>

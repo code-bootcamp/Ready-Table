@@ -17,11 +17,6 @@ export const DestinationContainer = styled.ScrollView`
 
 export const TextInputWrapper = styled.TextInput``;
 
-export const ImageCotainer = styled.ImageBackground`
-  width: 126px;
-  height: 159px;
-`;
-
 export const FooterWrapper = styled.View`
   background-color: white;
   margin-top: 30px;

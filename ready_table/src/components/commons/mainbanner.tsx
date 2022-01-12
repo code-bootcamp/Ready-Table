@@ -2,6 +2,8 @@ import React from "react";
 import styled from "@emotion/native";
 import { Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+
 const NotificationButton = styled.TouchableOpacity`
   margin-left: 20px;
 `;
@@ -34,13 +36,13 @@ const MainBanner = () => {
   return (
     <MainBannerWrapper>
       <NotificationButton onPress={() => navigation.navigate("detail", {})}>
-        <Image source={require("../../../public/images/notification.png")} />
+        <Ionicons name="ios-notifications-outline" size={30} color="black" />
       </NotificationButton>
       <MainbannerButton onPress={() => navigation.navigate("home", {})}>
         <LogoText>READY TABLE</LogoText>
       </MainbannerButton>
       <SearchiconButton onPress={() => navigation.navigate("detail", {})}>
-        <Image source={require("../../../public/images/search.png")} />
+        <Ionicons name="ios-search-outline" size={30} color="black" />
       </SearchiconButton>
     </MainBannerWrapper>
   );
