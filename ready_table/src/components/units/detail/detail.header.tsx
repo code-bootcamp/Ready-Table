@@ -1,7 +1,12 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity, Text } from "react-native";
-import { HeaderNavigator, HeaderWrapper, Mainimg } from "./detail.styles";
+import {
+  HeaderNavigator,
+  HeaderWrapper,
+  Mainimg,
+  NaviButton,
+  NaviText
+} from "./detail.styles";
 
 import { IdetailProps } from "./detail.types";
 
@@ -12,15 +17,15 @@ const DetailHeader = () => {
     <HeaderWrapper>
       <Mainimg source={require("../../../../public/images/burgerking.png")} />
       <HeaderNavigator>
-        <TouchableOpacity onPress={() => navigation.navigate("detail", {})}>
-          <Text>TEST</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("home", {})}>
-          <Text>사진</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("review", {})}>
-          <Text>리뷰</Text>
-        </TouchableOpacity>
+        <NaviButton onPress={() => navigation.navigate("datail")}>
+          <NaviText>홈</NaviText>
+        </NaviButton>
+        <NaviButton onPress={() => navigation.navigate("picture")}>
+          <NaviText>사진</NaviText>
+        </NaviButton>
+        <NaviButton onPress={() => navigation.navigate("review")}>
+          <NaviText>리뷰</NaviText>
+        </NaviButton>
       </HeaderNavigator>
     </HeaderWrapper>
   );

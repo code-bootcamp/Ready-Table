@@ -1,31 +1,23 @@
 import React from "react";
-
-import HomeScreen from "../screens/home";
 import DetailScreen from "../screens/detail";
-import SearchScreen from "../screens/search";
-
-import { createStackNavigator } from "@react-navigation/stack";
+import DetailContainer from "../../src/components/units/detail/detail.container";
 import PictureContainer from "../../src/components/units/detail/picturelist/picture.container";
 import ReviewList from "../../src/components/units/comment/review/list/ReviewList.container";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-const HomeNavigator = () => {
+const DetailNavigator = () => {
   return (
     <Stack.Navigator screenOptions={() => ({ headerShown: false })}>
       <Stack.Screen
-        name="home"
-        component={HomeScreen}
-        options={() => ({ headerShown: false })}
-      />
-      <Stack.Screen
-        name="detail"
+        name="datail"
         component={DetailScreen}
         options={() => ({ headerShown: false })}
       />
       <Stack.Screen
-        name="search"
-        component={SearchScreen}
+        name="detailMain"
+        component={DetailContainer}
         options={() => ({ headerShown: false })}
       />
       <Stack.Screen
@@ -42,4 +34,4 @@ const HomeNavigator = () => {
   );
 };
 
-export default HomeNavigator;
+export default DetailNavigator;
