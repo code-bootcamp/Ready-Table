@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Controller } from "react-hook-form";
 import { TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Login from "./socialLogin";
 import {
   Wrapper,
@@ -14,6 +15,7 @@ import {
 } from "./login.styles";
 
 const MainLoginUi = (props: any) => {
+  const navigation = useNavigation();
   return (
     <Wrapper>
       <LogoWrapper>
@@ -55,7 +57,7 @@ const MainLoginUi = (props: any) => {
 
       <TouchableOpacity
         onPress={() => {
-          props.navigation.navigate("SignUp");
+          navigation.navigate("signUp");
         }}
       >
         <SignUpWrapper>

@@ -1,11 +1,11 @@
 import { useMutation, useQuery } from "@apollo/client";
 import React, { useContext, useState } from "react";
 import { Alert } from "react-native";
-import { GlobalContext } from "../../../../../App";
+import { GlobalContext } from "../../../../../../App";
 import {
   IMutation,
   IMutationCreateUseditemQuestionArgs
-} from "../../../../commons/types/generated/types";
+} from "../../../../../commons/types/generated/types";
 import {
   CREATE_USED_ITEM_QUESTION,
   FETCH_USED_ITEM_QUESTIONS
@@ -57,8 +57,8 @@ const ReviewList = (props: IReviewListProps) => {
             el={el}
             reset={reset}
             data={reviewdata}
-            handleSubmit={handleSubmit}
-            control={control}
+            // handleSubmit={handleSubmit}
+            // control={control}
             onReviewSubmit={onReviewSubmit}
           />
         </ListItemWrapper>

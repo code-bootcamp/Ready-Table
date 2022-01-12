@@ -58,7 +58,6 @@ const MainLogin = props => {
   if (!userInfo) {
     return (
       <MainLoginUi
-        navigation={props.navigation}
         onAppLogin={onAppLogin}
         control={control}
         handleSubmit={handleSubmit}

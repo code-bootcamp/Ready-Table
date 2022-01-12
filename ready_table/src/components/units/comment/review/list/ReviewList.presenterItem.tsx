@@ -15,18 +15,20 @@ import {
 
 import { FontAwesome } from "@expo/vector-icons";
 import { IReviewListProps } from "./ReviewList.types";
-import { getDate } from "../../../commons/utils";
+import DetailHeader from "../../../detail/detail.header";
+// import { getDate } from "../../../../../commons/library/";
 const ReviewListUIItem = (props: IReviewListProps) => {
   return (
     <ScrollView>
       <Wrapper>
+        <DetailHeader />
         <TopWrapper>
           <UserWrapper>
             <FontAwesome name="user-circle-o" size={24} color="black" />
             {/* <Username> User </Username> */}
             <Username> {props.el?.user.name} </Username>
           </UserWrapper>
-          <Visitdata>{getDate(props.el?.createdAt)}</Visitdata>
+          {/* <Visitdata>{getDate(props.el?.createdAt)}</Visitdata> */}
         </TopWrapper>
         <ScrollView
           horizontal
@@ -34,13 +36,13 @@ const ReviewListUIItem = (props: IReviewListProps) => {
           pagingEnabled
         >
           <FoodImg
-            source={require("../../../../../public/images/nangmanboodae.jpg")}
+            source={require("../../../../../../public/images/nangmanboodae.jpg")}
           ></FoodImg>
           <FoodImg
-            source={require("../../../../../public/images/nangmanboodae.jpg")}
+            source={require("../../../../../../public/images/nangmanboodae.jpg")}
           ></FoodImg>
           <FoodImg
-            source={require("../../../../../public/images/nangmanboodae.jpg")}
+            source={require("../../../../../../public/images/nangmanboodae.jpg")}
           ></FoodImg>
         </ScrollView>
         <FootWrapper>
