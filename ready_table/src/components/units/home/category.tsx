@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Dimensions, ImageBackground, Image } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import styled from "@emotion/native";
 import { useNavigation } from "@react-navigation/native";
@@ -10,21 +10,11 @@ const CategofyMainWrapper = styled.ScrollView`
   height: 102px;
 `;
 
-const CategoryIconWrapper = styled.TouchableOpacity`
-  width: 67px;
-  height: 46px;
-  background-color: #f1eef6;
-  border-radius: 6px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* border-radius: 100%; */
-`;
-const CategoryIcon = styled.Image`
-  width: 26px;
-  height: 26px;
-`;
+const CategoryIconWrapper = styled.TouchableOpacity``;
+// const CategoryIcon = styled.Image`
+//   width: 10px;
+//   height: 10px;
+// `;
 
 const CategoryText = styled.Text`
   width: 38px;
@@ -38,107 +28,83 @@ const CategoryText = styled.Text`
   line-height: 11px;
   color: #4d4d72;
 `;
+const IconWrapper = styled.View``;
+
+const MyText = styled.Text`
+  text-align: center;
+  line-height: 56px;
+  color: white;
+  font-weight: bold;
+  /* font-color: white; */
+`;
+const CategoryIcon = styled.ImageBackground`
+  width: 54px;
+  height: 54px;
+  margin-left: 2px;
+  margin-right: 2px;
+`;
+const MyView = styled.View`
+  flex: 1;
+`;
 
 const CategoryList = props => {
   const navigation = useNavigation();
 
-  const categories = [
-    "전체",
-    "한식",
-    "양식",
-    "중식",
-    "분식",
-    "채식",
-    "패스트푸드",
-    "도시락"
+  const MyCategories = [
+    {
+      num: 1,
+      food: "한식",
+      image: require("../../../../public/images/korean.png")
+    },
+    {
+      num: 2,
+      food: "양식",
+      image: require("../../../../public/images/western.png")
+    },
+    {
+      num: 3,
+      food: "중식",
+      image: require("../../../../public/images/chinese.png")
+    },
+    {
+      num: 4,
+      food: "분식",
+      image: require("../../../../public/images/schoolfood.png")
+    },
+    {
+      num: 5,
+      food: "패스트푸드",
+      image: require("../../../../public/images/fastfood2.png")
+    },
+    {
+      num: 6,
+      food: "일식",
+      image: require("../../../../public/images/japanese.png")
+    },
+    {
+      num: 7,
+      food: "도시락",
+      image: require("../../../../public/images/lunchbox.png")
+    }
   ];
 
+  const Images = ["../../../../public/images/korean.png"];
   return (
     <CategofyMainWrapper horizontal showsHorizontalScrollIndicator={false}>
-      <CategoryIconWrapper
-        onPress={() =>
-          navigation.navigate("detail", {
-            // id: props.onPressCategory("배게")
-          })
-        }
-      >
-        <CategoryIcon
-          source={require("../../../../public/images/fastfood.png")}
-        />
-        <CategoryText>배게</CategoryText>
-      </CategoryIconWrapper>
-      <CategoryIconWrapper
-        onPress={() =>
-          navigation.navigate("detail", {
-            // id: props.onPressCategory("배게")
-          })
-        }
-      >
-        <CategoryIcon
-          source={require("../../../../public/images/fastfood.png")}
-        />
-        <CategoryText>배게</CategoryText>
-      </CategoryIconWrapper>
-      <CategoryIconWrapper
-        onPress={() =>
-          navigation.navigate("detail", {
-            // id: props.onPressCategory("배게")
-          })
-        }
-      >
-        <CategoryIcon
-          source={require("../../../../public/images/fastfood.png")}
-        />
-        <CategoryText>배게</CategoryText>
-      </CategoryIconWrapper>
-      <CategoryIconWrapper
-        onPress={() =>
-          navigation.navigate("detail", {
-            // id: props.onPressCategory("배게")
-          })
-        }
-      >
-        <CategoryIcon
-          source={require("../../../../public/images/fastfood.png")}
-        />
-        <CategoryText>배게</CategoryText>
-      </CategoryIconWrapper>
-      <CategoryIconWrapper
-        onPress={() =>
-          navigation.navigate("detail", {
-            // id: props.onPressCategory("배게")
-          })
-        }
-      >
-        <CategoryIcon
-          source={require("../../../../public/images/fastfood.png")}
-        />
-        <CategoryText>배게</CategoryText>
-      </CategoryIconWrapper>
-      <CategoryIconWrapper
-        onPress={() =>
-          navigation.navigate("detail", {
-            // id: props.onPressCategory("배게")
-          })
-        }
-      >
-        <CategoryIcon
-          source={require("../../../../public/images/fastfood.png")}
-        />
-        <CategoryText>배게</CategoryText>
-      </CategoryIconWrapper>
-      <CategoryIconWrapper
-        onPress={() =>
-          navigation.navigate("detail", {
-            // id: props.onPressCategory("배게")
-          })
-        }
-      >
-        <CategoryIcon
-          source={require("../../../../public/images/fastfood.png")}
-        />
-        <CategoryText>배게</CategoryText>
-      </CategoryIconWrapper>
+      {MyCategories.map(el => (
+        <CategoryIconWrapper
+          key={el.num}
+          onPress={() =>
+            navigation.navigate("detail", {
+              id: props.onPressCategory(el)
+            })
+          }
+        >
+          <CategoryIcon source={el.image} resizeMode="cover">
+            <MyText>{el.food}</MyText>
+          </CategoryIcon>
+        </CategoryIconWrapper>
+      ))}
     </CategofyMainWrapper>
   );
 };
