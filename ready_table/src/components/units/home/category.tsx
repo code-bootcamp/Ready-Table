@@ -87,8 +87,6 @@ const CategoryList = props => {
       image: require("../../../../public/images/lunchbox.png")
     }
   ];
-
-  const Images = ["../../../../public/images/korean.png"];
   return (
     <CategofyMainWrapper horizontal showsHorizontalScrollIndicator={false}>
       {MyCategories.map(el => (
