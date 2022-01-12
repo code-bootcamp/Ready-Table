@@ -110,11 +110,7 @@ const SearchUI = (props: any) => {
                   }}
                 />
                 <ProductNameAndPrice>
-                  <ProductName>
-                    {String(el.name.split("#")[1]).length > 60
-                      ? `${String(el.name.split("#")[1]).substr(0, 61)}...`
-                      : el.name.split("#")[1]}
-                  </ProductName>
+                  <ProductName>{String(el.name)}</ProductName>
                   <ProductPrice>{`${el.price
                     .toLocaleString("ko-KR")
                     .toString()
@@ -141,11 +137,7 @@ const SearchUI = (props: any) => {
                     }}
                   />
                   <ProductNameAndPrice>
-                    <ProductName>
-                      {String(el.name.split("#")[1]).length > 60
-                        ? `${String(el.name.split("#")[1]).substr(0, 61)}...`
-                        : el.name.split("#")[1]}
-                    </ProductName>
+                    <ProductName>{String(el.name)}</ProductName>
                     <ProductPrice>{`${el.price
                       .toLocaleString("ko-KR")
                       .toString()
