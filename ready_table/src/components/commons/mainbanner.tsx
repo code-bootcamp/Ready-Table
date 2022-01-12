@@ -20,6 +20,7 @@ const MainBannerWrapper = styled.SafeAreaView`
   align-items: center;
   width: 100%;
   height: 100px;
+  background-color: white;
 `;
 const LogoText = styled.Text`
   font-family: "Bungee";

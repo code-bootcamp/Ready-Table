@@ -21,7 +21,7 @@ const TabNavigator = () => {
         name="홈"
         component={HomeNavigator}
         options={{
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="home-sharp"

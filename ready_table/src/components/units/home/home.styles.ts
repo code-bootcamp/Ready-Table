@@ -3,7 +3,7 @@ import styled from "@emotion/native";
 export const HomeView = styled.SafeAreaView`
   align-items: center;
   width: 100%;
-  background-color: white;
+  background-color: #ffffff;
 `;
 
 export const CarouselWrapper = styled.View`
@@ -34,14 +34,13 @@ export const ListWrapper = styled.Pressable`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  /* flex-wrap: wrap, */
-  /* justify-content: "space-evenly", */
 `;
 
 export const List = styled.TouchableOpacity``;
 export const ListName = styled.Text`
   font-weight: bold;
   font-size: 15px;
+  margin-left: 10px;
 `;
 
 export const ListIamge = styled.Image`
@@ -64,7 +63,7 @@ export const BestPickTitle = styled.Text`
   padding-left: 26px;
 `;
 
-export const BestItemImage = styled.Image`
+export const BestItemImage = styled.ImageBackground`
   margin-right: 10px;
   width: 126px;
   height: 159px;
@@ -85,6 +84,7 @@ export const BestItemName = styled.Text`
 export const BestItemWrapper = styled.ScrollView`
 width: 100%
 height: 317px;
+
 `;
 
 export const BestItem = styled.TouchableOpacity`

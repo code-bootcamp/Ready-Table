@@ -33,7 +33,7 @@ import {
   IQueryFetchUseditemsArgs
 } from "../../../commons/types/generated/types";
 import BestItems from "./bestItmes";
-import { Restaurant } from "../search/seatch.styles";
+import { Ionicons } from "@expo/vector-icons";
 
 const HomeUI = props => {
   const navigation = useNavigation();
@@ -57,25 +57,28 @@ const HomeUI = props => {
               //   })
               // }
             >
-              <BestItemImage
-                source={{ uri: el.images[0] }}
-                resizeMode="cover"
-              />
+              <BestItemImage source={{ uri: el.images[0] }} resizeMode="cover">
+                <Ionicons
+                  name="bookmark"
+                  style={{ color: "#dd4124" }}
+                  size={25}
+                  // border-right-color: black;
+                />
+              </BestItemImage>
               <BestItemName>{el.name}</BestItemName>
             </BestItem>
           ))}
         </BestItemWrapper>
         <CategoryList onPressCategory={props.onPressCategory}></CategoryList>
-
         <ListWrapper>
           {props.data?.fetchUseditems.map((el, index) => (
             <List
               key={el._id}
-              // onPress={() =>
-              //   navigation.navigate("detail", {
-              //     // ustiemId: el._id
-              //   })
-              // }
+              onPress={() =>
+                navigation.navigate("detail", {
+                  ustiemId: el._id
+                })
+              }
             >
               <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
               <ListName>{el.name}</ListName>
