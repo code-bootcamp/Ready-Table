@@ -28,6 +28,8 @@ export const FooterText = styled.Text``;
 export const ListWrapper = styled.Pressable`
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 `;
 
@@ -39,7 +41,7 @@ export const ListName = styled.Text`
 `;
 
 export const ListIamge = styled.Image`
-  width: 175px;
+  width: 150px;
   height: 100px;
   border-top-left-radius: 10;
   border-top-right-radius: 10;

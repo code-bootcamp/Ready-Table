@@ -46,32 +46,33 @@ const HomeUI = props => {
           {props.bestData?.fetchUseditemsOfTheBest.map((el, index) => (
             <BestItem
               key={el._id}
-              // onPress={() =>
-              //   navigation.navigate("detail", {
-              //     // id: props.onPressCategory()
-              //   })
-              // }
+              onPress={() =>
+                navigation.navigate("detail", {
+                  useditemId: el._id
+                })
+              }
             >
               <BestItemImage source={{ uri: el.images[0] }} resizeMode="cover">
                 <Ionicons
                   name="bookmark"
                   style={{ color: "#dd4124" }}
                   size={25}
-                  // border-right-color: black;
                 />
               </BestItemImage>
               <BestItemName>{el.name}</BestItemName>
             </BestItem>
           ))}
         </BestItemWrapper>
-        <CategoryList onPressCategory={props.onPressCategory}></CategoryList>
+        <CategoryList></CategoryList>
         <ListWrapper>
           {props.data?.fetchUseditems.map((el, index) => (
             <List
               key={el._id}
               onPress={() =>
                 navigation.navigate("detail", {
+
                   id: props.onPressDetail(el)
+
                 })
               }
             >
