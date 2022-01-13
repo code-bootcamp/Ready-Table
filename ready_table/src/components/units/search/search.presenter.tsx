@@ -98,7 +98,7 @@ const SearchUI = (props: any) => {
             <ProductWrapper
               key={el._id}
               onPress={() => {
-                navigation.navigate("식당 상세보기", {
+                navigation.navigate("detail", {
                   id: props.onPressDetail(el)
                 });
               }}
@@ -109,8 +109,9 @@ const SearchUI = (props: any) => {
                     uri: el.images[0]
                   }}
                 />
+
                 <ProductNameAndPrice>
-                  <ProductName>{String(el.name)}</ProductName>
+                  <ProductName>{String(el.name).split("-")[1]}</ProductName>
                   <ProductPrice>{`${el.price
                     .toLocaleString("ko-KR")
                     .toString()
@@ -125,7 +126,7 @@ const SearchUI = (props: any) => {
               <ProductWrapper
                 key={el._id}
                 onPress={() => {
-                  navigation.navigate("식당 상세보기", {
+                  navigation.navigate("detail", {
                     id: props.onPressDetail(el)
                   });
                 }}
@@ -137,7 +138,7 @@ const SearchUI = (props: any) => {
                     }}
                   />
                   <ProductNameAndPrice>
-                    <ProductName>{String(el.name)}</ProductName>
+                    <ProductName>{String(el.name).split("-")[1]}</ProductName>
                     <ProductPrice>{`${el.price
                       .toLocaleString("ko-KR")
                       .toString()
