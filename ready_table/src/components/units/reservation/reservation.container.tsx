@@ -10,8 +10,8 @@ import {
   IUseditem
 } from "../../../commons/types/generated/types";
 
-import ReservationUI from "./reservation.presenter";
 import { FETCH_USED_ITEMS } from "./reservation.queries";
+import ReservationUI from "./reservation.presenter";
 
 const ReservationContainer = () => {
   const [productInfo, setProductInfo] = useState([]);
@@ -68,6 +68,7 @@ const ReservationContainer = () => {
       (favorite: any) => favorite.id !== el._id
     );
     AsyncStorage.setItem("@carts", JSON.stringify(afterDeleteMyFavoritePr));
+    console.log("삭제되었습니다.");
   };
 
   return (
