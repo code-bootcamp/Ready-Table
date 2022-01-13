@@ -41,18 +41,19 @@ const WriteUI = (props: IWritePorps) => {
           />
           <ProductInfo>
             <CategoryWrapper>
-              <Category>카테고리</Category>
+              <Category>식당이름</Category>
               <CategoryContent>
-                {props.data?.fetchUseditem.tags}
+                {props.data?.fetchUseditem.name}
               </CategoryContent>
             </CategoryWrapper>
             <ProductNameWrapper>
               <ProductName>
-                {String(props.data?.fetchUseditem.name.split("#")[1]).length > 9
+                {/* {String(props.data?.fetchUseditem.name.split("#")[1]).length > 9
                   ? `${String(
                       props.data?.fetchUseditem.name.split("#")[1]
                     ).substr(0, 10)}...`
-                  : props.data?.fetchUseditem.name.split("#")[1]}
+                  : props.data?.fetchUseditem.name.split("#")[1]} */}
+                {props.data?.fetchUseditem.remarks}
               </ProductName>
             </ProductNameWrapper>
             <ProductPriceWrapper>
@@ -61,7 +62,6 @@ const WriteUI = (props: IWritePorps) => {
                   .toLocaleString("ko-KR")
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                원
               </ProductPrice>
             </ProductPriceWrapper>
           </ProductInfo>

@@ -65,7 +65,7 @@ export const ProductPrice = styled.Text`
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-  color: #5b5bc0;
+  color: #eb4034;
 `;
 
 export const LabelWrapper = styled.View`

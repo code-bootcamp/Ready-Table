@@ -1,7 +1,16 @@
 export interface IReservationProps {
-  deleteMyFavoritePr: any;
+  onPressMoveToReviewWrite(el: any): never;
+  removeFew(
+    el: any
+  ): (event: import("react-native").GestureResponderEvent) => void;
+  DeleteBtn(
+    el: any
+  ): (event: import("react-native").GestureResponderEvent) => void;
+  onPressDetail: any;
+  isSoldOut: any;
+
   productInfo: any;
   soldOutList: any;
-  onClickDelete(key: any): void;
+
   basketItems: any;
 }
