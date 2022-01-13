@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useCallback,
+  useRef,
+  useEffect,
+  useContext
+} from "react";
 import {
   HomeView,
   DestinationContainer,
@@ -21,9 +27,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import CategoryList from "./category";
 import Carousel from "./carousel";
 import { Ionicons } from "@expo/vector-icons";
+import { GlobalContext } from "../../../../App";
 
 const HomeUI = props => {
   const navigation = useNavigation();
+  const { id } = useContext(GlobalContext);
   return (
     <ScrollView>
       <MainBanner />
@@ -63,7 +71,7 @@ const HomeUI = props => {
               key={el._id}
               onPress={() =>
                 navigation.navigate("detail", {
-                  ustiemId: el._id
+                  id: props.onPressDetail(el)
                 })
               }
             >
@@ -75,10 +83,10 @@ const HomeUI = props => {
         <FooterWrapper>
           <FooterText>
             {` (주) 레디테이블
-              \n 대표 : 홍길동
+              \n 대표 : 김태희
               \n 주소 : 서울특별시 구로구 구로동 188-25 지밸리비즈플라자 12층 1272호
-              \n 사업자 등록번호 : 111-11-11111
-              \n 통신판매업 신고번호 : 1111-서울경기-1111호
+              \n 사업자 등록번호 : 127-11-1272
+              \n 통신판매업 신고번호 : 1374-서울경기-1272호
               \n 개인정보담당: service@readytable.co.kr
               \n      서비스   이용약관   개인정보   처리방침   위치정보   이용약관   입점문의
               `}

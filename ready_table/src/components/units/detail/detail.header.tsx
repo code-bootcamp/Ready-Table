@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   HeaderNavigator,
@@ -9,13 +9,23 @@ import {
 } from "./detail.styles";
 
 import { IdetailProps } from "./detail.types";
+import { GlobalContext } from "../../../../App";
+import { useQuery } from "@apollo/client";
+import { FETCH_USEDITEM } from "./detail.queries";
 
-const DetailHeader = () => {
+const DetailHeader = (props: IdetailProps) => {
   const navigation = useNavigation();
 
   return (
     <HeaderWrapper>
-      <Mainimg source={require("../../../../public/images/burgerking.png")} />
+      <Mainimg
+        // key={el._id}
+        source={{
+          uri: `https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`
+        }}
+      />
+
+      {/* <Mainimg source={require("../../../../public/images/burgerking.png")} /> */}
       <HeaderNavigator>
         <NaviButton onPress={() => navigation.navigate("datail")}>
           <NaviText>홈</NaviText>

@@ -53,14 +53,17 @@ export const RemarksText = styled.Text`
 
 export const MenuText = styled.Text`
   padding-top: 7px;
-  font-size: 20px;
-  font-weight: 300;
-  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+
   color: #eb4034;
 `;
 
 export const ContentsText = styled.Text`
   padding-top: 7px;
+  color: #eb4034;
+  font-weight: 400;
+  padding-bottom: 15px;
 `;
 
 export const TimeTitleText = styled.Text`
@@ -73,17 +76,21 @@ export const TimeWrapper = styled.View`
 `;
 
 export const TimeBox = styled.TouchableHighlight`
-  width: 100px;
-  height: 40px;
+  width: 339px;
+  height: 70px;
   background-color: #eb4034;
   border-radius: 10px;
   margin: 10px;
-  padding-top: 10px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
 `;
 
 export const TimeText = styled.Text`
   color: white;
   text-align: center;
+  font-weight: 600;
+  font-size: 18px;
 `;
 
 export const IconWrapper = styled.View`
@@ -102,7 +109,7 @@ export const IconText = styled.Text`
 
 export const Mainimg = styled.Image`
   width: 100%;
-  height: 300px;
+  height: 250px;
 `;
 
 export const LineWrapper = styled.View`
@@ -128,4 +135,11 @@ export const HeaderNavigator = styled.View`
   justify-content: space-around;
   align-items: center;
   height: 50px;
+  background-color: white;
 `;
+
+export const NaviButton = styled.TouchableOpacity`
+  border-bottom-color: #eb4034;
+`;
+
+export const NaviText = styled.Text``;

@@ -15,8 +15,13 @@ import {
 
 import { FontAwesome } from "@expo/vector-icons";
 import { IReviewListProps } from "./ReviewList.types";
+
+<<<<<<< Updated upstream
 import DetailHeader from "../../../detail/detail.header";
 // import { getDate } from "../../../../../commons/library/";
+
+=======
+>>>>>>> Stashed changes
 const ReviewListUIItem = (props: IReviewListProps) => {
   return (
     <ScrollView>
@@ -29,6 +34,11 @@ const ReviewListUIItem = (props: IReviewListProps) => {
             <Username> {props.el?.user.name} </Username>
           </UserWrapper>
           {/* <Visitdata>{getDate(props.el?.createdAt)}</Visitdata> */}
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
+          <Visitdata>{props.el?.createdAt}</Visitdata>
         </TopWrapper>
         <ScrollView
           horizontal
