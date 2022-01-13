@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Image, ScrollView, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import styled from "@emotion/native";
-export const BestItemContainer = styled.View`
+export const BestItemContainer = styled.TouchableOpacity`
   padding-top: 50px;
   width: 100%
   height: 317px;
@@ -18,13 +18,18 @@ const BestItems = props => {
 
   return (
     <View>
-      <TouchableOpacity onPress={() => navigation.navigate("detail", {})}>
-        {props.bestData?.fetchUseditemsOfTheBest.map((el, index) => (
-          <BestItemContainer key={el._id}>
-            <BestItemImage source={{ uri: el.images[0] }} />
-          </BestItemContainer>
-        ))}
-      </TouchableOpacity>
+      {props.bestData?.fetchUseditemsOfTheBest.map((el, index) => (
+        <BestItemContainer
+          key={el._id}
+          onPress={() =>
+            navigation.navigate("detail", {
+              useditemId: el._id
+            })
+          }
+        >
+          <BestItemImage source={{ uri: el.images[0] }} />
+        </BestItemContainer>
+      ))}
     </View>
   );
 };

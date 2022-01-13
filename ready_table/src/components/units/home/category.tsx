@@ -46,7 +46,7 @@ const CategoryIcon = styled.ImageBackground`
 const MyView = styled.View`
   flex: 1;
 `;
-
+const onPressDetail = (el: any) => {};
 const CategoryList = props => {
   const navigation = useNavigation();
 
@@ -93,8 +93,8 @@ const CategoryList = props => {
         <CategoryIconWrapper
           key={el.num}
           onPress={() =>
-            navigation.navigate("detail", {
-              id: props.onPressCategory(el)
+            navigation.navigate("categorydetail", {
+              id: el.food
             })
           }
         >

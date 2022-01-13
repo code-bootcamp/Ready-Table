@@ -100,11 +100,8 @@ const HomeUI: React.FC<CustomCarouselProps> = props => {
         <NewsText style={{ fontSize: 30 }}>
           {`\n`}
           {`\n`}
-          {`\n`}
           <MiniText>{item.message1}</MiniText>
           {`\n`}
-          {`\n`}
-
           {item.message2}
         </NewsText>
       </CarouselView>

@@ -24,14 +24,16 @@ const HomeContainer = () => {
   const onPressDetail = (el: any) => {
     setId(el._id);
   };
-  const onPressCategory = value => {
-    setTagId(value);
-  };
+  // console.log(data.fetchUseditems.tag);
+
+  // const onPressCategory = value => {
+  //   setTagId(value);
+  // };
   return (
     <HomeUI
       data={data}
       onPressDetail={onPressDetail}
-      onPressCategory={onPressCategory}
+      // onPressCategory={onPressCategory}
       bestData={bestData}
     />
   );
