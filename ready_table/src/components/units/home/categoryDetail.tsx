@@ -42,9 +42,8 @@ const categoryDetail = ({ route }) => {
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS, { variables: { search: route.params.id } });
-
+  // console.log(route.params.id);
   console.log(data);
-
   return (
     <ListWrapper>
       {data?.fetchUseditems.map((el, index) => (
@@ -57,7 +56,8 @@ const categoryDetail = ({ route }) => {
           }
         >
           <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
-          <ListName>{el.name}</ListName>
+          <ListName> {String(el.name).split("-")[1]}</ListName>
+          {/* {String(el.name).split("-")[1]} */}
         </List>
       ))}
     </ListWrapper>

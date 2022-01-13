@@ -9,7 +9,7 @@ import PictureContainer from "../../src/components/units/detail/picturelist/pict
 
 import DetailReviewContainer from "../../src/components/units/detail/reviewlist/reviewlist.container";
 import ReservationScreen from "../screens/reservation";
-
+import categoryDetail from "../../src/components/units/home/categoryDetail";
 
 const Stack = createStackNavigator();
 
