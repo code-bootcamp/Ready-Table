@@ -21,7 +21,7 @@ export default function SignupUI(props) {
     <>
       <Wrapper>
         <SignupWrapper>
-          <Logo src="" />
+          <Logo src="images/logo.png" />
           <MainTitleWrapper>
             <Line />
             <TitleText>회원가입</TitleText>
