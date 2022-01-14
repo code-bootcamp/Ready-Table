@@ -30,7 +30,7 @@ const UserWriteContainer = () => {
         }
       });
       Alert.alert("리뷰를 등록합니다~");
-      navigation.navigate("review");
+      // navigation.navigate("review");/
       //   navigation.navigate("마이 페이지");
     } catch (error) {
       Alert.alert(error.message);

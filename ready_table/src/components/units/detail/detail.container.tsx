@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Alert, Modal } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -26,8 +26,10 @@ const DetailContainer = () => {
   >(FETCH_USEDITEM, {
     variables: { useditemId: id }
   });
+  const [time, setTime] = useState();
   // 데이터없을때는 로그인을하세요.
 
+  const [personnel, SetPersonnel] = useState([]);
   const cartProduct: IProduct = {
     productName: data?.fetchUseditem.name,
     productContents: data?.fetchUseditem.contents,
@@ -36,11 +38,14 @@ const DetailContainer = () => {
     id: data?.fetchUseditem._id,
     images: data?.fetchUseditem.images,
     remarks: data?.fetchUseditem.remarks,
-    createdAt: data?.fetchUseditem.createdAt
+    // createdAt: "12:00"
+    createdAt: time,
+    personnel
   };
   // console.log(cartProduct, "cart");
+  const Res = () => {};
   const onPressCart = async () => {
-    const a: any = await AsyncStorage.getItem("@carts");
+    const a: any = await AsyncStorage.getItem("@carts" + time);
     const reservation = JSON.parse(a) || [];
 
     console.log(a);
@@ -68,11 +73,18 @@ const DetailContainer = () => {
 
     reservation.push(cartProduct);
     AsyncStorage.setItem("@carts", JSON.stringify(reservation));
-    Alert.alert("", "예약을 하시겠습니까?");
+    Alert.alert("setItem", "예약을 하시겠습니까?");
     // navigation.navigate("reservation");
   };
 
-  return <DetailUI data={data} onPressCart={onPressCart} />;
+  return (
+    <DetailUI
+      data={data}
+      onPressCart={onPressCart}
+      time={time}
+      setTime={setTime}
+    />
+  );
 };
 
 export default DetailContainer;

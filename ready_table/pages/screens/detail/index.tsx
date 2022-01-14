@@ -9,7 +9,6 @@ const DetailScreen = () => {
   return (
     <>
       <DetailHeader />
-
       <DetailContainer />
       {/* <UserWriteContainer /> */}
       {/* <DetailReviewContainer /> */}

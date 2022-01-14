@@ -93,21 +93,3 @@ const DetailUI = (props: IdetailProps) => {
 };
 
 export default DetailUI;
-
-/* {props.data?.fetchUseditems[7].images
-  ?.filter(el => el)
-  .map(el => (
-    <Photo
-      key={el}
-      source={{ uri: `https://storage.googleapis.com/${el}` }}
-    />
-  ))} */
-
-/* 맵으로 뿌려보기 or 인덱스값으로 데이터가져와보기 */
-
-/* <AAA>{props.items?.fetchUseditems[0].name}</AAA>
-<AAA>{props.items?.fetchUseditems[0].price}</AAA>
-<CartButton onPress={props.onPressCart}>
-  <CartText>예약하기-</CartText>
-</CartButton>
-</Wrapper> */

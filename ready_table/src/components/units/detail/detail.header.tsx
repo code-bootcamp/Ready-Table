@@ -18,12 +18,16 @@ const DetailHeader = (props: IdetailProps) => {
 
   return (
     <HeaderWrapper>
-      <Mainimg
-        // key={el._id}
-        source={{
-          uri: `https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`
-        }}
-      />
+      {props.data?.fetchUseditem.images ? (
+        <Mainimg
+          // key={el._id}
+          source={{
+            uri: `https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`
+          }}
+        />
+      ) : (
+        <Mainimg source={require("../../../../public/images/brunch.jpg")} />
+      )}
 
       {/* <Mainimg source={require("../../../../public/images/burgerking.png")} /> */}
       <HeaderNavigator>

@@ -75,7 +75,7 @@ export const TimeWrapper = styled.View`
   flex-direction: row;
 `;
 
-export const TimeBox = styled.TouchableHighlight`
+export const TimeBox = styled.TouchableOpacity`
   width: 339px;
   height: 70px;
   background-color: #eb4034;
