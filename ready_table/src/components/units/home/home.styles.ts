@@ -70,8 +70,6 @@ export const BestItemImage = styled.ImageBackground`
   border-bottom-right-radius: 10;
 `;
 
-export const BestItemButton = styled.TouchableOpacity``;
-
 export const BestItemName = styled.Text`
   margin-vertical: 10px;
   font-family: NotoSans;

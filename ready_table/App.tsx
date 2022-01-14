@@ -33,6 +33,7 @@ interface IUserInfo {
 }
 
 function App() {
+  console.disableYellowBox = true;
   const [accessToken, setAccessToken] = useState("");
   // const [isSearchHidden, setIsHomeHidden] = useState("");
   const [id, setId] = useState("");
