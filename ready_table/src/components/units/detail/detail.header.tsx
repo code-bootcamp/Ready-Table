@@ -17,7 +17,7 @@ const DetailHeader = () => {
     <HeaderWrapper>
       <Mainimg source={require("../../../../public/images/burgerking.png")} />
       <HeaderNavigator>
-        <NaviButton onPress={() => navigation.navigate("datail")}>
+        <NaviButton onPress={() => navigation.navigate("detail")}>
           <NaviText>홈</NaviText>
         </NaviButton>
         <NaviButton onPress={() => navigation.navigate("picture")}>

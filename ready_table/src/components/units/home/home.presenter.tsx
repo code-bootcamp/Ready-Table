@@ -25,7 +25,7 @@ import { Ionicons } from "@expo/vector-icons";
 const HomeUI = props => {
   const navigation = useNavigation();
   return (
-    <ScrollView>
+    <ScrollView stickyHeaderIndices={[0]}>
       <MainBanner />
       <HomeView>
         <Carousel></Carousel>

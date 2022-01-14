@@ -4,7 +4,10 @@ export const ScrollView = styled.ScrollView`
   background-color: white;
 `;
 
-export const MyPageContainer = styled.View``;
+export const MyPageContainer = styled.View`
+  padding-top: 50px;
+  /* margin-top: 50px; */
+`;
 
 export const MyPageHeader = styled.View`
   margin: 0 auto;

@@ -15,11 +15,7 @@ const PickListNavigator = () => {
         component={PickListScreen}
         options={() => ({ headerShown: false })}
       />
-      <Stack.Screen
-        name="상세보기"
-        component={DetailScreen}
-        options={() => ({ headerShown: false })}
-      />
+
       <Stack.Screen
         name="picture"
         component={PictureContainer}
@@ -30,11 +26,11 @@ const PickListNavigator = () => {
         component={ReviewList}
         options={() => ({ headerShown: false })}
       />
-      <Stack.Screen
-        name="datail"
+      {/* <Stack.Screen
+        name="상세보기"
         component={DetailScreen}
         options={() => ({ headerShown: false })}
-      />
+      /> */}
     </Stack.Navigator>
   );
 };

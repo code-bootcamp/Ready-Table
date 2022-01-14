@@ -98,7 +98,7 @@ const SearchUI = (props: any) => {
             <ProductWrapper
               key={el._id}
               onPress={() => {
-                navigation.navigate("식당 상세보기", {
+                navigation.navigate("detail", {
                   id: props.onPressDetail(el)
                 });
               }}
@@ -125,7 +125,7 @@ const SearchUI = (props: any) => {
               <ProductWrapper
                 key={el._id}
                 onPress={() => {
-                  navigation.navigate("식당 상세보기", {
+                  navigation.navigate("detail", {
                     id: props.onPressDetail(el)
                   });
                 }}

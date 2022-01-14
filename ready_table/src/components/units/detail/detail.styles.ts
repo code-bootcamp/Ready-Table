@@ -129,3 +129,6 @@ export const HeaderNavigator = styled.View`
   align-items: center;
   height: 50px;
 `;
+
+export const NaviButton = styled.TouchableOpacity``;
+export const NaviText = styled.Text``;
