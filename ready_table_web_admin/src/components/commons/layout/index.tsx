@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-import Header from "./header";
+import Header from "./header/header.container";
 import Sidebar from "./sidebar/sidebar.container";
 
 const Wrapper = styled.div`
@@ -19,7 +19,7 @@ const Body = styled.div`
 `;
 
 const MainBody = styled.div`
-  background-color: yellow;
+  background-color: white;
 `;
 
 const HiddenLayout = ["/", "/login", "/signup"];

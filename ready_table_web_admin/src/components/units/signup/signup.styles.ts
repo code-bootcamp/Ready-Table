@@ -35,7 +35,7 @@ export const MainTitleWrapper = styled.div`
 export const Line = styled.div`
   width: 98px;
   height: 0px;
-  border: 1px solid #5b5bc0;
+  border: 1px solid #dd4124;
 `;
 
 export const TitleText = styled.div`
@@ -45,12 +45,12 @@ export const TitleText = styled.div`
   line-height: 25px;
   margin-left: 18px;
   margin-right: 18px;
-  color: #5b5bc0;
+  color: #dd4124;
 `;
 export const MainInput = styled.input`
   width: 339px;
   height: 48px;
-  border: 1px solid #5b5bc0;
+  border: 1px solid #dd4124;
   border-radius: 8px;
   margin-top: 4px;
   padding-left: 10px;
@@ -62,7 +62,7 @@ export const MainLabel = styled.div`
   font-size: 14px;
   line-height: 19px;
   margin-bottom: 4px;
-  color: #5b5bc0;
+  color: #dd4124;
 `;
 export const AdminOptionWrapper = styled.div`
   display: flex;
@@ -78,7 +78,7 @@ export const OptionLabel = styled.div`
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
-  color: #5b5bc0;
+  color: #dd4124;
 `;
 export const AdminOption = styled.input`
   margin-right: 5px;
@@ -87,8 +87,8 @@ export const AdminOption = styled.input`
 export const MainButton = styled.button`
   width: 339px;
   height: 48px;
-  background: #5b5bc0;
-  border: 1px solid #5b5bc0;
+  background: #dd4124;
+  border: 1px solid #dd4124;
   border-radius: 8px;
   font-family: NotoSans-Bold;
   font-style: normal;

@@ -29,7 +29,7 @@ export default function MainUI(props) {
             <MainInput type="text" onChange={props.onChangeEmail}></MainInput>
             <Error>{props.emailError}</Error>
           </InputWrapper>
-          <div>테스트테스트</div>
+
           <InputWrapper>
             <MainLabel>비밀번호</MainLabel>
             <MainInput
