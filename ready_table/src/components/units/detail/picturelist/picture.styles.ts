@@ -6,14 +6,16 @@ export const PictureWrapper = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
   align-items: center;
-  margin: 3px;
+  /* margin: 3px; */
 `;
 
 export const Picture = styled.Image`
-  width: 117px;
-  height: 117px;
+  width: 30%;
+  height: 30%;
   border-radius: 1px;
   margin: 3px;
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import ReviewUploadContainer from "../../../commons/reviewupload/reviewupload.container";
+
 import {
   Category,
   CategoryContent,
@@ -29,6 +29,7 @@ import {
 } from "./write.styles";
 import { IWritePorps } from "./write.types";
 import { AntDesign } from "@expo/vector-icons";
+import ReviewUploadContainer from "../../../commons/reviewupload/reviewupload.container";
 const WriteUI = (props: IWritePorps) => {
   return (
     <ScrollView>
@@ -71,7 +72,7 @@ const WriteUI = (props: IWritePorps) => {
           <LableLine />
         </LabelWrapper>
         <ReviewPhotoWrapper>
-          {/* <ReviewUploadContainer setImage={props.setImage} /> */}
+          <ReviewUploadContainer setImage={props.setImage} />
           <FlexLine />
         </ReviewPhotoWrapper>
         <LabelWrapper>

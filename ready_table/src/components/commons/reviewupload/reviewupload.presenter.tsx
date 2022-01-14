@@ -5,13 +5,13 @@ import {
   Plus,
   Preview,
   PreviewUpload,
-  Wrappaer,
+  Wrappaer
 } from "./reviewupload.styles";
 
 const ReviewUploadUI = (props: any) => {
   return (
     <>
-      <Wrappaer onPress={props.onPressOpenAlbum}>
+      <Wrappaer onPress={() => props.onPressOpenAlbum}>
         {props.imageUri.uri === "" ? (
           <ReviewPhotoUpload>
             <Plus>+</Plus>

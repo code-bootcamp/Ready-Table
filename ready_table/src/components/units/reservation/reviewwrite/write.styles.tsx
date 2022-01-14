@@ -45,7 +45,7 @@ export const Category = styled.Text`
 export const CategoryContent = styled.Text`
   font-size: 12px;
   line-height: 15px;
-  color: #5b5bc0;
+  color: #eb4034;
   margin-left: 2px;
 `;
 export const ProductNameWrapper = styled.View`
