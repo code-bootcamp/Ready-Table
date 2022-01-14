@@ -21,7 +21,7 @@ const TabNavigator = () => {
         name="홈"
         component={HomeNavigator}
         options={{
-          headerShown: true,
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="home-sharp"
@@ -35,6 +35,7 @@ const TabNavigator = () => {
         name="검색"
         component={SearchNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="search"
@@ -48,6 +49,7 @@ const TabNavigator = () => {
         name="마이 리스트"
         component={PickListNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="bookmark"
@@ -61,6 +63,7 @@ const TabNavigator = () => {
         name="예약 리스트"
         component={ReservationNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="calendar-sharp"
@@ -74,6 +77,7 @@ const TabNavigator = () => {
         name="마이페이지"
         component={MyPageNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="person-sharp"

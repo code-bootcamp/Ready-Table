@@ -6,6 +6,7 @@ export const Wrapper = styled.View`
   height: 100%;
   padding: 10px;
   background-color: white;
+  padding-top: 50px;
 `;
 
 export const ListTitleWrapper = styled.View`

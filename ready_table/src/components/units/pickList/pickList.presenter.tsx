@@ -52,7 +52,7 @@ const PickListUI = (props: any) => {
           <PickListCard
             key={el._id}
             onPress={() => {
-              navigation.navigate("상세보기", {
+              navigation.navigate("detail", {
                 id: props.onPressDetail(el)
               });
             }}
@@ -60,7 +60,7 @@ const PickListUI = (props: any) => {
             {el.images[0] ? (
               <PickListImage
                 source={{
-                  uri: `https://storage.googleapis.com/${el.images[0]}`
+                  uri: `${el.images[0]}`
                 }}
               />
             ) : (

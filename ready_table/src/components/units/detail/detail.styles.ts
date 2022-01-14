@@ -135,13 +135,11 @@ export const HeaderNavigator = styled.View`
   justify-content: space-around;
   align-items: center;
   height: 50px;
-
   background-color: white;
 `;
 
 export const NaviButton = styled.TouchableOpacity`
   border-bottom-color: #eb4034;
 `;
-
 
 export const NaviText = styled.Text``;

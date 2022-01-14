@@ -33,7 +33,7 @@ const HomeUI = props => {
   const navigation = useNavigation();
   const { id } = useContext(GlobalContext);
   return (
-    <ScrollView>
+    <ScrollView stickyHeaderIndices={[0]}>
       <MainBanner />
       <HomeView>
         <Carousel></Carousel>

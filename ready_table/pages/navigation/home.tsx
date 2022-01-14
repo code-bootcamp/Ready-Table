@@ -21,11 +21,7 @@ const HomeNavigator = () => {
         component={HomeScreen}
         options={() => ({ headerShown: false })}
       />
-      <Stack.Screen
-        name="detail"
-        component={DetailScreen}
-        options={() => ({ headerShown: false })}
-      />
+
       <Stack.Screen
         name="search"
         component={SearchScreen}

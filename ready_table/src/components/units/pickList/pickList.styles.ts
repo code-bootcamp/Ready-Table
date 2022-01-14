@@ -5,7 +5,7 @@ export const ScrollView = styled.ScrollView`
 `;
 
 export const PickListContainer = styled.View`
-  /* padding-left: 26px; */
+  padding-top: 35px;
 `;
 
 export const MyListHeader = styled.View``;

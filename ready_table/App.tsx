@@ -20,6 +20,7 @@ import { getAccessToken } from "./src/commons/library/utils/getAccessToken";
 // import LandingPage from "./pages/screens/landing";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
+import MainNavigator from "./pages/navigation/mainNavigator";
 
 // import DetailsScreen from "./pages/screens/detail";
 
@@ -101,7 +102,7 @@ function App() {
           <NavigationContainer>
             <Stack.Navigator screenOptions={{ headerShown: false }}>
               {accessToken ? (
-                <Stack.Screen name="tabNavigator" component={TabNavigator} />
+                <Stack.Screen name="mainNavigator" component={MainNavigator} />
               ) : (
                 <Stack.Screen name="Login" component={LoginNavigator} />
               )}
