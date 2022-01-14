@@ -16,6 +16,7 @@ import {
   NotiText2,
   NotiText3,
   NotiWrapper,
+  Photo,
   RemarksText,
   TimeBox,
   TimeText,
@@ -25,7 +26,6 @@ import {
   Wrapper
 } from "./detail.styles";
 import { IdetailProps } from "./detail.types";
-const STORAGE_KEY = "@carts";
 
 const DetailUI = (props: IdetailProps) => {
   return (
@@ -39,27 +39,35 @@ const DetailUI = (props: IdetailProps) => {
       </NotiWrapper>
       <LineBar></LineBar>
       <DataWrapper>
+        <TitleText>{props.data?.fetchUseditem.name}</TitleText>
         {/* <TitleText>{props.data?.fetchUseditem.name}</TitleText> */}
-        <TitleText>{props.items?.fetchUseditems[0].name}</TitleText>
-        {/* <RemarksText>{props.data?.fetchUseditem.remarks}</RemarksText> */}
-        <RemarksText>{props.items?.fetchUseditems[0].remarks}</RemarksText>
-        <MenuText>가격대</MenuText>
-        <ContentsText>{props.items?.fetchUseditems[0].contents}</ContentsText>
-        <ContentsText>안심카츠 : 13000원</ContentsText>
-        <ContentsText>등심카츠 : 11000원</ContentsText>
+        {/* <TitleText>{props.items?.fetchUseditems[0].name}</TitleText> */}
+        <RemarksText>{props.data?.fetchUseditem.remarks}</RemarksText>
+        {/* <RemarksText>{props.items?.fetchUseditems[0].remarks}</RemarksText> */}
+        {/* <MenuText>정보</MenuText> */}
+        <ContentsText>{props.data?.fetchUseditem.contents}</ContentsText>
+
+        {props.data?.fetchUseditem.images
+          ?.filter(el => el)
+          .map(el => (
+            <Photo
+              key={el}
+              source={{ uri: `https://storage.googleapis.com/${el}` }}
+            />
+          ))}
       </DataWrapper>
       <LineBar></LineBar>
-      <TimeTitleText>예약가능 시간</TimeTitleText>
+      {/* <TimeTitleText>예약가능 시간</TimeTitleText> */}
       <TimeWrapper>
         <TimeBox onPress={props.onPressCart}>
-          <TimeText>오전 11:00</TimeText>
+          <TimeText>오늘 점심예약하기</TimeText>
         </TimeBox>
-        <TimeBox onPress={props.onPressCart}>
+        {/* <TimeBox onPress={props.onPressCart}>
           <TimeText>오후 12:00</TimeText>
         </TimeBox>
         <TimeBox onPress={props.onPressCart}>
           <TimeText>오후 01:00</TimeText>
-        </TimeBox>
+        </TimeBox> */}
       </TimeWrapper>
       <LineBar></LineBar>
       <IconWrapper>
@@ -85,27 +93,3 @@ const DetailUI = (props: IdetailProps) => {
 };
 
 export default DetailUI;
-
-/* {props.data?.fetchUseditems[7].images
-  ?.filter(el => el)
-  .map(el => (
-    <Photo
-      key={el}
-      source={{ uri: `https://storage.googleapis.com/${el}` }}
-    />
-  ))} */
-
-/* 맵으로 뿌려보기 or 인덱스값으로 데이터가져와보기 */
-
-/* {props.items?.fetchUseditems
-  ?.filter((el: any) => el)
-  .map(el => (
-    <AAA>{el.name}</AAA>
-  ))} */
-
-/* <AAA>{props.items?.fetchUseditems[0].name}</AAA>
-<AAA>{props.items?.fetchUseditems[0].price}</AAA>
-<CartButton onPress={props.onPressCart}>
-  <CartText>예약하기-</CartText>
-</CartButton>
-</Wrapper> */

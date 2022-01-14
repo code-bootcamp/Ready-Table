@@ -6,7 +6,10 @@ import SearchScreen from "../screens/search";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import PictureContainer from "../../src/components/units/detail/picturelist/picture.container";
-import ReviewList from "../../src/components/units/comment/review/list/ReviewList.container";
+
+import DetailReviewContainer from "../../src/components/units/detail/reviewlist/reviewlist.container";
+import ReservationScreen from "../screens/reservation";
+import categoryDetail from "../../src/components/units/home/categoryDetail";
 
 const Stack = createStackNavigator();
 
@@ -31,7 +34,17 @@ const HomeNavigator = () => {
       />
       <Stack.Screen
         name="review"
-        component={ReviewList}
+        component={DetailReviewContainer}
+        options={() => ({ headerShown: false })}
+      />
+      <Stack.Screen
+        name="reservation"
+        component={ReservationScreen}
+        options={() => ({ headerShown: false })}
+      />
+      <Stack.Screen
+        name="categorydetail"
+        component={categoryDetail}
         options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>

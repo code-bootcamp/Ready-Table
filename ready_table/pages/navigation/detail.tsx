@@ -2,8 +2,9 @@ import React from "react";
 import DetailScreen from "../screens/detail";
 import DetailContainer from "../../src/components/units/detail/detail.container";
 import PictureContainer from "../../src/components/units/detail/picturelist/picture.container";
-import ReviewList from "../../src/components/units/comment/review/list/ReviewList.container";
+
 import { createStackNavigator } from "@react-navigation/stack";
+import DetailReviewContainer from "../../src/components/units/detail/reviewlist/reviewlist.container";
 
 const Stack = createStackNavigator();
 
@@ -27,7 +28,7 @@ const DetailNavigator = () => {
       />
       <Stack.Screen
         name="review"
-        component={ReviewList}
+        component={DetailReviewContainer}
         options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>

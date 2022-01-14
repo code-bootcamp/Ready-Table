@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Alert } from "react-native";
+import { Alert, Modal } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import DetailUI from "./detail.presenter";
@@ -15,10 +15,9 @@ import {
 } from "../../../commons/types/generated/types";
 import { FETCH_USEDITEM } from "./detail.queries";
 import { IProduct } from "./detail.types";
-
+const STORAGE_KEY = "@carts";
 const DetailContainer = () => {
   const navigation = useNavigation();
-  const { setId, setTagId } = useContext(GlobalContext);
 
   const { id } = useContext(GlobalContext);
   const { data } = useQuery<
@@ -27,36 +26,38 @@ const DetailContainer = () => {
   >(FETCH_USEDITEM, {
     variables: { useditemId: id }
   });
-  const { data: items } = useQuery<
-    Pick<IQuery, "fetchUseditems">,
-    IQueryFetchUseditemsArgs
-  >(FETCH_USED_ITEMS);
+  const [time, setTime] = useState();
+  // 데이터없을때는 로그인을하세요.
 
-  // console.log(items, "gggg"); 데이터없을때는 로그인을하세요.
-
+  const [personnel, SetPersonnel] = useState([]);
   const cartProduct: IProduct = {
-    productName: items?.fetchUseditems[0].name,
-    productContents: items?.fetchUseditems[0].contents,
-    productPrice: items?.fetchUseditems[0].price,
-    seller: items?.fetchUseditems[0].seller,
-    id: items?.fetchUseditems[0]._id,
-    images: items?.fetchUseditems[0].images,
-    remarks: items?.fetchUseditems[0].remarks
+    productName: data?.fetchUseditem.name,
+    productContents: data?.fetchUseditem.contents,
+    productPrice: data?.fetchUseditem.price,
+    seller: data?.fetchUseditem.seller,
+    id: data?.fetchUseditem._id,
+    images: data?.fetchUseditem.images,
+    remarks: data?.fetchUseditem.remarks,
+    // createdAt: "12:00"
+    createdAt: time,
+    personnel
   };
-
+  // console.log(cartProduct, "cart");
+  const Res = () => {};
   const onPressCart = async () => {
-    const a: any = await AsyncStorage.getItem("@carts");
+    const a: any = await AsyncStorage.getItem("@carts" + time);
     const reservation = JSON.parse(a) || [];
 
+    console.log(a);
     let isExists = false;
     reservation.forEach((el: any) => {
-      if (el.id === id) {
+      if (el._id === id) {
         isExists = true;
       }
     });
 
     // 상품이 늦게 받아와지는 이슈가 있음. 그래서 일단 안받아와졌으면 알람띄우고 리턴
-    if (!items?.fetchUseditems[0].name || !items?.fetchUseditems[0].price) {
+    if (!data?.fetchUseditem.name || !data?.fetchUseditem.price) {
       Alert.alert("", "예약내역이 아직 없습니다.", [
         { text: "OK", onPress: () => console.log("OK Pressed") }
       ]);
@@ -72,12 +73,18 @@ const DetailContainer = () => {
 
     reservation.push(cartProduct);
     AsyncStorage.setItem("@carts", JSON.stringify(reservation));
-    console.log(a);
-    // navigation.navigate("예악내역");
-    //이부분은 수정이 필요하다.도와ㅏ줘요 네비게이션 마스터 핸솔!!
+    Alert.alert("setItem", "예약을 하시겠습니까?");
+    // navigation.navigate("reservation");
   };
 
-  return <DetailUI data={data} items={items} onPressCart={onPressCart} />;
+  return (
+    <DetailUI
+      data={data}
+      onPressCart={onPressCart}
+      time={time}
+      setTime={setTime}
+    />
+  );
 };
 
 export default DetailContainer;

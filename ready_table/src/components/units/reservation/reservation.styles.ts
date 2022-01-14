@@ -1,4 +1,5 @@
 import styled from "@emotion/native";
+import { IReservationProps } from "./reservation.types";
 
 export const Wrapper = styled.View`
   width: 100%;
@@ -8,64 +9,74 @@ export const Wrapper = styled.View`
   padding-top: 50px;
 `;
 
-export const MainTitle = styled.Text`
-  font-size: 20px;
-  font-weight: 600;
-  padding-bottom: 15px;
+export const ListTitleWrapper = styled.View`
+  border-color: #eb4034;
+  border-radius: 10px;
+  margin: 10px;
 `;
 
-export const TableTop = styled.View`
-  width: 50%;
-  border-bottom-width: 3px;
-  border-bottom-color: black;
-
-  margin-bottom: 50px;
+export const TitleText = styled.Text`
+  font-weight: 100;
 `;
 
-export const TableWrpper = styled.View`
+export const ContentsText = styled.Text`
+  font-weight: 100;
+  color: red;
+  margin-top: 2px;
+`;
+
+export const ReserWrapper = styled.View`
+  height: 140px;
+  opacity: ${(props: IReservationProps) => (props.isSoldOut ? "0.4" : "1")};
+  /* border: 1px solid #e2e2ff;
+  box-shadow: 0px 4px 8px black; */
+  border-radius: 15px;
   display: flex;
   flex-direction: row;
-
-  width: 100%;
+  align-items: center;
+  margin-top: 12px;
+  padding-left: 25px;
 `;
 
 export const NonReserWrapper = styled.View``;
 
 export const NonReserText = styled.Text``;
 
-export const Row = styled.View`
-  width: 50%;
+export const ImgWrapper = styled.TouchableOpacity`
+  /* margin-left: 10px;
+  margin-bottom: 10px; */
 `;
 
-export const ColumDate = styled.Text`
-  font-size: 20px;
-  font-weight: 400;
-  padding-bottom: 10px;
-`;
-
-export const ColumPersonnel = styled.Text`
-  font-size: 14px;
-
-  padding-bottom: 10px;
-`;
-
-export const ColumUser = styled.Text`
-  font-size: 14px;
-  color: tomato;
-  padding-bottom: 10px;
-`;
-
-export const ReserWrapper = styled.View`
-  display: flex;
-  flex-direction: row;
-  width: 95%;
-`;
-
-export const DeleteWrapper = styled.View``;
-
-export const AAAImage = styled.View`
-  width: 20%;
+export const ReserImg = styled.Image`
+  width: 70px;
+  height: 94px;
   border-radius: 10px;
-  background-color: black;
-  margin-right: 10px;
+`;
+
+export const DataWrapper = styled.View`
+  margin-left: 10px;
+  width: 100px;
+`;
+
+export const DataName = styled.Text`
+  font-weight: 500;
+  font-size: 15px;
+`;
+
+export const DataAt = styled.Text`
+  color: #eb4034;
+`;
+
+export const ButtonWrapper = styled.TouchableOpacity`
+  border-radius: 10px;
+  background-color: #eb4034;
+  width: 70px;
+  height: 30px;
+  margin-left: 70px;
+  /* margin-top: 25px; */
+`;
+export const BtnText = styled.Text`
+  color: white;
+  text-align: center;
+  margin-top: 2px;
 `;

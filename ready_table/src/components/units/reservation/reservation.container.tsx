@@ -10,12 +10,12 @@ import {
   IUseditem
 } from "../../../commons/types/generated/types";
 
-import ReservationUI from "./reservation.presenter";
 import { FETCH_USED_ITEMS } from "./reservation.queries";
+import ReservationUI from "./reservation.presenter";
 
 const ReservationContainer = () => {
   const [productInfo, setProductInfo] = useState([]);
-  const { setId } = useContext(GlobalContext);
+  const { setId, setIsReview } = useContext(GlobalContext);
   const navigation = useNavigation;
   const { data, fetchMore } = useQuery<
     Pick<IQuery, "fetchUseditems">,
@@ -54,28 +54,50 @@ const ReservationContainer = () => {
 
   useEffect(() => {
     AsyncStorage.getItem("@carts", async (_: any, result: any) => {
-      const favoritePr = await JSON.parse(result);
-      setProductInfo(favoritePr);
+      const Reseritem = await JSON.parse(result);
+      setProductInfo(Reseritem);
+    });
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.getItem("@carts", async (_: any, result: any) => {
+      const ReseritemPr = await JSON.parse(result);
+      setProductInfo(ReseritemPr);
     });
   }, [AsyncStorage.getItem("@carts")]);
 
   const onPressDetail = (el: IUseditem) => {
     setId(el._id);
     console.log(setId);
+    setIsReview(prev => !prev);
   };
-  const deleteMyFavoritePr = (el: IUseditem) => () => {
-    const afterDeleteMyFavoritePr = productInfo.filter(
-      (favorite: any) => favorite.id !== el._id
-    );
-    AsyncStorage.setItem("@carts", JSON.stringify(afterDeleteMyFavoritePr));
+
+  const onPressMoveToReviewWrite = (el: any) => {
+    setId(el._id);
   };
+  // const DeleteBtn = (el: IUseditem) => () => {
+  //   const deleteReser = productInfo.filter(el => el._id !== setId);
+  //   AsyncStorage.setItem("@carts", JSON.stringify(deleteReser));
+  //   console.log("삭제되었습니다.");
+  // };
+  // const removeFew = async () => {
+  //   const keys = ["@carts"];
+  //   try {
+  //     await AsyncStorage.multiRemove(keys);
+  //   } catch (e) {
+  //     // remove error
+  //   }
+  //   console.log("Done");
+  // };
 
   return (
     <ReservationUI
       productInfo={productInfo}
       onPressDetail={onPressDetail}
       soldOutList={data?.fetchUseditems}
-      deleteMyFavoritePr={deleteMyFavoritePr}
+      onPressMoveToReviewWrite={onPressMoveToReviewWrite}
+      // DeleteBtn={DeleteBtn}
+      // removeFew={removeFew}
     />
   );
 };

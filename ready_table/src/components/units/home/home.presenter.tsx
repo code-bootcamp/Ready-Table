@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useCallback,
+  useRef,
+  useEffect,
+  useContext
+} from "react";
 import {
   HomeView,
   DestinationContainer,
@@ -21,9 +27,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import CategoryList from "./category";
 import Carousel from "./carousel";
 import { Ionicons } from "@expo/vector-icons";
+import { GlobalContext } from "../../../../App";
 
 const HomeUI = props => {
   const navigation = useNavigation();
+  const { id } = useContext(GlobalContext);
   return (
     <ScrollView stickyHeaderIndices={[0]}>
       <MainBanner />
@@ -38,49 +46,50 @@ const HomeUI = props => {
           {props.bestData?.fetchUseditemsOfTheBest.map((el, index) => (
             <BestItem
               key={el._id}
-              // onPress={() =>
-              //   navigation.navigate("detail", {
-              //     // id: props.onPressCategory()
-              //   })
-              // }
+              onPress={() =>
+                navigation.navigate("detail", {
+                  useditemId: el._id
+                })
+              }
             >
               <BestItemImage source={{ uri: el.images[0] }} resizeMode="cover">
                 <Ionicons
                   name="bookmark"
                   style={{ color: "#dd4124" }}
                   size={25}
-                  // border-right-color: black;
                 />
               </BestItemImage>
               <BestItemName>{el.name}</BestItemName>
+              {/* {String(el.name).split("-")[1]} */}
             </BestItem>
           ))}
         </BestItemWrapper>
-        <CategoryList onPressCategory={props.onPressCategory}></CategoryList>
+        <CategoryList></CategoryList>
         <ListWrapper>
           {props.data?.fetchUseditems.map((el, index) => (
             <List
               key={el._id}
               onPress={() =>
                 navigation.navigate("detail", {
-                  ustiemId: el._id
+                  id: props.onPressDetail(el)
                 })
               }
             >
               <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
-              <ListName>{el.name}</ListName>
+              <ListName>{String(el.name).split("-")[1]}</ListName>
+              {/* {String(el.name).split("-")[1]} */}
             </List>
           ))}
         </ListWrapper>
         <FooterWrapper>
           <FooterText>
             {` (주) 레디테이블
-              \n 대표 : 홍길동
+              \n 대표 : 김태희
               \n 주소 : 서울특별시 구로구 구로동 188-25 지밸리비즈플라자 12층 1272호
-              \n 사업자 등록번호 : 111-11-11111
-              \n 통신판매업 신고번호 : 1111-서울경기-1111호
+              \n 사업자 등록번호 : 127-11-1272
+              \n 통신판매업 신고번호 : 1374-서울경기-1272호
               \n 개인정보담당: service@readytable.co.kr
-              \n      서비스   이용약관   개인정보   처리방침   위치정보   이용약관   입점문의
+              \n  서비스   이용약관   개인정보   처리방침   위치정보   이용약관   입점문의
               `}
           </FooterText>
         </FooterWrapper>
