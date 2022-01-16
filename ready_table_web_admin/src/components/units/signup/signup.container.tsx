@@ -52,36 +52,36 @@ export default function Signup() {
   }
   async function onClickSignup() {
     if (myEmail === "") {
-      setEmailError("잘못된 이메일 형식입니다.");
+      setEmailError("이메일이 입력되지 않았습니다!");
       return;
     }
     if (myName === "") {
-      setNameError("이름이 입력되지 않았습니다.");
+      setNameError("이름이 입력되지 않았습니다!");
       return;
     }
     if (/[!?@#$%^&*():;+-=~{}<>]/.test(myName)) {
-      setNameError("이름에 특수기호를 넣을 수 없습니다.");
+      setNameError("이름에 특수부호를 넣을 수 없습니다!");
       return;
     }
 
     if (myPassword === "") {
-      setPasswordError("비밀번호가 입력되지 않았습니다.");
+      setPasswordError("비밀번호가 입력되지 않았습니다!");
       return;
     }
     if (myCheckPassword === "") {
-      setCheckPasswordError("확인 비밀번호가 입력되지 않았습니다.");
+      setCheckPasswordError("확인 비밀번호가 입력되지 않았습니다!");
       return;
     }
     if (/\w+@\w+\.\w+/.test(myEmail) === false) {
       alert("이메일 형식이 아닙니다!");
       return;
     }
-    if (myPassword.length < 6) {
-      setPasswordError("비밀번호는 6자리 이상이여야합니다.");
+    if (myPassword.length < 4) {
+      setPasswordError("비밀번호는 4자리 이상이여야합니다.");
       return;
     }
     if (myPassword !== myCheckPassword) {
-      alert("비밀번호가 같지 않습니다.");
+      alert("비밀번호가 같지 않습니다!");
       return;
     }
     try {
@@ -94,7 +94,7 @@ export default function Signup() {
           },
         },
       });
-      alert("회원가입이 완료되었습니다.");
+      alert("회원가입이 완료되었습니다!");
       router.push("/");
     } catch (error) {
       alert(error.message);

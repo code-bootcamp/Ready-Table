@@ -1,19 +1,19 @@
 import {
   Wrapper,
   SignupWrapper,
-  Logo,
   MainTitleWrapper,
+  Logo,
   Line,
   TitleText,
-  InputWrapper,
   MainInput,
-  Error,
   MainLabel,
-  AdminOptionWrapper,
-  OptionWrapper,
-  AdminOption,
-  OptionLabel,
+  Error,
   MainButton,
+  InputWrapper,
+  OptionWrapper,
+  OptionLabel,
+  AdminOption,
+  AdminOptionWrapper,
 } from "./signup.styles";
 
 export default function SignupUI(props) {
@@ -46,12 +46,12 @@ export default function SignupUI(props) {
             <Error>{props.passwordError}</Error>
           </InputWrapper>
           <InputWrapper>
-            <MainLabel>비밀번호 확인</MainLabel>
+            <MainLabel>비밀번호확인</MainLabel>
             <MainInput
               type="password"
-              onChange={props.onChangePassword}
+              onChange={props.onChangeCheckPassword}
             ></MainInput>
-            <Error>{props.passwordError}</Error>
+            <Error>{props.checkPasswordError}</Error>
           </InputWrapper>
           <AdminOptionWrapper>
             <OptionWrapper>
@@ -60,7 +60,7 @@ export default function SignupUI(props) {
                 type="radio"
                 onClick={props.onClickIsNotSuper}
               />
-              <OptionLabel>사장님</OptionLabel>
+              <OptionLabel>사업자</OptionLabel>
             </OptionWrapper>
             <OptionWrapper>
               <AdminOption

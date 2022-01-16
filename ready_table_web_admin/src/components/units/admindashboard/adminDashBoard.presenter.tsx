@@ -33,16 +33,16 @@ export default function AdminDashboardUI(props) {
               <SalesCount>132,795 명</SalesCount>
             </HeaderPart>
             <HeaderPart>
-              <TotalAmountLabel>오늘의 거래 금액</TotalAmountLabel>
-              <TotalAmount>134,630,435 원</TotalAmount>
+              <TotalAmountLabel>오늘의 예약건수</TotalAmountLabel>
+              <TotalAmount>1058 건</TotalAmount>
             </HeaderPart>
           </WrapperHeader>
           <WrapperFooter>
             <FooterPart>
-              <GraphTitle>오늘 상품 현황 ( 개 )</GraphTitle>
+              <GraphTitle>오늘 예약 현황 ( 건 )</GraphTitle>
               <ResponsiveBar
                 data={AdminBarGraph}
-                keys={["판매된 상품", "신규 등록 상품"]}
+                keys={["등록된 업체", "신규 등록 업체"]}
                 indexBy="country"
                 margin={{ top: 50, right: 130, bottom: 70, left: 60 }}
                 padding={0.3}
@@ -85,7 +85,7 @@ export default function AdminDashboardUI(props) {
                   tickSize: 5,
                   tickPadding: 5,
                   tickRotation: 0,
-                  legend: "수량 (개)",
+                  legend: "예약 (건)",
                   legendPosition: "middle",
                   legendOffset: -40,
                 }}

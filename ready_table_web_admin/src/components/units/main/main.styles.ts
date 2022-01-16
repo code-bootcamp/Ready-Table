@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `;
 
 export const MainWrapper = styled.div`
-  width: 480px;
+  width: 800px;
   height: 600px;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@ export const MainInput = styled.input`
   width: 339px;
   height: 48px;
   border: 1px solid #dd4124;
-  border-radius: 8px;
+  border-radius: 20px;
   margin-top: 4px;
   padding-left: 10px;
 `;
@@ -71,7 +71,7 @@ export const MainButton = styled.button`
   height: 48px;
   background: #dd4124;
   border: 1px solid #dd4124;
-  border-radius: 8px;
+  border-radius: 20px;
   font-family: NotoSans-Bold;
   font-style: normal;
   font-weight: 600;
