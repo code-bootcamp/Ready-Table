@@ -34,7 +34,7 @@ const ReviewListUIItem = (props: IReviewProps) => {
                 }}
               />
             ) : (
-              <FontAwesome name="user-circle" size={24} color="gray" />
+              <FontAwesome name="user-circle" size={55} color="gray" />
             )}
             <TopMiddleWrapper>
               <Nickname>{props.el?.user?.name}</Nickname>
@@ -44,13 +44,11 @@ const ReviewListUIItem = (props: IReviewProps) => {
                   "string"
                     ? 5
                     : Number(props.el?.contents.split("#$%&")[0])
-                )
+                ) //너무어려워.. 그러면.. 이건 이상하다.
+                  // 이게 항상 넘버고 . 스트링이 같을수가 없으니까 넘버는
+                  //항상 5를 받아올수가없다.. .. 항상 5 뒤의 넘버값만 받아오게된다.
                   .fill(1)
                   .map((el, index) => (
-                    // <ReviewStar
-                    //   key={index}
-
-                    // />
                     <AntDesign
                       name="star"
                       size={24}
@@ -78,7 +76,7 @@ const ReviewListUIItem = (props: IReviewProps) => {
             <Photos>
               {props.el?.contents.split("#$%&")[2] !== "" && (
                 <AddPhotoButton onPress={props.onPressEnlargePicture}>
-                  {props.IsLarge ? (
+                  {props.isLarge ? (
                     <BigAddPhoto
                       source={{
                         uri: `https://storage.googleapis.com/${
@@ -100,7 +98,7 @@ const ReviewListUIItem = (props: IReviewProps) => {
             </Photos>
           </InnerTopWrapper>
           <BottomWrapper>
-            {!props.IsLarge && (
+            {!props.isLarge && (
               <>
                 <ContentTitle>식당이용 후기</ContentTitle>
                 <ReviewContent>

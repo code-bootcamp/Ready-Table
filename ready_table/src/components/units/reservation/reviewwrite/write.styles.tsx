@@ -11,7 +11,7 @@ export const ReviewWriteView = styled.View`
 export const ProductCard = styled.View`
   width: 339px;
   height: 140px;
-  border: 1px solid #e2e2ff;
+  /* border: 1px solid #e2e2ff; */
   box-shadow: 0px 4px 8px rgba(84, 84, 84, 0.05);
   border-radius: 15px;
   display: flex;
@@ -116,11 +116,11 @@ export const StarIcon = styled.Image`
 export const ReviewContentWrapper = styled.View`
   width: 339px;
   height: 339px;
-  border: 1px solid #f9f8f8;
-  border-radius: 15px;
+  /* border: 1px solid #f9f8f8;
+  border-radius: 15px; */
   margin-top: 12px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
 
 export const ReviewContentInput = styled.TextInput`

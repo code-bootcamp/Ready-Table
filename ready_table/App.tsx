@@ -37,6 +37,7 @@ function App() {
   console.disableYellowBox = true;
   const [accessToken, setAccessToken] = useState("");
   const [id, setId] = useState("");
+
   const [userInfo, setUserInfo] = useState<IUserInfo>();
   const [isFavorite, setIsFavorite] = useState(true);
 

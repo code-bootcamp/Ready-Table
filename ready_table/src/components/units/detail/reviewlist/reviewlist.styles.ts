@@ -102,6 +102,7 @@ export const LastLine = styled.View`
   width: 100%;
   height: 5px;
   background-color: whitesmoke;
+  margin-bottom: 15px;
 `;
 
 //------ item
@@ -204,3 +205,16 @@ export const ReviewContent = styled.Text`
   line-height: 13.62px;
   color: #a3a3a3;
 `;
+
+export const Btn = styled.TouchableOpacity`
+  width: 339px;
+  height: 70px;
+  background-color: #eb4034;
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+`;
+
+export const BtnText = styled.Text``;

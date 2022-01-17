@@ -33,8 +33,8 @@ export default function DashboardUI(props) {
               <SalesCount>371 개</SalesCount>
             </HeaderPart>
             <HeaderPart>
-              {/* <TotalAmountLabel>총 수익</TotalAmountLabel>
-              <TotalAmount>133,536,000 원</TotalAmount> */}
+              <TotalAmountLabel>평균 별점</TotalAmountLabel>
+              <TotalAmount>⭐ 4.6</TotalAmount>
             </HeaderPart>
           </WrapperHeader>
           <WrapperFooter>

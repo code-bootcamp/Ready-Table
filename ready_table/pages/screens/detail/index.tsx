@@ -9,11 +9,13 @@ const DetailScreen = () => {
   return (
     <>
       <DetailHeader />
-      {/* <DetailContainer /> */}
+      <DetailContainer />
       {/* <UserWriteContainer /> */}
-      <DetailReviewContainer />
+      {/* <DetailReviewContainer /> */}
     </>
   );
 };
 
+
 export default DetailScreen;
+

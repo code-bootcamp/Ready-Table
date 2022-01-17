@@ -6,13 +6,13 @@ export const DetailText = styled(ReactQuill)`
   height: 190px;
   width: 1096px;
   padding-bottom: 40px;
-  border: 2px solid #5b5bc0;
+  border: 2px solid salmon;
 `;
 
 export const Wrapper = styled.div`
   width: 100%;
   padding: 32px 0px 64px 72px;
-  background-color: #f6f6fb;
+  background-color: white;
 `;
 
 export const Title = styled.div`
@@ -29,7 +29,7 @@ export const InnerWrapper = styled.div`
 `;
 
 export const BasicWrapper = styled.div`
-  border-bottom: 1px solid #bbbae2;
+  border-bottom: 1px solid salmon;
   width: 100%;
   height: 84px;
   display: flex;
@@ -37,7 +37,7 @@ export const BasicWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  border-bottom: 1px solid #bbbae2;
+  border-bottom: 1px solid salmon;
   width: 100%;
   height: 228px;
   display: flex;
@@ -54,7 +54,7 @@ export const ImagesWrapper = styled.div`
 export const LeftWrapper = styled.div`
   width: 300px;
   height: 100%;
-  background-color: #5b5bc0;
+  background-color: salmon;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,7 +64,7 @@ export const LeftWrapper = styled.div`
 export const LeftBasicWrapper = styled.div`
   width: 300px;
   height: 100%;
-  background-color: #5b5bc0;
+  background-color: salmon;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -88,7 +88,7 @@ export const NameInput = styled.input`
   width: 548px;
   height: 54px;
   margin-left: 40px;
-  border: 2px solid #5b5bc0;
+  border: 2px solid salmon;
   padding-left: 32px;
 `;
 
@@ -111,11 +111,11 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const UploadButton = styled.button`
-  border: 1px solid #5b5bc0;
+  border: 1px solid salmon;
   width: 339px;
   height: 48px;
   color: white;
-  background-color: #5b5bc0;
+  background-color: salmon;
   /* border-radius: 8px; */
   font-size: 18px;
   margin-top: 30px;
