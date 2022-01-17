@@ -19,9 +19,10 @@ import {
 
 import { Ionicons } from "@expo/vector-icons";
 
-interface IProps {
-  modifyName: any;
-}
+// interface IProps {
+//   modifyName: any;
+// }
+// 추후에 파이어베이스 이용 유저 정보 데이터 업데이트 필요.
 
 const ModifyUI = (props: any) => {
   // console.log(props.data);
@@ -51,7 +52,7 @@ const ModifyUI = (props: any) => {
           <ModifyContents>010-9999-9999</ModifyContents>
 
           <ModifyTitle>이메일</ModifyTitle>
-          <ModifyContents>test@test.com</ModifyContents>
+          <ModifyContents>{props.data?.fetchUserLoggedIn.eamil}</ModifyContents>
 
           <ModifyTitle>비밀번호</ModifyTitle>
           <ModifyContents>********</ModifyContents>
