@@ -31,9 +31,19 @@ export const ListWrapper = styled.Pressable`
   align-items: center;
   justify-content: center;
   width: 100%;
+  border-color: black;
 `;
 
-export const List = styled.TouchableOpacity``;
+export const List = styled.View`
+  border-color: black;
+`;
+export const ListContentWrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 5px;
+`;
+
 export const ListName = styled.Text`
   font-weight: bold;
   font-size: 15px;
@@ -41,17 +51,19 @@ export const ListName = styled.Text`
 `;
 
 export const ListIamge = styled.Image`
-  width: 150px;
+  width: 160px;
   height: 100px;
   border-top-left-radius: 10;
   border-top-right-radius: 10;
-  border-bottom-left-radius: 10;
-  border-bottom-right-radius: 10;
+  /* border-bottom-left-radius: 10;
+  border-bottom-right-radius: 10; */
   margin-right: 5px;
   margin-left: 5px;
   margin-bottom: 10px;
   margin-top: 10px;
 `;
+
+export const ListButton = styled.TouchableOpacity``;
 
 export const BestPickTitle = styled.Text`
   font-weight: bold;
@@ -87,3 +99,24 @@ export const BestItem = styled.TouchableOpacity`
   width: 100%
   height: 317px;
 `;
+
+export const FavoriteWrapper = styled.TouchableOpacity`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const HeartButton = styled.TouchableOpacity``;
+
+export const CardView = styled.View`
+elevation:5,
+border-radius: 4,
+border-width: 0.5;
+border-color: black;
+margin:20,
+elevation: 5
+`;
+
+export const Cardtitle = styled.Text``;
+
+export const CardContent = styled.Text``;
