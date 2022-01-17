@@ -43,7 +43,8 @@ const ReservationUI = (props: IReservationProps) => {
           ?.map(el => (
             // <ReserWrapper isSoldOut={soldOutList?.includes(el.id)} key={el._id}>
 
-            <ReserWrapper key={el}>
+            <ReserWrapper key={el._id}>
+
               <ImgWrapper
                 onPress={() => {
                   if (!soldOutList?.includes(el.id)) {
@@ -61,7 +62,7 @@ const ReservationUI = (props: IReservationProps) => {
                   />
                 ) : (
                   <ReserImg
-                    source={require("../../../../public/images/brunch.jpg")}
+                    source={require("../../../../public/images/food.jpg")}
                   />
                 )}
               </ImgWrapper>
@@ -80,6 +81,9 @@ const ReservationUI = (props: IReservationProps) => {
               >
                 <BtnText>리뷰쓰기 </BtnText>
               </ButtonWrapper>
+              {/* <ButtonWrapper onPress={props.removeFew}>
+                <BtnText>삭제하기 </BtnText>
+              </ButtonWrapper> */}
             </ReserWrapper>
           ))
           .reverse()}

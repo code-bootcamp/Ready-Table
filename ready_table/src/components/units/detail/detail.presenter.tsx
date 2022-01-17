@@ -42,7 +42,10 @@ const DetailUI = (props: IdetailProps) => {
       </NotiWrapper>
       <LineBar></LineBar>
       <DataWrapper>
-        <TitleText>{props.data?.fetchUseditem.name}</TitleText>
+        {/* <TitleText>{props.data?.fetchUseditem.name}</TitleText> */}
+        <TitleText>
+          {String(props.data?.fetchUseditem.name).split("-")[1]}
+        </TitleText>
         {/* <TitleText>{props.data?.fetchUseditem.name}</TitleText> */}
         {/* <TitleText>{props.items?.fetchUseditems[0].name}</TitleText> */}
         <RemarksText>{props.data?.fetchUseditem.remarks}</RemarksText>
@@ -65,10 +68,10 @@ const DetailUI = (props: IdetailProps) => {
         <TimeBox onPress={props.onPressCart}>
           <TimeText>오늘 점심예약하기</TimeText>
         </TimeBox>
-        {/* <TimeBox onPress={props.onPressCart}>
+        {/* <TimeBox onPress={props.onPressStartTime}>
           <TimeText>오후 12:00</TimeText>
         </TimeBox>
-        <TimeBox onPress={props.onPressCart}>
+        <TimeBox onPress={props.onPressEndTime}>
           <TimeText>오후 01:00</TimeText>
         </TimeBox> */}
       </TimeWrapper>
@@ -96,6 +99,3 @@ const DetailUI = (props: IdetailProps) => {
 };
 
 export default DetailUI;
-function el(el: any) {
-  throw new Error("Function not implemented.");
-}

@@ -20,6 +20,7 @@ export const Logo = styled.img`
   width: 107px;
   height: 50px;
   margin-right: 15px;
+  background-color: white;
 `;
 
 export const Title = styled.div`

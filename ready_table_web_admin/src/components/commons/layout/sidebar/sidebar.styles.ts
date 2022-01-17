@@ -108,7 +108,7 @@ export const InnerWrapperModify = styled.div<{ isActive: string }>`
   padding: 15px 0px 15px 36px;
   cursor: pointer;
   background-color: ${(props) =>
-    props.isActive === "/profilemodify" ? "#F5F5FB" : "#normal"};
+    props.isActive === "/modify" ? "#F5F5FB" : "#normal"};
 `;
 
 export const SideMenuButtonModify = styled.div<{ isActive: string }>`
@@ -121,8 +121,7 @@ export const SideMenuButtonModify = styled.div<{ isActive: string }>`
   font-style: normal;
   line-height: 19.07px;
   color: #3b3b3b;
-  font-weight: ${(props) =>
-    props.isActive === "/profilemodify" ? "700" : "400"};
+  font-weight: ${(props) => (props.isActive === "/modify" ? "700" : "400")};
 `;
 
 export const SideMenuIcon = styled.img`

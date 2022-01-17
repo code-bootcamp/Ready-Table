@@ -36,15 +36,12 @@ interface IUserInfo {
 function App() {
   console.disableYellowBox = true;
   const [accessToken, setAccessToken] = useState("");
-  // const [isSearchHidden, setIsHomeHidden] = useState("");
   const [id, setId] = useState("");
-  // const [tagId, setTagId] = useState("");
-  // const [isFavorite, setIsFavorite] = useState(true);
-  // const [isReview, setIsReview] = useState(false);
-  // const [isMypage, setMypage] = useState("");
-  // const [loading, setLoading] = useState(true);
+
   const [isLoading, setIsLoading] = useState(false);
+
   const [userInfo, setUserInfo] = useState<IUserInfo>();
+  const [isFavorite, setIsFavorite] = useState(true);
 
   useEffect(() => {
     const getToken = async () => {
@@ -85,7 +82,9 @@ function App() {
     userInfo: userInfo,
     setUserInfo: setUserInfo,
     id: id,
-    setId: setId
+    setId: setId,
+    isFavorite: isFavorite,
+    setIsFavorite: setIsFavorite
   };
   const [fontsLoaded] = useFonts({
     Bungee: require("./assets/fonts/Bungee-Regular.ttf"),

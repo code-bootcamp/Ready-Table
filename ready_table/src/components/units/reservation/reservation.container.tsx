@@ -19,6 +19,7 @@ const ReservationContainer = () => {
   const [productInfo, setProductInfo] = useState([]);
   const { setId, setIsReview } = useContext(GlobalContext);
   const navigation = useNavigation;
+
   const { data } = useQuery(FETCH_USED_ITEM);
 
   console.log(data, "Test");
@@ -54,7 +55,7 @@ const ReservationContainer = () => {
   //   AsyncStorage.setItem("@carts", JSON.stringify(deleteReser));
   //   console.log("삭제되었습니다.");
   // };
-  // const removeFew = async () => {
+  // const onPressMoveToReviewWrite = async () => {
   //   const keys = ["@carts"];
   //   try {
   //     await AsyncStorage.multiRemove(keys);

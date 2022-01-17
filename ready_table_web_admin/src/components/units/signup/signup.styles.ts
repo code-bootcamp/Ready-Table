@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   display: flex;
+  width: 100%
   height: 830px;
   flex-direction: column;
   justify-content: center;
@@ -10,13 +11,13 @@ export const Wrapper = styled.div`
 
 export const SignupWrapper = styled.div`
   width: 480px;
-  height: 740px;
+  height: 780px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
   box-shadow: 0px 20px 50px rgba(91, 91, 192, 0.15);
-  border-radius: 15px;
+  border-radius: 20px;
 `;
 
 export const Logo = styled.img`
@@ -51,7 +52,7 @@ export const MainInput = styled.input`
   width: 339px;
   height: 48px;
   border: 1px solid #dd4124;
-  border-radius: 8px;
+  border-radius: 20px;
   margin-top: 4px;
   padding-left: 10px;
 `;
@@ -89,7 +90,7 @@ export const MainButton = styled.button`
   height: 48px;
   background: #dd4124;
   border: 1px solid #dd4124;
-  border-radius: 8px;
+  border-radius: 20px;
   font-family: NotoSans-Bold;
   font-style: normal;
   font-weight: 600;

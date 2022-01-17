@@ -16,6 +16,7 @@ const UserWriteContainer = () => {
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: id }
   });
+  console.log(data);
   function onChangeContents(event: any) {
     setMycontents(event);
   }
@@ -31,6 +32,7 @@ const UserWriteContainer = () => {
         }
       });
       Alert.alert("리뷰를 등록합니다~");
+
       console.log(result);
       navigation.navigate("review");
     } catch (error) {

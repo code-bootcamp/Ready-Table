@@ -1,11 +1,11 @@
 import { GestureResponderEvent } from "react-native";
 
 export interface IdetailProps {
-  review: any;
-  onPressWrite(el: any);
+
+  onPressEndTime: (event: GestureResponderEvent) => void;
+  onPressStartTime: (event: GestureResponderEvent) => void;
   el: any;
   onPressCart: any;
-
   data: any;
 }
 

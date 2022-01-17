@@ -27,7 +27,8 @@ const DetailContainer = () => {
   >(FETCH_USEDITEM, {
     variables: { useditemId: id }
   });
-  const [time, setTime] = useState();
+  const [starttime, setStartTime] = useState("");
+  const [endtime, setEndTime] = useState("");
   // 데이터없을때는 로그인을하세요.
   const { data: review } = useQuery(FETCH_USED_ITEM_QUESTIONS);
 
@@ -39,25 +40,29 @@ const DetailContainer = () => {
     seller: data?.fetchUseditem.seller,
     id: data?.fetchUseditem._id,
     images: data?.fetchUseditem.images,
-    remarks: data?.fetchUseditem.remarks,
-    // createdAt: "12:00",/
-    createdAt1: "12",
-    createdAt2: "01",
-    personnel
+
+    remarks: data?.fetchUseditem.remarks
+    // createdAt: "12:00"
   };
   // console.log(cartProduct, "cart");
-  const Res = () => {};
+
+  const onPressStartTime = (e: any) => {
+    setStartTime(e.target.value);
+  };
+  const onPressEndTime = (e: any) => {
+    setEndTime(e.target.value);
+  };
   const onPressCart = async () => {
-    const a: any = await AsyncStorage.getItem("@carts" + time);
+    const a: any = await AsyncStorage.getItem("@carts");
     const reservation = JSON.parse(a) || [];
 
-    console.log(a);
     let isExists = false;
     reservation.forEach((el: any) => {
       if (el._id === id) {
         isExists = true;
       }
     });
+    console.log(a, "예약");
 
     // 상품이 늦게 받아와지는 이슈가 있음. 그래서 일단 안받아와졌으면 알람띄우고 리턴
     if (!data?.fetchUseditem.name || !data?.fetchUseditem.price) {
@@ -76,6 +81,7 @@ const DetailContainer = () => {
 
     reservation.push(cartProduct);
     AsyncStorage.setItem("@carts", JSON.stringify(reservation));
+
     Alert.alert("Alert Title", "예약을 하시겠습니까?", [
       {
         text: "Cancel",
@@ -84,18 +90,12 @@ const DetailContainer = () => {
       },
       { text: "OK", onPress: () => console.log("OK Pressed") }
     ]);
+
     // navigation.navigate("reservation");
+    console.log(setStartTime);
   };
 
-  return (
-    <DetailUI
-      data={data}
-      onPressCart={onPressCart}
-      time={time}
-      setTime={setTime}
-      review={review}
-    />
-  );
+  return <DetailUI data={data} onPressCart={onPressCart} />;
 };
 
 export default DetailContainer;

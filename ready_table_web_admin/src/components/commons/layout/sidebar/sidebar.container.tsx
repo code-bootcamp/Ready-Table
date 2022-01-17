@@ -21,7 +21,7 @@ export default function Sidebar() {
     router.push("/productstable");
   }
   function onClickMoveToModify() {
-    router.push("/profilemodify");
+    router.push("/modify");
   }
   function onClickLogout() {
     localStorage.clear();

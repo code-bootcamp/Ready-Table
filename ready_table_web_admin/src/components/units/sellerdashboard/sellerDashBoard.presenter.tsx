@@ -25,16 +25,16 @@ export default function DashboardUI(props) {
         <InnerWrapper>
           <WrapperHeader>
             <HeaderPart>
-              <ProductCountLabel>총 상품 개수</ProductCountLabel>
-              <ProductCount>2,529 개</ProductCount>
+              <ProductCountLabel>총 예약 건 수</ProductCountLabel>
+              <ProductCount>1,529 개</ProductCount>
             </HeaderPart>
             <HeaderPart>
-              <SalesCountLabel>판매 상품 개수</SalesCountLabel>
-              <SalesCount>2,034 개</SalesCount>
+              <SalesCountLabel>총 리뷰 개수</SalesCountLabel>
+              <SalesCount>371 개</SalesCount>
             </HeaderPart>
             <HeaderPart>
-              <TotalAmountLabel>총 수익</TotalAmountLabel>
-              <TotalAmount>133,536,000 원</TotalAmount>
+              {/* <TotalAmountLabel>총 수익</TotalAmountLabel>
+              <TotalAmount>133,536,000 원</TotalAmount> */}
             </HeaderPart>
           </WrapperHeader>
           <WrapperFooter>
@@ -68,7 +68,7 @@ export default function DashboardUI(props) {
                   tickSize: 5,
                   tickPadding: 5,
                   tickRotation: 0,
-                  legend: "금액 ( 천 원 )",
+                  legend: "예약 ( 1 건 )",
                   legendOffset: -60,
                   legendPosition: "middle",
                 }}
@@ -149,31 +149,31 @@ export default function DashboardUI(props) {
                 fill={[
                   {
                     match: {
-                      id: "오일",
+                      id: "20대",
                     },
                     id: "dots",
                   },
                   {
                     match: {
-                      id: "잠옷",
+                      id: "30대",
                     },
                     id: "lines",
                   },
                   {
                     match: {
-                      id: "이불",
+                      id: "40대",
                     },
                     id: "lines",
                   },
                   {
                     match: {
-                      id: "암막커튼",
+                      id: "50대",
                     },
                     id: "dots",
                   },
                   {
                     match: {
-                      id: "수면용품",
+                      id: "60대",
                     },
                     id: "dots",
                   },

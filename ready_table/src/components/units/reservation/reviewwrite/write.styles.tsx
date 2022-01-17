@@ -11,7 +11,7 @@ export const ReviewWriteView = styled.View`
 export const ProductCard = styled.View`
   width: 339px;
   height: 140px;
-  border: 1px solid #e2e2ff;
+  /* border: 1px solid #e2e2ff; */
   box-shadow: 0px 4px 8px rgba(84, 84, 84, 0.05);
   border-radius: 15px;
   display: flex;

@@ -3,7 +3,13 @@ import React, { useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { GlobalContext } from "../../../../App";
 import HomeUI from "./home.presenter";
-import { FETCH_USED_ITEMS, FETCH_USED_ITEMS_OF_THE_BEST } from "./home.queires";
+import {
+  FETCH_USED_ITEMS,
+  FETCH_USED_ITEMS_OF_THE_BEST,
+  FETCH_USED_ITEM_I_PICKED,
+  TOGGLE_USED_ITEM_PICK,
+  FETCH_USED_ITEM
+} from "./home.queires";
 
 import {
   IQuery,
@@ -11,7 +17,8 @@ import {
   IQueryFetchUseditemsIPickedArgs
 } from "../../../commons/types/generated/types";
 const HomeContainer = () => {
-  const { setId, setTagId } = useContext(GlobalContext);
+  const { id, setId, setTagId, setIsFavorite, isfavorite }: any =
+    useContext(GlobalContext);
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
@@ -21,20 +28,46 @@ const HomeContainer = () => {
     }
   });
   const { data: bestData } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
+
+  const { data: Ipickdata } = useQuery(FETCH_USED_ITEM_I_PICKED, {
+    variables: { search: "" }
+  });
+  const { data: detailData } = useQuery(FETCH_USED_ITEM, {
+    variables: {
+      useditemId: id
+    }
+  });
+
+  const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
   const onPressDetail = (el: any) => {
     setId(el._id);
   };
-  // console.log(data.fetchUseditems.tag);
+  useEffect(() => {
+    for (let i = 0; i < Ipickdata?.fetchUseditemsIPicked.length; i++) {
+      if (Ipickdata?.fetchUseditemsIPicked[i]._id === id) {
+        setIsFavorite(true);
+        break;
+      } else {
+        setIsFavorite(false);
+      }
+    }
+  }, [Ipickdata]);
 
-  // const onPressCategory = value => {
-  //   setTagId(value);
-  // };
+  async function onPressPicked() {
+    await toggleUseditemPick({
+      variables: { useditemId: id }
+    });
+    setIsFavorite(prev => !prev);
+  }
+
   return (
     <HomeUI
       data={data}
       onPressDetail={onPressDetail}
-      // onPressCategory={onPressCategory}
+      onPressPicked={onPressPicked}
       bestData={bestData}
+      detailData={detailData}
+      isfavorite={isfavorite}
     />
   );
 };

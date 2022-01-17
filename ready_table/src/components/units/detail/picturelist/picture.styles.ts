@@ -1,16 +1,20 @@
 import styled from "@emotion/native";
 
-export const Wrapper = styled.ScrollView``;
+export const Wrapper = styled.ScrollView`
+  height: 100%;
+`;
 
 export const PictureWrapper = styled.View`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+
   justify-content: center;
   align-items: center;
-  /* margin: 3px; */
+  width: 100%;
+  height: 100%;
+  margin: 3px;
+
 `;
 
 export const Picture = styled.Image`
