@@ -1,8 +1,9 @@
 import React from "react";
 import ReservationScreen from "../screens/reservation";
 import { createStackNavigator } from "@react-navigation/stack";
-import UserWriteContainer from "../../src/components/units/detail/reviewwrite/write.container";
+
 import DetailScreen from "../screens/detail";
+import UserWriteContainer from "../../src/components/units/reservation/reviewwrite/write.container";
 
 const Stack = createStackNavigator();
 const ReservationNavigator = () => {

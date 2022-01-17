@@ -21,15 +21,17 @@ const UserWriteContainer = () => {
   }
   async function onClickRegisterReview() {
     try {
-      await createUseditemQuestion({
+      const result = await createUseditemQuestion({
         variables: {
           useditemId: id,
           createUseditemQuestionInput: {
             contents: myStar + "#$%&" + myContents + "#$%&" + myImage
+            // contents: myContents
           }
         }
       });
       Alert.alert("리뷰를 등록합니다~");
+      console.log(result);
       // navigation.navigate("review");/
       //   navigation.navigate("마이 페이지");
     } catch (error) {

@@ -16,8 +16,8 @@ export const ReviewPhotoUpload = styled.View`
 `;
 
 export const Plus = styled.Text`
-  font-family: "NotoSans-Regular";
-  font-style: normal;
+  /* font-family: "NotoSans-Regular"; */
+  /* font-style: normal; */
   font-size: 35px;
 
   color: #3c3c3c;
