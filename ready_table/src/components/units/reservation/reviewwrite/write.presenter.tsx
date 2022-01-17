@@ -37,7 +37,7 @@ const WriteUI = (props: IWritePorps) => {
         <ProductCard>
           <ProductImage
             source={{
-              uri: `https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`
+              uri: `${props.data?.fetchUseditem.images[0]}`
             }}
           />
           <ProductInfo>
