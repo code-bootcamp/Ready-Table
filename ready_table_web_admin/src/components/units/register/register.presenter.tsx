@@ -33,7 +33,7 @@ import DropZone01 from "../../commons/dropzone/Dropzone.container";
 export default function RegisterUI(props) {
   return (
     <Wrapper>
-      <Title>상품 등록</Title>
+      <Title>음식점 정보 등록</Title>
       <form
         onSubmit={props.handleSubmit(
           props.isEdit ? props.onClickUpdateProduct : props.onClickUploadProudct
@@ -42,20 +42,20 @@ export default function RegisterUI(props) {
         <InnerWrapper>
           <BasicWrapper>
             <LeftWrapper>
-              <Name>상품 명</Name>
+              <Name>상호명</Name>
             </LeftWrapper>
             <RightWrapper>
               <NameInput
                 type="text"
                 onChange={props.onChangeMyName}
-                placeholder="상품 명을 입력해주세요."
+                placeholder="상호 명을 입력해주세요."
                 defaultValue={props.fetchData?.fetchUseditem.name.split("#")[1]}
               />
             </RightWrapper>
           </BasicWrapper>
           <ContentWrapper>
             <LeftBasicWrapper>
-              <Name>상품 설명</Name>
+              <Name>업장 설명</Name>
             </LeftBasicWrapper>
             <RightContentWrapper>
               <ReactQuil01
@@ -67,7 +67,7 @@ export default function RegisterUI(props) {
           </ContentWrapper>
           <BasicWrapper>
             <LeftWrapper>
-              <Name>가격</Name>
+              <Name>가격대</Name>
             </LeftWrapper>
             <RightWrapper>
               <NameInput
@@ -95,7 +95,7 @@ export default function RegisterUI(props) {
                     minWidth: 120,
                     marginTop: "10px",
                     marginBottom: "10px",
-                    border: "2px solid #5b5bc0",
+                    border: "2px solid salmon",
                     borderRadius: "6px",
                   }}
                 >
@@ -117,14 +117,13 @@ export default function RegisterUI(props) {
                       label="Age"
                       onChange={props.handleChange}
                     >
-                      <MenuItem value={"배게"}>배게</MenuItem>
-                      <MenuItem value={"이불"}>이불</MenuItem>
-                      <MenuItem value={"잠옷"}>잠옷</MenuItem>
-                      <MenuItem value={"도서"}>도서</MenuItem>
-                      <MenuItem value={"암막커튼"}>암막 커튼</MenuItem>
-                      <MenuItem value={"오일"}>오일</MenuItem>
-                      <MenuItem value={"수면용품"}>수면 용품</MenuItem>
-                      <MenuItem value={"수면보조제"}>수면 보조제</MenuItem>
+                      <MenuItem value={"한식"}>한식</MenuItem>
+                      <MenuItem value={"양식"}>양식</MenuItem>
+                      <MenuItem value={"일식"}>일식</MenuItem>
+                      <MenuItem value={"분식"}>분식</MenuItem>
+                      <MenuItem value={"패스트푸드"}>패스트푸드</MenuItem>
+                      <MenuItem value={"도시락"}>도시락</MenuItem>
+                      <MenuItem value={"즁삭"}>중식</MenuItem>
                     </Select>
                   </FormControl>
                 </Box>
@@ -164,15 +163,9 @@ export default function RegisterUI(props) {
           </ImagesWrapper>
         </InnerWrapper>
         <ButtonWrapper>
-          {!props.isEdit ? (
-            <UploadButton onClick={props.onClickUploadProudct}>
-              상품 등록하기
-            </UploadButton>
-          ) : (
-            <UploadButton onClick={props.onClickUpdateProduct}>
-              상품 수정하기
-            </UploadButton>
-          )}
+          <UploadButton onClick={props.onClickUploadProudct}>
+            정보 수정하기
+          </UploadButton>
         </ButtonWrapper>
       </form>
     </Wrapper>

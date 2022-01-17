@@ -57,7 +57,7 @@ export default function TableDetailUI(props) {
         </ContentWrapper>
         <BasicWrapper>
           <LeftWrapper>
-            <Name>가격</Name>
+            <Name>가격대</Name>
           </LeftWrapper>
           <RightWrapper>
             <BasicInput>
