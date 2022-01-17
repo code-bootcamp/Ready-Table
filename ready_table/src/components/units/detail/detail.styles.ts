@@ -77,20 +77,22 @@ export const TimeWrapper = styled.View`
 
 export const TimeBox = styled.TouchableOpacity`
   width: 140px;
-  height: 70px;
-  background-color: #eb4034;
+  height: 50px;
+  border: 1px solid #dd4124;
   border-radius: 10px;
   margin: 10px;
   margin-top: 24px;
   display: flex;
-  justify-content: center;
+  border-radius: 20px;
+  margin-bottom: 24px;
 `;
 
 export const TimeText = styled.Text`
-  color: white;
+  color: #dd4124;
   text-align: center;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
+  margin-top: 12px;
 `;
 
 export const IconWrapper = styled.View`

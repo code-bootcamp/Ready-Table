@@ -56,10 +56,7 @@ const DetailUI = (props: IdetailProps) => {
         {props.data?.fetchUseditem.images
           ?.filter(el => el)
           .map(el => (
-            <Photo
-              key={el}
-              source={{ uri: `https://storage.googleapis.com/${el}` }}
-            />
+            <Photo key={el._id} source={{ uri: `${el.images}` }} />
           ))}
       </DataWrapper>
       <LineBar></LineBar>

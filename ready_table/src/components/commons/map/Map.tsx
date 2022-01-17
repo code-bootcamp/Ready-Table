@@ -164,6 +164,190 @@ const MapContainer = () => {
           title="꾸덕다욧"
           description="단백질샐러드:9000원, 시저샐러드: 7000원"
         />
+        <Marker
+          coordinate={{
+            latitude: 37.484844,
+            longitude: 126.896374
+          }}
+          title="한촌설렁탕"
+          description="얼큰설렁탕:11000원, 설렁탕: 9000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.484674,
+            longitude: 126.896479
+          }}
+          title="생어거스틴"
+          description="타이거새우팟타이:19000원, 뿌빳뽕커리: 17000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.484506,
+            longitude: 126.889047
+          }}
+          title="담소소사골순대국"
+          description="순대국:7000원, 육계장: 7000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.485784,
+            longitude: 126.897137
+          }}
+          title="샐러디"
+          description="칠리베이컨볼:9000원, 훈제연어랩: 7000원"
+        />
+        <Marker
+          coordinate={{
+            latitude: 37.483621,
+            longitude: 126.895796
+          }}
+          title="김우영회전초밥스시"
+          description="한접시: 1700원, 즈라시스시: 12000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.482957,
+            longitude: 126.897534
+          }}
+          title="샤오롱바오우육탕면"
+          description="우육면:9000원, 마장면: 11000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.485904,
+            longitude: 126.892987
+          }}
+          title="가장맛있는족발"
+          description="족발덮밥:9000원, 보쌈정식: 11000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.483886,
+            longitude: 126.888384
+          }}
+          title="공단갈비꼬치"
+          description="갈비꼬치 200g: 19000원, 갈비정식: 11000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.48455,
+            longitude: 126.890401
+          }}
+          title="칠번가피자"
+          description="페페로니피자:29000원, 콤비네이션: 30000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.482725,
+            longitude: 126.8946
+          }}
+          title="라마노피자"
+          description="마르게리따:11000원, 알리오올리오: 9000원"
+        />
+        <Marker
+          coordinate={{
+            latitude: 37.484198,
+            longitude: 126.89946
+          }}
+          title="Bee Pretty"
+          description="런치박스:11000원, 알리오올리오: 9000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.483798,
+            longitude: 126.89917
+          }}
+          title="우전"
+          description="한우등심:32000원, 불고기: 19000원"
+        />
+        <Marker
+          coordinate={{
+            latitude: 37.482725,
+            longitude: 126.8946
+          }}
+          title="라마노피자"
+          description="마르게리따:11000원, 알리오올리오: 9000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.484122,
+            longitude: 126.900265
+          }}
+          title="마구로옥"
+          description="평양냉면:12000원, 왕만두: 9000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.484471,
+            longitude: 126.900007
+          }}
+          title="초미남"
+          description="야끼니꾸:11000원, 타코와사비: 9000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.484496,
+            longitude: 126.899063
+          }}
+          title="미소 쌈밥"
+          description="쌈밥정식:11000원, 불고기쌈밥 2인: 32000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.485084,
+            longitude: 126.899009
+          }}
+          title="동경카츠"
+          description="안심카츠:11000원, 등심카츠: 10000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.48494,
+            longitude: 126.898915
+          }}
+          title="경양카츠 구로점"
+          description="커리정식:11000원, 치즈카츠: 12000원"
+        />
+        <Marker
+          coordinate={{
+            latitude: 37.484496,
+            longitude: 126.899063
+          }}
+          title="미소 쌈밥"
+          description="쌈밥정식:11000원, 불고기쌈밥 2인: 32000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.485192,
+            longitude: 126.897966
+          }}
+          title="어장촌물회"
+          description="물회정식:11000원, 회덮밥: 9000원"
+        />
+
+        <Marker
+          coordinate={{
+            latitude: 37.485375,
+            longitude: 126.897903
+          }}
+          title="육대장"
+          description="육계장:9000원, 하얀육계장: 8500원"
+        />
       </MapView>
       <Text>ddd</Text>
     </View>
@@ -173,7 +357,7 @@ export default MapContainer;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: "100%",
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
