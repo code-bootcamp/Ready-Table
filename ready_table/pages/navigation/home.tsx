@@ -10,6 +10,7 @@ import PictureContainer from "../../src/components/units/detail/picturelist/pict
 import DetailReviewContainer from "../../src/components/units/detail/reviewlist/reviewlist.container";
 import ReservationScreen from "../screens/reservation";
 import categoryDetail from "../../src/components/units/home/categoryDetail";
+import notification from "../../src/components/units/home/notification";
 
 const Stack = createStackNavigator();
 
@@ -45,6 +46,11 @@ const HomeNavigator = () => {
       <Stack.Screen
         name="categorydetail"
         component={categoryDetail}
+        options={() => ({ headerShown: false })}
+      />
+      <Stack.Screen
+        name="notification"
+        component={notification}
         options={() => ({ headerShown: false })}
       />
     </Stack.Navigator>

@@ -36,6 +36,8 @@ export const ListWrapper = styled.Pressable`
 
 export const List = styled.View`
   border-color: black;
+  width: 45%;
+  margin-right: 5px;
 `;
 export const ListContentWrapper = styled.View`
   display: flex;
@@ -46,17 +48,17 @@ export const ListContentWrapper = styled.View`
 
 export const ListName = styled.Text`
   font-weight: bold;
-  font-size: 15px;
+  font-size: 19px;
   margin-left: 10px;
 `;
 
 export const ListIamge = styled.Image`
-  width: 160px;
-  height: 100px;
+  width: 95%;
+  height: 159px;
   border-top-left-radius: 10;
   border-top-right-radius: 10;
-  /* border-bottom-left-radius: 10;
-  border-bottom-right-radius: 10; */
+  border-bottom-left-radius: 10;
+  border-bottom-right-radius: 10;
   margin-right: 5px;
   margin-left: 5px;
   margin-bottom: 10px;
@@ -76,21 +78,23 @@ export const BestItemImage = styled.ImageBackground`
   margin-right: 10px;
   width: 126px;
   height: 159px;
-  border-top-left-radius: 10;
-  border-top-right-radius: 10;
-  border-bottom-left-radius: 10;
-  border-bottom-right-radius: 10;
 `;
 
 export const BestItemName = styled.Text`
-  margin-vertical: 10px;
-  font-family: NotoSans;
+  padding-top: 10px;
+  padding-left: 5px;
   font-weight: bold;
+  font-size: 19px;
+  margin-left: 5px;
 `;
 
 export const BestItemWrapper = styled.ScrollView`
 width: 100%
 height: 317px;
+  border-top-left-radius: 10;
+  border-top-right-radius: 10;
+  border-bottom-left-radius: 10;
+  border-bottom-right-radius: 10;
 
 `;
 
@@ -117,6 +121,10 @@ margin:20,
 elevation: 5
 `;
 
-export const Cardtitle = styled.Text``;
+export const IconWrapper = styled.View`
+  margin-left: 89px;
+  margin-top: -3px;
+`;
+/* export const Cardtitle = styled.Text``;
 
-export const CardContent = styled.Text``;
+export const CardContent = styled.Text``; */

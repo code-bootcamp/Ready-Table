@@ -9,7 +9,13 @@ import {
   IQuery,
   IQueryFetchUseditemsArgs
 } from "../../../commons/types/generated/types";
+import MainBanner from "../../commons/mainbanner";
+import { Ionicons } from "@expo/vector-icons";
+const CategoryDetailView = styled.View`
+  background-color: white;
+`;
 const CategoryWrapper = styled.View`
+background-color: white
   margin-top: 50px;
 `;
 const CategoryText = styled.Text`
@@ -24,7 +30,6 @@ border-width:0.5;
 border-color:'#d6d7da'
 margin:20px;
 elevation:5;
-
 /* flex-direction: row;
   flex-wrap: wrap;
   width: 100%; */
@@ -49,6 +54,31 @@ export const ListIamge = styled.Image`
   margin-bottom: 10px;
   margin-top: 10px;
 `;
+const NotificationButton = styled.TouchableOpacity`
+  margin-left: 20px;
+`;
+const MainbannerButton = styled.TouchableOpacity``;
+
+const SearchiconButton = styled.TouchableOpacity`
+  margin-right: 20px;
+`;
+const MainBannerWrapper = styled.View`
+  /* position: fixed;
+  bottom: 0; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  background-color: white;
+`;
+const LogoText = styled.Text`
+  font-family: "Bungee";
+  color: #dd4124;
+  font-size: 30px;
+  margin: 0 auto;
+`;
 const categoryDetail = ({ route }) => {
   const navigation = useNavigation();
 
@@ -57,27 +87,44 @@ const categoryDetail = ({ route }) => {
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS, { variables: { search: route.params.id } });
   // console.log(route.params.id);
-  console.log(data);
+  // console.log(data);
   return (
-    <CategoryWrapper>
-      <CategoryText>{route.params.id} 카테고리 항목입니다</CategoryText>
-      <ListWrapper>
-        {data?.fetchUseditems.map((el, index) => (
-          <List
-            key={el._id}
-            onPress={() =>
-              navigation.navigate("detail", {
-                ustiemId: el._id
-              })
-            }
-          >
-            <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
-            <ListName> {String(el.name).split("-")[1]}</ListName>
-            {/* {String(el.name).split("-")[1]} */}
-          </List>
-        ))}
-      </ListWrapper>
-    </CategoryWrapper>
+    <CategoryDetailView>
+      <CategoryWrapper>
+        <MainBannerWrapper>
+          <NotificationButton onPress={() => navigation.navigate("detail", {})}>
+            <Ionicons
+              name="ios-notifications-outline"
+              size={30}
+              color="black"
+            />
+          </NotificationButton>
+          <MainbannerButton onPress={() => navigation.navigate("home", {})}>
+            <LogoText>READY TABLE</LogoText>
+          </MainbannerButton>
+          <SearchiconButton onPress={() => navigation.navigate("search", {})}>
+            <Ionicons name="ios-search-outline" size={30} color="black" />
+          </SearchiconButton>
+        </MainBannerWrapper>
+        <CategoryText>{route.params.id} 카테고리 항목입니다</CategoryText>
+        <ListWrapper>
+          {data?.fetchUseditems.map((el, index) => (
+            <List
+              key={el._id}
+              onPress={() =>
+                navigation.navigate("detail", {
+                  ustiemId: el._id
+                })
+              }
+            >
+              <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
+              <ListName> {String(el.name).split("-")[1]}</ListName>
+              {/* {String(el.name).split("-")[1]} */}
+            </List>
+          ))}
+        </ListWrapper>
+      </CategoryWrapper>
+    </CategoryDetailView>
   );
 };
 
