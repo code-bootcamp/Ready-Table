@@ -4,11 +4,12 @@ import DetailContainer from "../../../src/components/units/detail/detail.contain
 
 import DetailReviewContainer from "../../../src/components/units/detail/reviewlist/reviewlist.container";
 import UserWriteContainer from "../../../src/components/units/reservation/reviewwrite/write.container";
+import { IdetailProps } from "../../../src/components/units/detail/detail.types";
 
-const DetailScreen = () => {
+const DetailScreen = (props: IdetailProps) => {
   return (
     <>
-      <DetailHeader />
+      <DetailHeader data={props.data} />
       <DetailContainer />
       {/* <UserWriteContainer /> */}
       {/* <DetailReviewContainer /> */}
@@ -16,6 +17,4 @@ const DetailScreen = () => {
   );
 };
 
-
 export default DetailScreen;
-
