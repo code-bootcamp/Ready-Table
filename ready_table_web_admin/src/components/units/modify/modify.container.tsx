@@ -1,3 +1,5 @@
+import ProfileModifyUI from "./modify.presenter";
+import { UPLOAD_FILE } from "../../commons/profileUpload/profileUpload.queries";
 import {
   FETCH_USER_LOGGEDIN,
   RESORT_USER_PASSWORD,
@@ -5,13 +7,12 @@ import {
 } from "./modify.queries";
 import { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { UPLOAD_FILE } from "../../commons/profileUpload/profileUpload.queries";
-import ModifyUI from "./modify.presenter";
-export default function Modify() {
+export default function ProfileModify() {
   const [resetUserPassword] = useMutation(RESORT_USER_PASSWORD);
   const [updateUser] = useMutation(UPDATE_USER_INPUT);
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const { data } = useQuery(FETCH_USER_LOGGEDIN);
+
   const [myPassword, setMyPassword] = useState("");
   const [myName, setMyName] = useState("");
   const [files, setFiles] = useState(null);
@@ -20,6 +21,7 @@ export default function Modify() {
   function onChangePassword(event) {
     setMyPassword(event.target.value);
   }
+
   function onChangeName(event) {
     setMyName(event.target.value);
   }
@@ -27,13 +29,14 @@ export default function Modify() {
   function onChangeCheckPassword(event) {
     setMyCheckPassword(event.target.value);
   }
+
   function onChangeFile(file) {
     setFiles(file);
   }
 
   async function onClickResetPassword() {
-    if (myPassword === myCheckPassword) {
-      alert("비밀번호가 같지 않습니다.");
+    if (myPassword !== myCheckPassword) {
+      alert("확인 비밀번호가 같지 않습니다.");
       return;
     }
     try {
@@ -45,9 +48,10 @@ export default function Modify() {
       console.log(error.message);
     }
   }
+
   async function onClickUpdateUserName() {
     if (/[!?@#$%^&*():;+-=~{}<>]/.test(myName)) {
-      alert("이름에 특수부호를 사용할 수 없습니다.");
+      alert("특수부호를 입력할 수 없습니다.");
       return;
     }
     try {
@@ -58,34 +62,35 @@ export default function Modify() {
           },
         },
       });
-      alert("이름이 수정되었습니다.");
+      alert("이름이 변경되었습니다.");
     } catch (error) {
       console.log(error);
     }
   }
+
   async function onClickUpdateUserPicture() {
     try {
       const result = await uploadFile({
-        variables: {
-          file: files,
-        },
+        variables: { file: files },
       });
+
       const myPicture = result.data?.uploadFile.url;
+
       await updateUser({
         variables: {
           updateUserInput: { picture: myPicture },
         },
       });
-      alert("프로필 사진이 수정되었습니다.");
+      alert("프로필 사진이 변경되었습니다.");
     } catch (error) {
       console.log(error.message);
     }
   }
   return (
-    <ModifyUI
+    <ProfileModifyUI
       onChangePassword={onChangePassword}
-      onChangeName={onChangeName}
       onChangeCheckPassword={onChangeCheckPassword}
+      onChangeName={onChangeName}
       onClickResetPassword={onClickResetPassword}
       onClickUpdateUserName={onClickUpdateUserName}
       onChangeFile={onChangeFile}
