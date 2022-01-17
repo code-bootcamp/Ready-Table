@@ -13,7 +13,7 @@ export default function HeaderUI(props) {
               ? "회원가입"
               : props.data?.fetchUserLoggedIn.name[0] === "#"
               ? "관리자 페이지"
-              : "사장님 페이지"}
+              : "사업자 페이지"}
           </Title>
         </InnerWrapper>
       </Wrapper>

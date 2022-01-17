@@ -31,7 +31,7 @@ export default function SidebarUI(props) {
             src={
               props.data?.fetchUserLoggedIn.picture
                 ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`
-                : "/images/defaultprofile.png"
+                : "/images/user.png"
             }
           />
           <Name>
@@ -46,7 +46,7 @@ export default function SidebarUI(props) {
           <Phrase>
             {props.data?.fetchUserLoggedIn.name[0] === "#"
               ? "관리자 페이지에 오신 걸 환영합니다."
-              : "판매자 페이지에 오신 걸 환영합니다."}
+              : "사업자 페이지에 오신 걸 환영합니다."}
           </Phrase>
           <Line />
         </TopWrapper>
@@ -56,9 +56,9 @@ export default function SidebarUI(props) {
             <>
               <InnerWrapperDashboard isActive={props.isActive}>
                 {props.isActive === "/dashboard" ? (
-                  <SideMenuDashboardIcon src="/images/dashboard_click.png" />
+                  <SideMenuDashboardIcon src="/images/pngegg.png" />
                 ) : (
-                  <SideMenuDashboardIcon src="/images/dashboard.png" />
+                  <SideMenuDashboardIcon src="/images/pngegg.png" />
                 )}
                 <SideMenuButtonDashboard
                   isActive={props.isActive}
@@ -69,9 +69,9 @@ export default function SidebarUI(props) {
               </InnerWrapperDashboard>
               <InnerWrapperModify isActive={props.isActive}>
                 {props.isActive === "/profilemodify" ? (
-                  <SideMenuIcon src="/images/modify_click.png" />
+                  <SideMenuIcon src="/images/pngegg.png" />
                 ) : (
-                  <SideMenuIcon src="/images/modify.png" />
+                  <SideMenuIcon src="/images/pngegg.png" />
                 )}
                 <SideMenuButtonModify
                   isActive={props.isActive}
@@ -86,9 +86,9 @@ export default function SidebarUI(props) {
             <>
               <InnerWrapperDashboard isActive={props.isActive}>
                 {props.isActive === "/dashboard" ? (
-                  <SideMenuDashboardIcon src="/images/dashboard_click.png" />
+                  <SideMenuDashboardIcon src="/images/chart.png" />
                 ) : (
-                  <SideMenuDashboardIcon src="/images/dashboard.png" />
+                  <SideMenuDashboardIcon src="/images/chart.png" />
                 )}
                 <SideMenuButtonDashboard
                   isActive={props.isActive}
@@ -99,9 +99,9 @@ export default function SidebarUI(props) {
               </InnerWrapperDashboard>
               <InnerWrapperRegister isActive={props.isActive}>
                 {props.isActive === "/register" ? (
-                  <SideMenuIcon src="/images/posticon_click.png" />
+                  <SideMenuIcon src="/images/edit.png" />
                 ) : (
-                  <SideMenuIcon src="/images/posticon.png" />
+                  <SideMenuIcon src="/images/edit.png" />
                 )}
                 <SideMenuButtonRegister
                   isActive={props.isActive}
@@ -110,11 +110,11 @@ export default function SidebarUI(props) {
                   식당 정보 수정
                 </SideMenuButtonRegister>
               </InnerWrapperRegister>
-              <InnerWrapperProduct isActive={props.isActive}>
+              {/* <InnerWrapperProduct isActive={props.isActive}>
                 {props.isActive === "/productstable" ? (
-                  <SideMenuIcon src="/images/presenticon_click.png" />
+                  <SideMenuIcon src="/images/next.png" />
                 ) : (
-                  <SideMenuIcon src="/images/presenticon.png" />
+                  <SideMenuIcon src="/images/next.png" />
                 )}
                 <SideMenuButtonProduct
                   isActive={props.isActive}
@@ -122,13 +122,13 @@ export default function SidebarUI(props) {
                 >
                   리뷰 현황
                 </SideMenuButtonProduct>
-              </InnerWrapperProduct>
+              </InnerWrapperProduct> */}
 
-              <InnerWrapperSales isActive={props.isActive}>
+              {/* <InnerWrapperSales isActive={props.isActive}>
                 {props.isActive === "/salestable" ? (
-                  <SideMenuIcon src="/images/sellicon_click.png" />
+                  <SideMenuIcon src="/images/next.png" />
                 ) : (
-                  <SideMenuIcon src="/images/sellicon.png" />
+                  <SideMenuIcon src="/images/next.png" />
                 )}
                 <SideMenuButtonSales
                   isActive={props.isActive}
@@ -136,12 +136,12 @@ export default function SidebarUI(props) {
                 >
                   예약 현황
                 </SideMenuButtonSales>
-              </InnerWrapperSales>
+              </InnerWrapperSales> */}
               <InnerWrapperModify isActive={props.isActive}>
                 {props.isActive === "/profilemodify" ? (
-                  <SideMenuIcon src="/images/modify_click.png" />
+                  <SideMenuIcon src="/images/edit2.png" />
                 ) : (
-                  <SideMenuIcon src="/images/modify.png" />
+                  <SideMenuIcon src="/images/edit2.png" />
                 )}
                 <SideMenuButtonModify
                   isActive={props.isActive}
@@ -154,7 +154,7 @@ export default function SidebarUI(props) {
           )}
           {props.accessToken && (
             <InnerWrapper>
-              <SideMenuIcon src="/images/logouticon.png" />
+              <SideMenuIcon src="/images/logout.png" />
               <SideMenuButton onClick={props.onClickLogout}>
                 로그아웃
               </SideMenuButton>
