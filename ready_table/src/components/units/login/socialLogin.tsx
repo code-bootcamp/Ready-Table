@@ -43,8 +43,8 @@ const Login = props => {
     clientId:
       "540291082091-rqcsamfrc4h3c2g2rr2uvrjmun8k2kjb.apps.googleusercontent.com"
   });
-  const { id_token } = qs.parse(window.location.hash.substr(1));
-  const { email, name, picture } = jwtDecode(id_token);
+  // const { id_token } = qs.parse(window.location.hash.substr(1));
+  // const { email, name, picture } = jwtDecode(id_token);
   React.useEffect(() => {
     if (response?.type === "success") {
       const { id_token, accessToken } = response.params;
@@ -52,7 +52,7 @@ const Login = props => {
       const credential = GoogleAuthProvider.credential(id_token, accessToken);
       signInWithCredential(auth, credential);
       // return firebase.auth().signInWithCredential(credential);
-      console.log(email, name, picture);
+      console.log(id_token, email, name, picture);
     }
   }, [response]);
 

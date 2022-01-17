@@ -32,6 +32,7 @@ export const ListWrapper = styled.Pressable`
   justify-content: center;
   width: 100%;
   border-color: black;
+  overflow: hidden;
 `;
 
 export const List = styled.View`

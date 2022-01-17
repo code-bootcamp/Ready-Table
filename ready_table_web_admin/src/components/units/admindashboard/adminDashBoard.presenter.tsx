@@ -15,6 +15,7 @@ import {
   WrapperFooter,
 } from "./adminDashBoard.styles";
 import { ResponsiveBar } from "@nivo/bar";
+import { ResponsiveLine } from "@nivo/line";
 import { ResponsiveTimeRange } from "@nivo/calendar";
 import { AdminBarGraph, AdminCalendarGraph } from "./adminDashBoards.chardata";
 export default function AdminDashboardUI(props) {
@@ -130,29 +131,69 @@ export default function AdminDashboardUI(props) {
               />
             </FooterPart>
             <FooterPart>
-              <GraphTitle>일별 신규 회원수 ( 명 )</GraphTitle>
-              <ResponsiveTimeRange
+              <GraphTitle>월별 회원수 ( 명 )</GraphTitle>
+              <ResponsiveLine
                 data={AdminCalendarGraph}
-                from="2021-07-01"
-                to="2021-11-18"
-                emptyColor="#eeeeee"
-                colors={["#61cdbb", "#97e3d5", "#e8c1a0", "#f47560"]}
-                margin={{ top: 120, right: 40, bottom: 100, left: 40 }}
-                dayBorderWidth={2}
-                dayBorderColor="#ffffff"
+                margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+                xScale={{ type: "point" }}
+                yScale={{
+                  type: "linear",
+                  min: "auto",
+                  max: "auto",
+                  stacked: true,
+                  reverse: false,
+                }}
+                yFormat=" >-.2f"
+                axisTop={null}
+                axisRight={null}
+                axisBottom={{
+                  orient: "bottom",
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: "월",
+                  legendOffset: 36,
+                  legendPosition: "middle",
+                }}
+                axisLeft={{
+                  orient: "left",
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: "회원수",
+                  legendOffset: -40,
+                  legendPosition: "middle",
+                }}
+                pointSize={10}
+                pointColor={{ theme: "background" }}
+                pointBorderWidth={2}
+                pointBorderColor={{ from: "serieColor" }}
+                pointLabelYOffset={-12}
+                useMesh={true}
                 legends={[
                   {
-                    anchor: "bottom",
-                    direction: "row",
+                    anchor: "bottom-right",
+                    direction: "column",
                     justify: false,
-                    itemCount: 4,
-                    itemWidth: 42,
-                    itemHeight: 36,
-                    itemsSpacing: 14,
-                    itemDirection: "right-to-left",
-                    translateX: -30,
-                    translateY: -200,
-                    symbolSize: 20,
+                    translateX: 100,
+                    translateY: 0,
+                    itemsSpacing: 0,
+                    itemDirection: "left-to-right",
+                    itemWidth: 80,
+                    itemHeight: 20,
+                    itemOpacity: 0.75,
+                    symbolSize: 12,
+                    symbolShape: "circle",
+                    symbolBorderColor: "rgba(0, 0, 0, .5)",
+                    effects: [
+                      {
+                        on: "hover",
+                        style: {
+                          itemBackground: "rgba(0, 0, 0, .03)",
+                          itemOpacity: 1,
+                        },
+                      },
+                    ],
                   },
                 ]}
               />

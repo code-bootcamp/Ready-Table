@@ -68,8 +68,8 @@ const HomeUI = props => {
                   />
                 </IconWrapper>
               </BestItemImage>
-              {/* <BestItemName>{String(el.name).split("-")[1]}</BestItemName> */}
-              <BestItemName>{el.name}</BestItemName>
+              <BestItemName>{String(el.name).split("-")[1]}</BestItemName>
+              {/* <BestItemName>{el.name}</BestItemName> */}
             </BestItem>
           ))}
         </BestItemWrapper>
@@ -88,8 +88,8 @@ const HomeUI = props => {
                 <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
               </ListButton>
               <ListContentWrapper>
-                <ListName>{el.name}</ListName>
-                {/* <ListName> {String(el.name).split("-")[1]}</ListName> */}
+                {/* <ListName>{el.name}</ListName> */}
+                <ListName> {String(el.name).split("-")[1]}</ListName>
                 <HeartButton onPress={props.onPressPicked}>
                   {props.myPickData?.includes(el._id) ? (
                     <AntDesign name="hearto" size={15} color="black" />
@@ -101,10 +101,6 @@ const HomeUI = props => {
             </List>
           ))}
         </ListWrapper>
-        {/* <CardView>
-          <Cardtitle>카드제목</Cardtitle>
-          <CardContent>카드내용</CardContent>
-        </CardView> */}
         <FooterWrapper>
           <FooterText>
             {` (주) 레디테이블
