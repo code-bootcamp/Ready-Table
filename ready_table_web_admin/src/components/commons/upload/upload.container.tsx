@@ -32,6 +32,7 @@ export default function Uploads(props) {
     fileReader.readAsDataURL(file);
     fileReader.onload = (data: any) => {
       setFileUrl(data.target?.result);
+
       props.onChangeFiles(file, props.index);
     };
   }

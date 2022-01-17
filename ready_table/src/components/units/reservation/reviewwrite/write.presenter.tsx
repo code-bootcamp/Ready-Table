@@ -104,7 +104,8 @@ const WriteUI = (props: IWritePorps) => {
           <ReviewContentInput
             onChangeText={props.onChangeContents}
             style={{ flexShrink: 1 }}
-            multiline={true}
+            // multiline={true}
+            placeholder="식당이 마음에 드셨나요? 모두를 위해 리뷰를 작성해주세요."
           ></ReviewContentInput>
         </ReviewContentWrapper>
         <ReviewWriteButton onPress={props.onClickRegisterReview}>

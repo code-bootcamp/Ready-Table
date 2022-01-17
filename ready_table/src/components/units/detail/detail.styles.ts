@@ -76,7 +76,7 @@ export const TimeWrapper = styled.View`
 `;
 
 export const TimeBox = styled.TouchableOpacity`
-  width: 339px;
+  width: 140px;
   height: 70px;
   background-color: #eb4034;
   border-radius: 10px;

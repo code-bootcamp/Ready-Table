@@ -55,7 +55,7 @@ const HomeUI = props => {
               key={el._id}
               onPress={() =>
                 navigation.navigate("detail", {
-                  useditemId: el._id
+                  id: props.onPressDetail(el)
                 })
               }
             >

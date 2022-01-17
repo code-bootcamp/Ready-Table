@@ -13,18 +13,34 @@ const PictureContainer = (props: IdetailProps) => {
       <PictureWrapper>
         {props.data?.fetchUseditem.images
           ?.filter((el: any) => el)
-          .map((el: { _id: React.Key }) => (
+          .map(el => (
             <Picture
               key={el._id}
               source={{ uri: `https://storage.googleapis.com/${el}` }}
             />
           ))}
 
-        <Picture source={require("../../../../../public/images/food.jpg")} />
+        {/* <Picture
+          source={require("../../../../../public/images/burgerking.png")}
+        /> */}
+        {/* <Picture
+          source={{
+            uri: "https://www.techm.kr/news/photo/201803/img_4770_0.jpg"
+          }}
+        /> */}
+        <Picture
+          // source={require("../../../../../public/images/food.jpg")}
+          source={require("../../../../../public/images/food.jpg")}
+        />
+
         <Picture source={require("../../../../../public/images/food1.jpg")} />
         <Picture source={require("../../../../../public/images/food2.jpeg")} />
         <Picture source={require("../../../../../public/images/food3.jpg")} />
         <Picture source={require("../../../../../public/images/food4.jpg")} />
+
+        <Picture
+          source={require("../../../../../public/images/restaurant.jpeg")}
+        />
         <Picture
           source={require("../../../../../public/images/restaurant1.jpg")}
         />
@@ -32,6 +48,7 @@ const PictureContainer = (props: IdetailProps) => {
           source={require("../../../../../public/images/restaurant2.jpg")}
         />
         <Picture
+
           source={require("../../../../../public/images/restaurant3.jpg")}
         />
         <Picture source={require("../../../../../public/images/brunch.jpg")} />

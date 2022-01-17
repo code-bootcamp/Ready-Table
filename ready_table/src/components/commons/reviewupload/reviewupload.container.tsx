@@ -13,8 +13,12 @@ const ReviewUploadContainer = (props: any) => {
     launchImageLibrary(
       {
         mediaType: "photo",
+
         includeBase64: true,
         selectionLimit: 5
+
+        
+
       },
       async ({ assets }) => {
         const file = new ReactNativeFile({
@@ -23,6 +27,7 @@ const ReviewUploadContainer = (props: any) => {
           name: assets?.[0].fileName
         });
         const source = { uri: "data:image/jpeg;base64," + assets?.[0].base64 };
+        // const source = { uri: assets?.[0].base64 };
         setImageUri(source);
         try {
           const result = await uploadFile({

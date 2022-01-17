@@ -12,6 +12,7 @@ export default function ProfileUpload(props) {
   function onChangeImage(event) {
     const file = event.target.files[0];
     if (!file) {
+
       alert("파일이 없습니다!");
       return;
     }
@@ -21,6 +22,7 @@ export default function ProfileUpload(props) {
     }
     if (!file.type.includes("jpeg") && !file.type.includes("png")) {
       alert("jpeg 또는 png만 업로드 가능합니다.");
+
       return;
     }
     const fileReader = new FileReader();

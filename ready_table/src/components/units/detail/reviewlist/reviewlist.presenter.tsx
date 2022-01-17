@@ -4,6 +4,8 @@ import { IUseditem } from "../../../../commons/types/generated/types";
 import ReviewItem from "./reviewlist.presenterItems";
 import {
   BarWrapper,
+  Btn,
+  BtnText,
   LastLine,
   ReviewAVGWrapper,
   RightWrapper,
@@ -23,7 +25,9 @@ import {
 } from "./reviewlist.styles";
 import { IReviewProps } from "./reviewlist.types";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 const ReviewListUI = (props: IReviewProps) => {
+  const navigation = useNavigation();
   return (
     <Wrapper>
       <ReviewAVGWrapper>
@@ -57,11 +61,10 @@ const ReviewListUI = (props: IReviewProps) => {
       {props.ReviewData?.fetchUseditemQuestions.map((el: IUseditem) => (
         <ReviewItem
           key={el._id}
-          id={el.id}
           data={props.data}
           userData={props.userData}
           el={el}
-          IsLarge={props.IsLarge}
+          isLarge={props.isLarge}
           onPressEnlargePicture={props.onPressEnlargePicture}
           ReviewData={undefined}
         />

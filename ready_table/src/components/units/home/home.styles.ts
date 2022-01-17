@@ -89,14 +89,13 @@ export const BestItemName = styled.Text`
 `;
 
 export const BestItemWrapper = styled.ScrollView`
-width: 100%
-height: 317px;
-
+  width: 100%;
+  height: 317px;
 `;
 
 export const BestItem = styled.TouchableOpacity`
   padding-top: 50px;
-  width: 100%
+  width: 100%;
   height: 317px;
 `;
 

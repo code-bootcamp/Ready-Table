@@ -26,8 +26,11 @@ import {
   Wrapper
 } from "./detail.styles";
 import { IdetailProps } from "./detail.types";
+import { Btn, BtnText } from "./reviewlist/reviewlist.styles";
+import { useNavigation } from "@react-navigation/native";
 
 const DetailUI = (props: IdetailProps) => {
+  const navigation = useNavigation();
   return (
     <Wrapper>
       <NotiWrapper>
@@ -39,7 +42,10 @@ const DetailUI = (props: IdetailProps) => {
       </NotiWrapper>
       <LineBar></LineBar>
       <DataWrapper>
-        <TitleText>{props.data?.fetchUseditem.name}</TitleText>
+        {/* <TitleText>{props.data?.fetchUseditem.name}</TitleText> */}
+        <TitleText>
+          {String(props.data?.fetchUseditem.name).split("-")[1]}
+        </TitleText>
         {/* <TitleText>{props.data?.fetchUseditem.name}</TitleText> */}
         {/* <TitleText>{props.items?.fetchUseditems[0].name}</TitleText> */}
         <RemarksText>{props.data?.fetchUseditem.remarks}</RemarksText>
@@ -62,10 +68,10 @@ const DetailUI = (props: IdetailProps) => {
         <TimeBox onPress={props.onPressCart}>
           <TimeText>오늘 점심예약하기</TimeText>
         </TimeBox>
-        {/* <TimeBox onPress={props.onPressCart}>
+        {/* <TimeBox onPress={props.onPressStartTime}>
           <TimeText>오후 12:00</TimeText>
         </TimeBox>
-        <TimeBox onPress={props.onPressCart}>
+        <TimeBox onPress={props.onPressEndTime}>
           <TimeText>오후 01:00</TimeText>
         </TimeBox> */}
       </TimeWrapper>

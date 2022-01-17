@@ -12,46 +12,17 @@ import {
 
 import { FETCH_USED_ITEMS } from "./reservation.queries";
 import ReservationUI from "./reservation.presenter";
+import { FETCH_USED_ITEM } from "./reviewwrite/write.queries";
+import { IProduct } from "../detail/detail.types";
 
 const ReservationContainer = () => {
   const [productInfo, setProductInfo] = useState([]);
   const { setId, setIsReview } = useContext(GlobalContext);
   const navigation = useNavigation;
-  const { data, fetchMore } = useQuery<
-    Pick<IQuery, "fetchUseditems">,
-    IQueryFetchUseditemsArgs
-  >(FETCH_USED_ITEMS, {
-    variables: {
-      isSoldout: true,
-      search: "",
-      page: 1
-    }
-  });
 
-  const onLoadMore = () => {
-    if (!data) {
-      return;
-    }
+  const { data } = useQuery(FETCH_USED_ITEM);
 
-    fetchMore({
-      variables: {
-        page: Math.ceil(data?.fetchUseditems.length / 10) + 1
-      },
-      updateQuery: (prev: any, { fetchMoreResult }: any) => {
-        return {
-          fetchUseditems: [
-            ...prev.fetchUsediems,
-            ...fetchMoreResult.fetchUseditems
-          ]
-        };
-      }
-    });
-  };
-
-  useEffect(() => {
-    onLoadMore();
-  }, [data?.fetchUseditems]);
-
+  console.log(data, "Test");
   useEffect(() => {
     AsyncStorage.getItem("@carts", async (_: any, result: any) => {
       const Reseritem = await JSON.parse(result);
@@ -64,23 +35,27 @@ const ReservationContainer = () => {
       const ReseritemPr = await JSON.parse(result);
       setProductInfo(ReseritemPr);
     });
-  }, [AsyncStorage.getItem("@carts")]);
+    // return function cleanup() {};
+  }, []);
+  // }, [AsyncStorage.getItem("@carts")]);
 
-  const onPressDetail = (el: IUseditem) => {
-    setId(el._id);
+  const onPressDetail = (el: IProduct) => {
+    setId(el.id);
     console.log(setId);
-    setIsReview(prev => !prev);
+    setIsReview((prev: any) => !prev);
   };
 
-  const onPressMoveToReviewWrite = (el: any) => {
-    setId(el._id);
+  const onPressMoveToReviewWrite = (el: IProduct) => {
+    setId(el.id);
+
+    console.log(el.id, "댓글");
   };
   // const DeleteBtn = (el: IUseditem) => () => {
   //   const deleteReser = productInfo.filter(el => el._id !== setId);
   //   AsyncStorage.setItem("@carts", JSON.stringify(deleteReser));
   //   console.log("삭제되었습니다.");
   // };
-  // const removeFew = async () => {
+  // const onPressMoveToReviewWrite = async () => {
   //   const keys = ["@carts"];
   //   try {
   //     await AsyncStorage.multiRemove(keys);
