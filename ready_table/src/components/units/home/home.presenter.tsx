@@ -23,8 +23,7 @@ import {
   HeartButton,
   ListContentWrapper,
   CardView,
-  Cardtitle,
-  CardContent
+  IconWrapper
 } from "./home.styles";
 import { useNavigation } from "@react-navigation/native";
 import { Image, ScrollView, Text, View } from "react-native";
@@ -35,6 +34,7 @@ import Carousel from "./carousel";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { GlobalContext } from "../../../../App";
+import { Icon } from "react-native-elements/dist/icons/Icon";
 
 const HomeUI = props => {
   const navigation = useNavigation();
@@ -60,14 +60,16 @@ const HomeUI = props => {
               }
             >
               <BestItemImage source={{ uri: el.images[0] }} resizeMode="cover">
-                <Ionicons
-                  name="bookmark"
-                  style={{ color: "#dd4124" }}
-                  size={25}
-                />
+                <IconWrapper>
+                  <Ionicons
+                    name="bookmark"
+                    style={{ color: "#dd4124" }}
+                    size={30}
+                  />
+                </IconWrapper>
               </BestItemImage>
+              {/* <BestItemName>{String(el.name).split("-")[1]}</BestItemName> */}
               <BestItemName>{el.name}</BestItemName>
-              {/* {String(el.name).split("-")[1]} */}
             </BestItem>
           ))}
         </BestItemWrapper>
@@ -87,11 +89,12 @@ const HomeUI = props => {
               </ListButton>
               <ListContentWrapper>
                 <ListName>{el.name}</ListName>
+                {/* <ListName> {String(el.name).split("-")[1]}</ListName> */}
                 <HeartButton onPress={props.onPressPicked}>
                   {props.myPickData?.includes(el._id) ? (
                     <AntDesign name="hearto" size={15} color="black" />
                   ) : (
-                    <AntDesign name="heart" size={15} color="black" /> // 토글 되야하는데 안됨
+                    <AntDesign name="heart" size={15} color="#dd4124" /> // 토글 되야하는데 안됨
                   )}
                 </HeartButton>
               </ListContentWrapper>

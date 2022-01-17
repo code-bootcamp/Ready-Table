@@ -36,8 +36,10 @@ export const DropZoneWrapper = styled.div`
   border: 3px dashed salmon;
   background-color: white;
   color: #dd4124;
+
   margin-top: 50px;
   width: 900px;
+
   height: 150px;
   display: flex;
   justify-content: center;

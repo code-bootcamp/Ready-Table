@@ -4,6 +4,7 @@ import { ResponseType } from "expo-auth-session";
 import * as Google from "expo-auth-session/providers/google";
 import { initializeApp } from "firebase/app";
 import { TouchableOpacity, View } from "react-native";
+import jwtDecode from "jwt-decode";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -12,6 +13,8 @@ import {
 import { Button } from "react-native";
 import { OAuth2Client } from "google-auth-library";
 import styled from "@emotion/native";
+import { useNavigation } from "@react-navigation/native";
+import firebase from "../../../../firebaseConfig";
 
 // Initialize Firebase
 initializeApp({
@@ -34,20 +37,22 @@ const CategoryIcon = styled.Image`
   height: 26px;
 `;
 
-export default function Login() {
+const Login = props => {
+  const navigation = useNavigation();
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
     clientId:
       "540291082091-rqcsamfrc4h3c2g2rr2uvrjmun8k2kjb.apps.googleusercontent.com"
   });
-
+  const { id_token } = qs.parse(window.location.hash.substr(1));
+  const { email, name, picture } = jwtDecode(id_token);
   React.useEffect(() => {
     if (response?.type === "success") {
-      const { id_token } = response.params;
-
+      const { id_token, accessToken } = response.params;
       const auth = getAuth();
-      const credential = GoogleAuthProvider.credential(id_token);
+      const credential = GoogleAuthProvider.credential(id_token, accessToken);
       signInWithCredential(auth, credential);
-      console.log(id_token);
+      // return firebase.auth().signInWithCredential(credential);
+      console.log(email, name, picture);
     }
   }, [response]);
 
@@ -63,4 +68,5 @@ export default function Login() {
       </CategoryIconWrapper>
     </>
   );
-}
+};
+export default Login;
