@@ -65,7 +65,7 @@ export default function ReactQuil01(props) {
         <DetailText
           modules={modules}
           onChange={props.onChange}
-          placeholder="상품 설명을 입력해주세요."
+          placeholder="업장 설명을 입력해주세요."
         />
       ) : (
         <>
@@ -73,7 +73,7 @@ export default function ReactQuil01(props) {
             <DetailText
               modules={modules}
               onChange={props.onChange}
-              placeholder="상품 설명을 입력해주세요."
+              placeholder="업장 설명을 입력해주세요."
               defaultValue={props.defaultValue}
             />
           )}

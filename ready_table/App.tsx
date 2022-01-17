@@ -38,8 +38,6 @@ function App() {
   const [accessToken, setAccessToken] = useState("");
   const [id, setId] = useState("");
 
-  const [isLoading, setIsLoading] = useState(false);
-
   const [userInfo, setUserInfo] = useState<IUserInfo>();
   const [isFavorite, setIsFavorite] = useState(true);
 

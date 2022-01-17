@@ -43,8 +43,7 @@ const ReservationUI = (props: IReservationProps) => {
           ?.map(el => (
             // <ReserWrapper isSoldOut={soldOutList?.includes(el.id)} key={el._id}>
 
-            <ReserWrapper key={el._id}>
-
+            <ReserWrapper key={el.id}>
               <ImgWrapper
                 onPress={() => {
                   if (!soldOutList?.includes(el.id)) {

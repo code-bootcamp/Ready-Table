@@ -4,7 +4,9 @@ export const TempImage = styled.img`
   width: 165px;
   height: 165px;
   border-radius: 15px;
-  border: 1px solid #5b5bc0;
+
+  border: 1px solid salmon;
+
   cursor: pointer;
   margin-right: 10px;
 `;
@@ -30,9 +32,11 @@ export const TempMiddleWrapper = styled.div`
 export const DropZoneWrapper = styled.div`
   text-align: center;
   padding: 20px;
-  border: 3px dashed #5b5bc0;
-  background-color: #f5f5fb;
-  color: #5b5bc0;
+
+  border: 3px dashed salmon;
+  background-color: white;
+  color: #dd4124;
+
   width: 1050px;
   height: 150px;
   display: flex;
@@ -46,11 +50,13 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const UploadButton = styled.button`
-  border: 1px solid #5b5bc0;
+
+  border: 1px solid #dd4124;
   width: 339px;
   height: 48px;
   color: white;
-  background-color: #5b5bc0;
+  background-color: #dd4124;
+
   /* border-radius: 8px; */
   font-size: 18px;
   margin-top: 30px;

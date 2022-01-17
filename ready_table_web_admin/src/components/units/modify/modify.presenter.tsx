@@ -3,37 +3,37 @@ import {
   Wrapper,
   ModifyTitle,
   ModifyWrapper,
+  Title,
+  InputWrapper,
+  Label,
+  Input,
+  ButtonWrapper,
+  NameWrapper,
+  RightWrapper,
+  Header,
+  ImageModifyButton,
+  ModifyButton,
   LeftWrapper,
   ImageTitle,
   ImageLabel,
   UserName,
-  ImageModifyButton,
-  RightWrapper,
-  Header,
-  NameWrapper,
-  Title,
-  InputWrapper,
-  Input,
-  ButtonWrapper,
-  ModifyButton,
-  Label,
 } from "./modify.styles";
 
-export default function ModifyUI(props) {
+export default function ProfileModifyUI(props) {
   return (
     <Wrapper>
       <ModifyTitle>내 정보 수정</ModifyTitle>
       <ModifyWrapper>
         <LeftWrapper>
-          <ImageTitle>프로필 사진 변경</ImageTitle>
+          <ImageTitle>내 사진 변경</ImageTitle>
           <ImageLabel>변경 할 사진</ImageLabel>
           <ProfileUpload
-            onChange={props.onChangeFile}
-            defulatPicture={props.data?.fetchUserLoggedIn.picture}
+            onChangeFile={props.onChangeFile}
+            defaultPicture={props.data?.fetchUserLoggedIn.picture}
           />
-          <UserName>{props.data?.fetchUserLoggedIn.name}님</UserName>
+          <UserName>{props.data?.fetchUserLoggedIn.name} 님</UserName>
           <ImageModifyButton onClick={props.onClickUpdateUserPicture}>
-            프로필 사진 변경하기
+            프로필사진 변경하기
           </ImageModifyButton>
         </LeftWrapper>
         <RightWrapper>
@@ -54,6 +54,10 @@ export default function ModifyUI(props) {
           <Header>
             <Title>비밀번호 변경</Title>
             <InputWrapper>
+              <Label>현재 비밀번호</Label>
+              <Input type="password" />
+            </InputWrapper>
+            <InputWrapper>
               <Label>새 비밀번호</Label>
               <Input type="password" onChange={props.onChangePassword} />
             </InputWrapper>
@@ -62,7 +66,7 @@ export default function ModifyUI(props) {
               <Input type="password" onChange={props.onChangeCheckPassword} />
             </InputWrapper>
             <ButtonWrapper>
-              <ModifyButton onClick={props.onClickRestPassword}>
+              <ModifyButton onClick={props.onClickResetPassword}>
                 비밀번호 변경하기
               </ModifyButton>
             </ButtonWrapper>

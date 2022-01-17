@@ -19,7 +19,7 @@ export default function UploadsUI(props: any) {
         ></UploadImage>
       ) : (
         <UploadsButton onClick={props.onClickUpload} type="button">
-          <BtnImg src="/images/uploadbtn.png" />
+          <BtnImg src="/images/logo.png" />
         </UploadsButton>
       )}
       <UploadFileHidden
