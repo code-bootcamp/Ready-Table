@@ -26,8 +26,11 @@ import {
   Wrapper
 } from "./detail.styles";
 import { IdetailProps } from "./detail.types";
+import { Btn, BtnText } from "./reviewlist/reviewlist.styles";
+import { useNavigation } from "@react-navigation/native";
 
 const DetailUI = (props: IdetailProps) => {
+  const navigation = useNavigation();
   return (
     <Wrapper>
       <NotiWrapper>
@@ -93,3 +96,6 @@ const DetailUI = (props: IdetailProps) => {
 };
 
 export default DetailUI;
+function el(el: any) {
+  throw new Error("Function not implemented.");
+}

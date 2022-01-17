@@ -43,7 +43,7 @@ function App() {
   // const [isReview, setIsReview] = useState(false);
   // const [isMypage, setMypage] = useState("");
   // const [loading, setLoading] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [userInfo, setUserInfo] = useState<IUserInfo>();
 
   useEffect(() => {

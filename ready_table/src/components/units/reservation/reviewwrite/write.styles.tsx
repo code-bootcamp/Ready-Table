@@ -116,11 +116,11 @@ export const StarIcon = styled.Image`
 export const ReviewContentWrapper = styled.View`
   width: 339px;
   height: 339px;
-  border: 1px solid #f9f8f8;
-  border-radius: 15px;
+  /* border: 1px solid #f9f8f8;
+  border-radius: 15px; */
   margin-top: 12px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
 
 export const ReviewContentInput = styled.TextInput`

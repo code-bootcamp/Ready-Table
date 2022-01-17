@@ -71,6 +71,7 @@ const ReservationUI = (props: IReservationProps) => {
               </DataWrapper>
 
               <ButtonWrapper
+                key={el._id}
                 onPress={() =>
                   navigation.navigate("reviewwrite", {
                     id: props.onPressMoveToReviewWrite(el)
