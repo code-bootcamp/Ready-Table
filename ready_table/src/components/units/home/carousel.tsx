@@ -56,7 +56,7 @@ const HomeUI: React.FC<CustomCarouselProps> = props => {
   const MyNews = [
     {
       message1: "HAPPY NEW YEAR",
-      message2: "새해 기념 맞이 식당 추천",
+      message2: "새해 기념 특별한 식당 추천",
       image: require("../../../../public/images/newyear.jpg")
     },
     {
