@@ -3,14 +3,17 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import SignUpPageUI from "./signUp.presenter";
 import { CREATE_USER } from "./signUp.queries";
+import { useNavigation } from "@react-navigation/native";
 
 const SignUpPage = (props: any) => {
+  const navigation = useNavigation();
   const [createUser] = useMutation(CREATE_USER);
   const { handleSubmit, control } = useForm({
     defaultValues: {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      repassword: ""
     }
   });
 
@@ -25,9 +28,9 @@ const SignUpPage = (props: any) => {
           }
         }
       });
-
+      // console.log(data);
       console.log("회원가입 완료!!");
-      props.navigation.navigate("Login");
+      navigation.navigate("login");
     } catch (error) {
       console.log(error.message);
     }

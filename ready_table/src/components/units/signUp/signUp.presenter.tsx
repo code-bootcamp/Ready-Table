@@ -18,7 +18,7 @@ const SignUpPageUI = (props: any) => {
       <Controller
         control={props.control}
         name="name"
-        rules={{ required: true }}
+        rules={{ required: true, maxLength: 10 }}
         render={({ field: { onChange, onBlur, value } }) => (
           <UserInput
             onBlur={onBlur}
@@ -57,7 +57,7 @@ const SignUpPageUI = (props: any) => {
       />
       <Controller
         control={props.control}
-        name="password"
+        name="repassword"
         rules={{ required: true }}
         render={({ field: { onChange, onBlur, value } }) => (
           <UserInput
@@ -70,9 +70,7 @@ const SignUpPageUI = (props: any) => {
         )}
       />
       <LoginButtonWrapper onPress={props.handleSubmit(props.JoinUser)}>
-        <LoginButton onPress={() => props.navigation.navigate("login")}>
-          {"시작하기"}
-        </LoginButton>
+        <LoginButton>시작하기</LoginButton>
       </LoginButtonWrapper>
     </Wrapper>
   );
