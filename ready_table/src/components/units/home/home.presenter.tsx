@@ -18,15 +18,22 @@ import {
   ListIamge,
   BestItemImage,
   BestItemName,
-  BestItem
+  BestItem,
+  ListButton,
+  HeartButton,
+  ListContentWrapper,
+  CardView,
+  Cardtitle,
+  CardContent
 } from "./home.styles";
 import { useNavigation } from "@react-navigation/native";
-import { ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import MainBanner from "../../commons/mainbanner";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import CategoryList from "./category";
 import Carousel from "./carousel";
 import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import { GlobalContext } from "../../../../App";
 
 const HomeUI = props => {
@@ -67,20 +74,34 @@ const HomeUI = props => {
         <CategoryList></CategoryList>
         <ListWrapper>
           {props.data?.fetchUseditems.map((el, index) => (
-            <List
-              key={el._id}
-              onPress={() =>
-                navigation.navigate("detail", {
-                  id: props.onPressDetail(el)
-                })
-              }
-            >
-              <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
-              <ListName>{String(el.name).split("-")[1]}</ListName>
-              {/* {String(el.name).split("-")[1]} */}
+            <List>
+              <ListButton
+                key={el._id}
+                onPress={() =>
+                  navigation.navigate("detail", {
+                    id: props.onPressDetail(el)
+                  })
+                }
+              >
+                <ListIamge source={{ uri: el.images[0] }} resizeMode="cover" />
+              </ListButton>
+              <ListContentWrapper>
+                <ListName>{el.name}</ListName>
+                <HeartButton onPress={props.onPressPicked}>
+                  {props.myPickData?.includes(el._id) ? (
+                    <AntDesign name="hearto" size={15} color="black" />
+                  ) : (
+                    <AntDesign name="heart" size={15} color="black" /> // 토글 되야하는데 안됨
+                  )}
+                </HeartButton>
+              </ListContentWrapper>
             </List>
           ))}
         </ListWrapper>
+        {/* <CardView>
+          <Cardtitle>카드제목</Cardtitle>
+          <CardContent>카드내용</CardContent>
+        </CardView> */}
         <FooterWrapper>
           <FooterText>
             {` (주) 레디테이블
