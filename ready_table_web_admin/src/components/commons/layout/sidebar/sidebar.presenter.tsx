@@ -56,9 +56,9 @@ export default function SidebarUI(props) {
             <>
               <InnerWrapperDashboard isActive={props.isActive}>
                 {props.isActive === "/dashboard" ? (
-                  <SideMenuDashboardIcon src="/images/pngegg.png" />
+                  <SideMenuDashboardIcon src="/images/bar-chart.png" />
                 ) : (
-                  <SideMenuDashboardIcon src="/images/pngegg.png" />
+                  <SideMenuDashboardIcon src="/images/bar-chart.png" />
                 )}
                 <SideMenuButtonDashboard
                   isActive={props.isActive}
@@ -69,9 +69,9 @@ export default function SidebarUI(props) {
               </InnerWrapperDashboard>
               <InnerWrapperModify isActive={props.isActive}>
                 {props.isActive === "/profilemodify" ? (
-                  <SideMenuIcon src="/images/pngegg.png" />
+                  <SideMenuIcon src="/images/edit.png" />
                 ) : (
-                  <SideMenuIcon src="/images/pngegg.png" />
+                  <SideMenuIcon src="/images/edit.png" />
                 )}
                 <SideMenuButtonModify
                   isActive={props.isActive}
@@ -86,9 +86,9 @@ export default function SidebarUI(props) {
             <>
               <InnerWrapperDashboard isActive={props.isActive}>
                 {props.isActive === "/dashboard" ? (
-                  <SideMenuDashboardIcon src="/images/chart.png" />
+                  <SideMenuDashboardIcon src="/images/bar-chart.png" />
                 ) : (
-                  <SideMenuDashboardIcon src="/images/chart.png" />
+                  <SideMenuDashboardIcon src="/images/bar-chart.png" />
                 )}
                 <SideMenuButtonDashboard
                   isActive={props.isActive}
@@ -165,3 +165,4 @@ export default function SidebarUI(props) {
     </>
   );
 }
+123;
