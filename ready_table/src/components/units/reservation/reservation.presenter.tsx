@@ -26,7 +26,7 @@ import { getDate } from "../../../commons/library/utils/getDate";
 const ReservationUI = (props: IReservationProps) => {
   const navigation = useNavigation();
   const soldOutList = props.soldOutList?.map((el: any) => el._id);
-
+  console.log(props.productInfo);
   return (
     <ScrollView style={{ backgroundColor: "white" }} stickyHeaderIndices={[0]}>
       <Wrapper>
@@ -47,7 +47,7 @@ const ReservationUI = (props: IReservationProps) => {
               <ImgWrapper
                 onPress={() => {
                   if (!soldOutList?.includes(el.id)) {
-                    navigation.navigate("datail", {
+                    navigation.navigate("detail", {
                       id: props.onPressDetail(el)
                     });
                   }
@@ -56,7 +56,9 @@ const ReservationUI = (props: IReservationProps) => {
                 {el.images ? (
                   <ReserImg
                     source={{
+
                       uri: `${el.images[0]}`
+
                     }}
                   />
                 ) : (
