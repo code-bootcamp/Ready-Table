@@ -20,10 +20,11 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { IReviewProps } from "./reviewlist.types";
+import { FlatList } from "react-native-gesture-handler";
 
 const ReviewListUIItem = (props: IReviewProps) => {
   return (
-    <ScrollView>
+    <>
       <InnerWrapper>
         <ReviewWrapper>
           <InnerTopWrapper>
@@ -98,7 +99,7 @@ const ReviewListUIItem = (props: IReviewProps) => {
           </BottomWrapper>
         </ReviewWrapper>
       </InnerWrapper>
-    </ScrollView>
+    </>
   );
 };
 

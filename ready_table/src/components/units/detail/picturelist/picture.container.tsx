@@ -13,7 +13,7 @@ const PictureContainer = (props: IdetailProps) => {
   return (
     <Wrapper>
       <DetailHeader />
-      <PictureWrapper stickyHeaderIndices={[0]}>
+      <PictureWrapper>
         {data?.fetchUseditem.images
           ?.filter((el, index) => el)
           .map(el => (
