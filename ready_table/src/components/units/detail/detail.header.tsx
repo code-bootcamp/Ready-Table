@@ -17,11 +17,13 @@ import { FETCH_USED_ITEM } from "../home/home.queires";
 const DetailHeader = (props: IdetailProps) => {
   const navigation = useNavigation();
   const { id } = useContext(GlobalContext);
-  const { data } = useQuery(FETCH_USED_ITEM);
-  console.log(data, "도와주세요");
+  const { data } = useQuery(FETCH_USED_ITEM, {
+    variables: { useditemId: id }
+  });
+  console.log(data, "detailHeader");
   return (
     <HeaderWrapper>
-      {data?.fetchUseditem.images.map ? (
+      {/* {data?.fetchUseditem.images.map ? (
         (el, index) => (
           <Mainimg
             key={el._id}
@@ -30,25 +32,10 @@ const DetailHeader = (props: IdetailProps) => {
             }}
           />
         )
-      ) : (
-        <Mainimg
-          source={require("../../../../public/images/defaultfood.jpg")}
-        />
-      )}
-      {/* {props.data?.fetchUseditem.images(el) ? (
-        <Mainimg
-          key={el._id}
-          source={{
-            uri: `${el.images[0]}`
-          }}
-        />
-      ) 
-      : (
-        <Mainimg
-          source={require("../../../../public/images/defaultfood.jpg")}
-        />
-      )}
-       */}
+      ) : ( */}
+      {/* //데이터가 무거워 안불러와지는 이슈가있음.. */}
+      <Mainimg source={require("../../../../public/images/defaultfood.jpg")} />
+      {/* )} */}
 
       <HeaderNavigator>
         <NaviButton onPress={() => navigation.navigate("detail")}>

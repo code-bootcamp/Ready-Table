@@ -31,7 +31,7 @@ const PickListUI = (props: any) => {
   // console.log(props.data2?.fetchUseditemsIPicked);
   const navigation = useNavigation();
   return (
-    <ScrollView>
+    <ScrollView stickyHeaderIndices={[0]}>
       <PickListContainer>
         <ListCountWrapper>
           <ListCountLeft>

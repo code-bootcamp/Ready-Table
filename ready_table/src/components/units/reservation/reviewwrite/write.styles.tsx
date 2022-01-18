@@ -6,6 +6,7 @@ export const ReviewWriteView = styled.View`
   background-color: #ffffff;
   padding-bottom: 20px;
   align-items: center;
+  margin-top: 20px;
 `;
 
 export const ProductCard = styled.View`
@@ -18,13 +19,12 @@ export const ProductCard = styled.View`
   flex-direction: row;
   margin-top: 12px;
   padding-top: 15px;
-  padding-left: 25px;
 `;
 
 export const ProductImage = styled.Image`
   width: 110px;
   height: 105px;
-  border-radius: 15px;
+  border-radius: 10px;
 `;
 
 export const ProductInfo = styled.View`
@@ -43,13 +43,14 @@ export const Category = styled.Text`
   color: #646464;
 `;
 export const CategoryContent = styled.Text`
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 15px;
-  color: #eb4034;
+  color: black;
   margin-left: 2px;
 `;
 export const ProductNameWrapper = styled.View`
-  margin-top: 8px;
+  margin-top: 2px;
 `;
 export const ProductName = styled.Text`
   font-weight: 500;

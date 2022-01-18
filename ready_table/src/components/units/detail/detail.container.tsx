@@ -51,7 +51,7 @@ const DetailContainer = () => {
   const onPressEndTime = (e: any) => {
     setEndTime(e.target.value);
   };
-  const onPressCart = async () => {
+  const onPressRes = async () => {
     const result: any = await AsyncStorage.getItem("@carts");
     const reservation = JSON.parse(result) || [];
 
@@ -95,7 +95,7 @@ const DetailContainer = () => {
 
   return (
     <>
-      <DetailUI data={data} onPressCart={onPressCart} />
+      <DetailUI data={data} onPressRes={onPressRes} />
     </>
   );
 };

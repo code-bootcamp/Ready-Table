@@ -34,19 +34,17 @@ const ReviewListUIItem = (props: IReviewProps) => {
                 }}
               />
             ) : (
-              <FontAwesome name="user-circle" size={55} color="gray" />
+              <FontAwesome name="user-circle" size={53} color="gray" />
             )}
             <TopMiddleWrapper>
               <Nickname>{props.el?.user?.name}</Nickname>
+
               <Star>
-                {new Array(
-                  typeof Number(props.el?.contents.split("#$%&")[0]) ===
-                  "string"
-                    ? 5
-                    : Number(props.el?.contents.split("#$%&")[0])
-                ) //너무어려워.. 그러면.. 이건 이상하다.
-                  // 이게 항상 넘버고 . 스트링이 같을수가 없으니까 넘버는
-                  //항상 5를 받아올수가없다.. .. 항상 5 뒤의 넘버값만 받아오게된다.
+                <AntDesign name="star" size={24} color="#FFD600" />
+                <AntDesign name="star" size={24} color="#FFD600" />
+                <AntDesign name="star" size={24} color="#FFD600" />
+                <AntDesign name="star" size={24} color="#FFD600" />
+                {/* {new Array(Number(props.el?.contents.split("#$%&")[0]))
                   .fill(1)
                   .map((el, index) => (
                     <AntDesign
@@ -55,13 +53,8 @@ const ReviewListUIItem = (props: IReviewProps) => {
                       color="#FFD600"
                       key={index}
                     />
-                  ))}
-                {new Array(
-                  typeof Number(props.el?.contents.split("#$%&")[0]) ===
-                  "string"
-                    ? 0
-                    : Number(5 - props.el?.contents.split("#$%&")[0])
-                )
+                  ))} */}
+                {/* {new Array(Number(5 - props.el?.contents.split("#$%&")[0]))
                   .fill(1)
                   .map((el, index) => (
                     <AntDesign
@@ -70,7 +63,7 @@ const ReviewListUIItem = (props: IReviewProps) => {
                       color="#FFD600"
                       key={index}
                     />
-                  ))}
+                  ))} */}
               </Star>
             </TopMiddleWrapper>
             <Photos>
@@ -79,17 +72,13 @@ const ReviewListUIItem = (props: IReviewProps) => {
                   {props.isLarge ? (
                     <BigAddPhoto
                       source={{
-                        uri: `https://storage.googleapis.com/${
-                          props.el?.contents.split("#$%&")[2]
-                        }`
+                        uri: `${props.el?.contents.split("#$%&")[2]}`
                       }}
                     />
                   ) : (
                     <AddPhoto
                       source={{
-                        uri: `https://storage.googleapis.com/${
-                          props.el?.contents.split("#$%&")[2]
-                        }`
+                        uri: `${props.el?.contents.split("#$%&")[2]}`
                       }}
                     />
                   )}

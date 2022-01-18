@@ -16,7 +16,7 @@ const UserWriteContainer = () => {
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: id }
   });
-  console.log(data);
+  console.log(data, "reviewwrite");
   function onChangeContents(event: any) {
     setMycontents(event);
   }
