@@ -28,7 +28,7 @@ const ReservationUI = (props: IReservationProps) => {
   const soldOutList = props.soldOutList?.map((el: any) => el._id);
   console.log(props.productInfo);
   return (
-    <ScrollView style={{ backgroundColor: "white" }}>
+    <ScrollView style={{ backgroundColor: "white" }} stickyHeaderIndices={[0]}>
       <Wrapper>
         <ListTitleWrapper>
           <TitleText>오늘예약한 식당리스트입니다</TitleText>
@@ -56,7 +56,9 @@ const ReservationUI = (props: IReservationProps) => {
                 {el.images ? (
                   <ReserImg
                     source={{
-                      uri: `${el.images}`
+
+                      uri: `${el.images[0]}`
+
                     }}
                   />
                 ) : (
@@ -66,7 +68,7 @@ const ReservationUI = (props: IReservationProps) => {
                 )}
               </ImgWrapper>
               <DataWrapper>
-                <DataName>{el.productName}</DataName>
+                <DataName>{String(el.productName).split("-")[1]}</DataName>
                 <DataAt>{el.createdAt}당일 12:00</DataAt>
               </DataWrapper>
 

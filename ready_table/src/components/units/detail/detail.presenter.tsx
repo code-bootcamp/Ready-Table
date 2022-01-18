@@ -32,7 +32,7 @@ import { useNavigation } from "@react-navigation/native";
 const DetailUI = (props: IdetailProps) => {
   const navigation = useNavigation();
   return (
-    <Wrapper>
+    <Wrapper stickyHeaderIndices={[0]}>
       <NotiWrapper>
         <NotiText1>[특별방역대책 후속조치에 따른 안내사항]</NotiText1>
         <NotiText2>-접종자 기준 4인이상은 식당을 이용할 수 없습니다</NotiText2>
@@ -62,7 +62,7 @@ const DetailUI = (props: IdetailProps) => {
       <LineBar></LineBar>
       {/* <TimeTitleText>예약가능 시간</TimeTitleText> */}
       <TimeWrapper>
-        <TimeBox onPress={props.onPressCart}>
+        <TimeBox onPress={props.onPressRes}>
           <TimeText>오늘 점심예약하기</TimeText>
         </TimeBox>
         {/* <TimeBox onPress={props.onPressStartTime}>

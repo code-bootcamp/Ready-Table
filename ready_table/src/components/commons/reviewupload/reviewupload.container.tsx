@@ -16,9 +16,6 @@ const ReviewUploadContainer = (props: any) => {
 
         includeBase64: true,
         selectionLimit: 5
-
-        
-
       },
       async ({ assets }) => {
         const file = new ReactNativeFile({
@@ -48,4 +45,5 @@ const ReviewUploadContainer = (props: any) => {
   );
 };
 
+// 캐시에다가 담았어.. 이미지를
 export default ReviewUploadContainer;

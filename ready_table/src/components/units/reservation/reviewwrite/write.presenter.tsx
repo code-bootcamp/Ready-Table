@@ -42,20 +42,13 @@ const WriteUI = (props: IWritePorps) => {
           />
           <ProductInfo>
             <CategoryWrapper>
-              <Category>식당이름</Category>
+              <Category></Category>
               <CategoryContent>
-                {props.data?.fetchUseditem.name}
+                {String(props.data?.fetchUseditem.name).split("-")[1]}
               </CategoryContent>
             </CategoryWrapper>
             <ProductNameWrapper>
-              <ProductName>
-                {/* {String(props.data?.fetchUseditem.name.split("#")[1]).length > 9
-                  ? `${String(
-                      props.data?.fetchUseditem.name.split("#")[1]
-                    ).substr(0, 10)}...`
-                  : props.data?.fetchUseditem.name.split("#")[1]} */}
-                {props.data?.fetchUseditem.remarks}
-              </ProductName>
+              <ProductName>{props.data?.fetchUseditem.remarks}</ProductName>
             </ProductNameWrapper>
             <ProductPriceWrapper>
               <ProductPrice>
@@ -76,7 +69,7 @@ const WriteUI = (props: IWritePorps) => {
           <FlexLine />
         </ReviewPhotoWrapper>
         <LabelWrapper>
-          <Label>별점</Label>
+          <Label>별점을 남겨주세요.</Label>
           <LableLine />
         </LabelWrapper>
         <ReviewStarWrapper>
@@ -86,18 +79,18 @@ const WriteUI = (props: IWritePorps) => {
                 key={index}
                 onPress={() => props.setMyStar(index + 1)}
               >
-                {props.myStar > index ? (
-                  <AntDesign name="star" size={24} color="#FFD600" />
-                ) : (
-                  <AntDesign name="staro" size={24} color="#FFD600" />
-                )}
+                {/* {props.myStar > index ? ( */}
+                <AntDesign name="star" size={24} color="#FFD600" />
+                {/* ) : ( */}
+                {/* <AntDesign name="staro" size={24} color="#FFD600" /> */}
+                {/* )} */}
               </StarButton>
             ))}
           </Star>
           <FlexLine />
         </ReviewStarWrapper>
         <LabelWrapper>
-          <Label>리뷰 작성</Label>
+          <Label>리뷰를 작성해주세요.</Label>
           <LableLine />
         </LabelWrapper>
         <ReviewContentWrapper>

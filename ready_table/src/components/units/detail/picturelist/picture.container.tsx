@@ -9,11 +9,11 @@ import { Picture, PictureWrapper, Wrapper } from "./picture.styles";
 const PictureContainer = (props: IdetailProps) => {
   const { id } = useContext(GlobalContext);
   const { data } = useQuery(FETCH_USED_ITEM);
-  console.log(id);
+  console.log(id, "사진데이터");
   return (
     <Wrapper>
       <DetailHeader />
-      <PictureWrapper>
+      <PictureWrapper stickyHeaderIndices={[0]}>
         {data?.fetchUseditem.images
           ?.filter((el, index) => el)
           .map(el => (
@@ -26,7 +26,6 @@ const PictureContainer = (props: IdetailProps) => {
           ))}
 
         <Picture source={require("../../../../../public/images/food.jpg")} />
-
         <Picture source={require("../../../../../public/images/food1.jpg")} />
         <Picture source={require("../../../../../public/images/food2.jpeg")} />
         <Picture source={require("../../../../../public/images/food3.jpg")} />
@@ -51,6 +50,7 @@ const PictureContainer = (props: IdetailProps) => {
         <Picture source={require("../../../../../public/images/food2.jpeg")} />
         <Picture source={require("../../../../../public/images/food4.jpg")} />
         <Picture source={require("../../../../../public/images/food6.jpg")} />
+        <Picture source={require("../../../../../public/images/food4.jpg")} />
         <Picture source={require("../../../../../public/images/food4.jpg")} />
       </PictureWrapper>
     </Wrapper>

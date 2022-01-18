@@ -5,7 +5,7 @@ export interface IdetailProps {
   onPressEndTime: (event: GestureResponderEvent) => void;
   onPressStartTime: (event: GestureResponderEvent) => void;
   el?: IUseditem;
-  onPressCart: any;
+  onPressRes: any;
   data: Pick<IQuery, "fetchUseditem">;
 }
 

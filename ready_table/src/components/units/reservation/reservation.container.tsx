@@ -17,12 +17,12 @@ import { IProduct } from "../detail/detail.types";
 
 const ReservationContainer = () => {
   const [productInfo, setProductInfo] = useState([]);
-  const { setId, setIsReview } = useContext(GlobalContext);
+  const { id, setId, setIsReview } = useContext(GlobalContext);
   const navigation = useNavigation;
 
   const { data } = useQuery(FETCH_USED_ITEM);
 
-  console.log(data, "Test");
+  console.log(data, "reservation");
   useEffect(() => {
     AsyncStorage.getItem("@carts", async (_: any, result: any) => {
       const Reseritem = await JSON.parse(result);
@@ -73,6 +73,7 @@ const ReservationContainer = () => {
       onPressMoveToReviewWrite={onPressMoveToReviewWrite}
       // DeleteBtn={DeleteBtn}
       // removeFew={removeFew}
+      id={id}
     />
   );
 };
