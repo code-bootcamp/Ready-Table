@@ -130,8 +130,8 @@ export const SideMenuIcon = styled.img`
   margin-right: 15px;
 `;
 export const SideMenuDashboardIcon = styled.img`
-  width: 24px;
-  height: 14px;
+  width: 34px;
+  height: 24px;
   margin-right: 15px;
 `;
 export const SideMenuButton = styled.div`
