@@ -68,7 +68,7 @@ const PickListUI = (props: any) => {
             )}
             <PickListContentsWrapper>
               <PickListHeader>
-                <PickListTitle>{el.name}</PickListTitle>
+                <PickListTitle>{el.name.split("-")[1]}</PickListTitle>
                 <PickListBookmark
                   onPress={e => {
                     e.stopPropagation();

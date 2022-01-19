@@ -46,7 +46,7 @@ const ModifyUI = (props: any) => {
         </ModifyHeader>
         <ModifyBody>
           <ModifyTitle>닉네임 변경</ModifyTitle>
-          <ModifyContents>김땡떙</ModifyContents>
+          <ModifyContents>{props.data?.fetchUserLoggedIn.name}</ModifyContents>
 
           <ModifyTitle>휴대폰 번호</ModifyTitle>
           <ModifyContents>010-9999-9999</ModifyContents>

@@ -37,8 +37,9 @@ export const DropZoneWrapper = styled.div`
   background-color: white;
   color: #dd4124;
 
+  margin-top: 50px;
+  width: 900px;
 
-  width: 1050px;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -51,7 +52,6 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const UploadButton = styled.button`
-
   border: 1px solid #dd4124;
   width: 339px;
   height: 48px;
@@ -74,6 +74,8 @@ export const PrevImageWrapper = styled.div`
   display: flex;
   overflow: scroll;
   overflow-y: hidden;
+  overflow-x: hidden;
+
   /* ::-webkit-scrollbar {
     width: 3px;
   } */

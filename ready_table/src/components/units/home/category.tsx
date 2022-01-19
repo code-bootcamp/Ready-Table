@@ -5,7 +5,7 @@ import styled from "@emotion/native";
 import { useNavigation } from "@react-navigation/native";
 
 const CategofyMainWrapper = styled.ScrollView`
-  margin-top: 22px;
+  margin-top: 0px;
   width: 100%;
   height: 102px;
 `;
@@ -38,10 +38,10 @@ const MyText = styled.Text`
   /* font-color: white; */
 `;
 const CategoryIcon = styled.ImageBackground`
-  width: 54px;
-  height: 54px;
-  margin-left: 2px;
-  margin-right: 2px;
+  width: 58px;
+  height: 58px;
+  margin-left: 16px;
+  margin-right: 10px;
 `;
 const MyView = styled.View`
   flex: 1;

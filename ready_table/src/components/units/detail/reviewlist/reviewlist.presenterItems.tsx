@@ -38,15 +38,13 @@ const ReviewListUIItem = (props: IReviewProps) => {
             )}
             <TopMiddleWrapper>
               <Nickname>{props.el?.user?.name}</Nickname>
-              <Star>
+              {/* <Star>
                 {new Array(
                   typeof Number(props.el?.contents.split("#$%&")[0]) ===
                   "string"
                     ? 5
                     : Number(props.el?.contents.split("#$%&")[0])
-                ) //너무어려워.. 그러면.. 이건 이상하다.
-                  // 이게 항상 넘버고 . 스트링이 같을수가 없으니까 넘버는
-                  //항상 5를 받아올수가없다.. .. 항상 5 뒤의 넘버값만 받아오게된다.
+                ) 
                   .fill(1)
                   .map((el, index) => (
                     <AntDesign
@@ -71,7 +69,7 @@ const ReviewListUIItem = (props: IReviewProps) => {
                       key={index}
                     />
                   ))}
-              </Star>
+              </Star> */}
             </TopMiddleWrapper>
             <Photos>
               {props.el?.contents.split("#$%&")[2] !== "" && (

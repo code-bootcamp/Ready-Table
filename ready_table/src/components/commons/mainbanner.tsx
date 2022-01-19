@@ -12,10 +12,10 @@ const MainbannerButton = styled.TouchableOpacity``;
 const SearchiconButton = styled.TouchableOpacity`
   margin-right: 20px;
 `;
-const MainBannerWrapper = styled.SafeAreaView`
+const MainBannerWrapper = styled.View`
   /* position: fixed;
   bottom: 0; */
-  padding-top: 35px;
+  padding-top: 50px;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
@@ -35,13 +35,15 @@ const MainBanner = () => {
   const navigation = useNavigation();
   return (
     <MainBannerWrapper>
-      <NotificationButton onPress={() => navigation.navigate("detail", {})}>
+      <NotificationButton
+        onPress={() => navigation.navigate("notification", {})}
+      >
         <Ionicons name="ios-notifications-outline" size={30} color="black" />
       </NotificationButton>
       <MainbannerButton onPress={() => navigation.navigate("home", {})}>
         <LogoText>READY TABLE</LogoText>
       </MainbannerButton>
-      <SearchiconButton onPress={() => navigation.navigate("detail", {})}>
+      <SearchiconButton onPress={() => navigation.navigate("search", {})}>
         <Ionicons name="ios-search-outline" size={30} color="black" />
       </SearchiconButton>
     </MainBannerWrapper>
